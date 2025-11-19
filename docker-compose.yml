@@ -5,4 +5,4 @@ services:
     volumes:
       - ./:/app
     ports:
-      - 3011:3000
+      - 3020:3000
