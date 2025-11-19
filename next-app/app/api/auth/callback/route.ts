@@ -19,16 +19,24 @@ export async function GET(request: Request) {
     const supabase = await createClient()
     const { data : { user } , error } = await supabase.auth.exchangeCodeForSession(code)
 
-    if (user && !error) {
+    if (user && user.id && !error) {
       // ユーザーから取得したデータを使ってprofileテーブルにデータを追加
       try {
-        await prisma.profile.create({
+        const isExistUser = await prisma.profile.findFirst({
+          where : {
+            userId : user.id
+          }
+        });
+        // ユーザーが存在しない場合はprofileテーブルにデータを追加
+        if (!isExistUser) {
+          await prisma.profile.create({
             data : {
               userId : user.id,
               name : user.user_metadata.name,
-              languageId : 1 // デフォルト値英語？？？
-            }
-          })
+                languageId : 1 // デフォルト値英語？？？
+              }
+            })
+          }
       } catch (error) {
         console.log(error);
         return NextResponse.redirect(errorUrl)

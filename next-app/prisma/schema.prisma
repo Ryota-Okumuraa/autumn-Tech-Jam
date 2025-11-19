@@ -20,7 +20,7 @@ model Profile {
   message    String?  @db.Text
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
-  userId     String   @db.Uuid
+  userId     String   @unique @db.Uuid
   languageId Int      @map("language_id")
 
   language Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
