@@ -2,11 +2,11 @@ import prisma from "../lib/db";
 
 async function main() {
   const languages = [
-    "English",
-    "한국어",
-    "简体中文",
-    "繁體中文",
-    "日本語",
+    "en-US",
+    "ko-KR",
+    "zh-CN",
+    "zh-TW",
+    "ja-JP",
   ];
 
   for (const lang of languages) {
