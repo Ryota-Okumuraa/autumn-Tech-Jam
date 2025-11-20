@@ -15,7 +15,7 @@ const messages = {
     password: {
       min: "パスワードは8文字以上で入力してください",
       max: "パスワードは255文字以内で入力してください",
-    }
+    },
   },
   "en-US": {
     name: {
@@ -30,7 +30,7 @@ const messages = {
     password: {
       min: "Password must be at least 8 characters",
       max: "Password must be within 255 characters",
-    }
+    },
   },
   "ko-KR": {
     name: {
@@ -45,7 +45,7 @@ const messages = {
     password: {
       min: "비밀번호는 8자 이상 입력해주세요",
       max: "비밀번호는 255자 이내로 입력해주세요",
-    }
+    },
   },
   "zh-CN": {
     name: {
@@ -60,7 +60,7 @@ const messages = {
     password: {
       min: "密码请输入8个字符以上",
       max: "密码请在255个字符以内输入",
-    }
+    },
   },
   "zh-TW": {
     name: {
@@ -75,19 +75,16 @@ const messages = {
     password: {
       min: "密碼請輸入8個字元以上",
       max: "密碼請在255個字元以內輸入",
-    }
+    },
   },
 };
 
 // ユーザー登録のスキーマを生成する関数
 export function createRegisterSchema(locale: langType = "en-US") {
   const msg = messages[locale];
-  
+
   return z.object({
-    name: z
-      .string()
-      .min(1, { message: msg.name.required })
-      .max(20, { message: msg.name.max }),
+    name: z.string().min(1, { message: msg.name.required }).max(20, { message: msg.name.max }),
     email: z
       .string()
       .min(1, { message: msg.email.required })
@@ -96,7 +93,7 @@ export function createRegisterSchema(locale: langType = "en-US") {
     password: z
       .string()
       .min(8, { message: msg.password.min })
-      .max(255, { message: msg.password.max })
+      .max(255, { message: msg.password.max }),
   });
 }
 

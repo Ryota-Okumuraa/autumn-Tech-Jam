@@ -6,5 +6,5 @@ export default function ProfilePage() {
       <h1>Profile</h1>
       <Logout />
     </div>
-  )
+  );
 }
