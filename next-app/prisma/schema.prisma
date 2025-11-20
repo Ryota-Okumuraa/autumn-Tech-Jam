@@ -15,60 +15,61 @@ datasource db {
 }
 
 model Profile {
-  id         Int      @id @default(autoincrement())
-  name       String   @db.VarChar(255)
-  message    String?  @db.Text
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
-  userId     String   @unique @db.Uuid //unique追加しました。
-  languageId Int      @map("language_id")
+  id        String   @id @default(cuid())
+  name      String   @db.VarChar(255)
+  message   String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  userId    String   @unique @db.Uuid
 
-  language   Language @relation(fields: [languageId], references: [id],onDelete: Cascade)
-  posts      Post[]
-  views      View[]
+  posts Post[]
+  views View[]
 
   @@map("profiles")
 }
 
 model Language {
-  id    Int    @id
-  name  String @db.VarChar(100)
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(100)
 
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
+  posts Post[]
 
-  profiles Profile[]
   @@map("languages")
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
-  thumbnail String   @db.VarChar(255)
-  title     String   @db.VarChar(255)
-  content   String   @db.Text
+  id         String   @id @default(cuid())
+  thumbnail  String   @db.VarChar(255)
+  title      String   @db.VarChar(255)
+  content    String   @db.Text
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
-  profileId  Int      @map("profile_id")
+  profileId  String   @map("profile_id")
+  languageId Int      @map("language_id")
+  categoryId Int      @map("category_id")
 
-  profile     Profile          @relation(fields: [profileId], references: [id] , onDelete: Cascade)
-  views       View[]
-  categories  PostCategory[]
+  profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  views    View[]
+  language Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@map("posts")
 }
 
 model View {
-  profileId  Int @map("profile_id")
-  postId     Int @map("post_id")
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
+  profileId String   @map("profile_id")
+  postId    String   @map("post_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
-  user Profile @relation(fields: [profileId], references: [id] , onDelete: Cascade)
-  post Post @relation(fields: [postId], references: [id] , onDelete: Cascade)
+  user Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  post Post    @relation(fields: [postId], references: [id], onDelete: Cascade)
 
   @@id([profileId, postId])
-  @@unique([profileId,postId])
+  @@unique([profileId, postId])
   @@map("views")
 }
 
@@ -76,22 +77,10 @@ model Category {
   id   Int    @id @default(autoincrement())
   name String @db.VarChar(100)
 
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
-  posts PostCategory[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  posts Post[]
+
   @@map("categories")
-}
-
-model PostCategory {
-  postId     Int @map("post_id")
-  categoryId Int @map("category_id")
-
-  post     Post     @relation(fields: [postId], references: [id],onDelete:Cascade)
-  category Category @relation(fields: [categoryId], references: [id],onDelete: Cascade)
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
-
-  @@id([postId, categoryId])
-  @@unique([postId,categoryId])
-  @@map("post_category")
 }
