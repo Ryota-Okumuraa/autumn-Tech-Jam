@@ -33,7 +33,6 @@ export async function GET(request: Request) {
             data : {
               userId : user.id,
               name : user.user_metadata.name,
-                languageId : 1 // デフォルト値英語？？？
               }
             })
           }

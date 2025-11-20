@@ -1,12 +1,10 @@
 "use client";
 import { createClient } from "@/utils/supabase/client"
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 // googleログインボタン
 export default function GoogleLogin() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
   const handleGoogleLogin = async () => {
     setIsSubmitting(true);
     try {
