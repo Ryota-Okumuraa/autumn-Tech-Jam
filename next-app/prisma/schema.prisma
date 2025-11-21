@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Profile {
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(255)
+  message    String?  @db.Text
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  userId     String   @db.Uuid
+  languageId Int      @map("language_id")
+
+  language   Language @relation(fields: [languageId], references: [id],onDelete: Cascade)
+  posts      Post[]
+  views      View[]
+
+  @@map("profiles")
+}
+
+model Language {
+  id    Int    @id
+  name  String @db.VarChar(100)
+
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+
+  profiles Profile[]
+  @@map("languages")
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  thumbnail String   @db.VarChar(255)
+  title     String   @db.VarChar(255)
+  content   String   @db.Text
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  profileId  Int      @map("profile_id")
+
+  profile        Profile          @relation(fields: [profileId], references: [id] , onDelete: Cascade)
+  views       View[]
+  categories  PostCategory[]
+
+  @@map("posts")
+}
+
+model View {
+  profileId    Int @map("profile_id")
+  postId    Int @map("post_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  user Profile @relation(fields: [profileId], references: [id] , onDelete: Cascade)
+  post Post @relation(fields: [postId], references: [id] , onDelete: Cascade)
+
+  @@id([profileId, postId])
+  @@unique([profileId,postId])
+  @@map("views")
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(100)
+
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  posts PostCategory[]
+  @@map("categories")
+}
+
+model PostCategory {
+  postId     Int @map("post_id")
+  categoryId Int @map("category_id")
+
+  post     Post     @relation(fields: [postId], references: [id],onDelete:Cascade)
+  category Category @relation(fields: [categoryId], references: [id],onDelete: Cascade)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@id([postId, categoryId])
+  @@unique([postId,categoryId])
+  @@map("post_category")
+}
