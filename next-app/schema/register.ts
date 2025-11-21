@@ -96,6 +96,3 @@ export function createRegisterSchema(locale: langType = "en-US") {
       .max(255, { message: msg.password.max }),
   });
 }
-
-// デフォルトのスキーマ（日本語）
-export const registerSchema = createRegisterSchema("ja-JP");

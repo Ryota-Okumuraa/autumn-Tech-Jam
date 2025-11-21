@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-
 @theme {
   /* --*: initial; */
 
-  --color-base: #F5F0E9;
-  --color-main: #F5F0E9;
+  --color-base: #f5f0e9;
+  --color-main: #f5f0e9;
   --color-white: #ffffff;
   --color-black: #333333;
+  --color-gray: #777777;
 
   --spacing-0: 0px;
   --spacing-1: 4px;
