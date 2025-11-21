@@ -1,14 +1,13 @@
 import prisma from "@/lib/db";
-import { checkLang } from "@/lib/language";
+import { checkLang } from "@/utils/language";
+import { cookies } from "next/headers";
 
 export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
         const daysParams = searchParams.get("days"); //3日間か、7日間かどちらかのランキングが入る。
-        const languageParams = searchParams.get("languageCode") || "en"; //userがどの言語でみているのか送られてくる。ゲストであれば、リクエストは必要だが、登録している人は、現在ログインしているuserから取ってこれる。<-のほうが良い理由は、リクエストで来ると、分岐が多くなるが、userの情報から取ってくると、分岐はいらない
-        //絞り込んでる箇所で、postテーブルのprofile->languageがクエリと同じもので絞り込む。
-        // const allowedLanguages = ["en", "ja", "zh-CN", "zh-TW", "ko"];
-        const language = checkLang(languageParams);
+        const cookie = await cookies();
+        const languCode = checkLang(cookie.get("locale")?.value ?? null);
         const days = Number(daysParams);
 
         // 今日から7日前
@@ -25,7 +24,7 @@ export async function GET(request: Request) {
                     },
                 },
                 language: {
-                    name: language,  // ← ココが正解！
+                    name: languCode,  // ← ココが正解！
                 },
             },
             select: {
