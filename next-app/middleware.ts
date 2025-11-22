@@ -1,8 +1,30 @@
 import { type NextRequest } from "next/server";
 import { updateSession } from "./utils/supabase/middleware";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
+const intlMiddleware = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
-  return await updateSession(request);
+  const cookie = request.cookies.get("locale");
+  const locale = cookie?.value ?? routing.defaultLocale; // cookieからlocale取得し、なかったらデフォ値に設定
+
+  // supabaseのセッションを更新
+  const supabaseResponse = await updateSession(request);
+
+  // supabaseミドルウェアでリダイレクトされた場合、そのまま返却させる
+  if (supabaseResponse.headers.get("location")) {
+    return supabaseResponse;
+  }
+
+  // next-intlミドルウェアを適応
+  const intlResponse = intlMiddleware(request);
+
+  // supabaseでレスポンスされたcookieをintlResponseにもセット
+  supabaseResponse.cookies.getAll().forEach(cookie => {
+    intlResponse.cookies.set(cookie.name,cookie.value);
+  });
+
+  return intlResponse;
 }
 
 export const config = {

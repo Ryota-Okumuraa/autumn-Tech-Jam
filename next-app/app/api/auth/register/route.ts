@@ -2,13 +2,14 @@ import prisma from "@/lib/db";
 import { createRegisterSchema } from "@/schema/register";
 import { checkLang } from "@/utils/language";
 import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { searchParams } = new URL(request.url);
-  const languCode = checkLang(searchParams.get("langu_code"));
+  const cookie = await cookies();
+  const languCode = checkLang(cookie.get("locale")?.value ?? null);
   // 送られた言語のスキーマ作成
   const schema = createRegisterSchema(languCode);
   type schemaType = z.infer<typeof schema>;

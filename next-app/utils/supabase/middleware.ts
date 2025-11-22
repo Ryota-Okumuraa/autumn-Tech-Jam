@@ -1,3 +1,4 @@
+import { routing } from "@/i18n/routing";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -39,8 +40,12 @@ export async function updateSession(request: NextRequest) {
 
   const pathName = request.nextUrl.pathname;
 
+  // cookieからlocale取得して、authFailedUrlに設定
+  const cookie = request.cookies.get("locale");
+  const locale = cookie?.value ?? routing.defaultLocale;
+  const authFailedUrl = `/${locale}/auth/login`;
   if (pathName.startsWith("/profile") && !user) {
-    return NextResponse.redirect(new URL("/auth/login", request.url));
+    return NextResponse.redirect(new URL(authFailedUrl, request.url));
   }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.

@@ -1,0 +1,12 @@
+{
+  "register": {
+    "userName": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "userNamePlaceholder": "ユーザー名",
+    "emailPlaceholder": "メールアドレス",
+    "passwordPlaceholder": "パスワード",
+    "confirmPasswordPlaceholder": "パスワード確認"
+  }
+}

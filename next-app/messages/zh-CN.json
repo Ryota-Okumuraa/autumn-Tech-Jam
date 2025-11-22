@@ -1,0 +1,12 @@
+{
+  "register": {
+    "userName": "用户名",
+    "email": "电子邮件",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "userNamePlaceholder": "用户名",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "confirmPasswordPlaceholder": "确认密码"
+  }
+}

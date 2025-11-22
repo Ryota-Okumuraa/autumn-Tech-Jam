@@ -1,4 +1,4 @@
-import Logout from "../components/feature/auth/logout";
+import Logout from "../../components/feature/auth/logout";
 
 export default function ProfilePage() {
   return (
