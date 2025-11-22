@@ -5,9 +5,6 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 export async function middleware(request: NextRequest) {
-  const cookie = request.cookies.get("locale");
-  const locale = cookie?.value ?? routing.defaultLocale; // cookieからlocale取得し、なかったらデフォ値に設定
-
   // supabaseのセッションを更新
   const supabaseResponse = await updateSession(request);
 
@@ -36,7 +33,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * Feel free to modify this pattern to include more paths.
      */
-    "/profile/:path*",
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

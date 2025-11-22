@@ -44,7 +44,7 @@ export async function updateSession(request: NextRequest) {
   const cookie = request.cookies.get("locale");
   const locale = cookie?.value ?? routing.defaultLocale;
   const authFailedUrl = `/${locale}/auth/login`;
-  if (pathName.startsWith("/profile") && !user) {
+  if (pathName.includes("/profile") && !user) {
     return NextResponse.redirect(new URL(authFailedUrl, request.url));
   }
 
