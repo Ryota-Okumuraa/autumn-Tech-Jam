@@ -20,6 +20,31 @@
     "signUp": "Sign up",
     "signIn": "Sign in"
   },
+  "header": {
+    "articlesByCategory": "Articles by Category",
+    "categories": {
+      "food": "Food",
+      "cafe": "Cafe",
+      "culture": "Culture",
+      "guide": "Guide",
+      "shopping": "Shopping",
+      "stories": "Stories"
+    },
+    "newPosts": "New Posts"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "home": {
+    "articleFirst": "A",
+    "artivleSubTitle": "rticle",
+    "featuredFirst": "E",
+    "featuredSubTitle": "vents in Nagoya !!",
+    "rankingFirst": "R",
+    "rankingSubTitle": "anking",
+    "aboutText": "Nagoya’s charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
+  },
   "api-register": {
     "success": "User registration succeeded.",
     "error": "User registration failed."

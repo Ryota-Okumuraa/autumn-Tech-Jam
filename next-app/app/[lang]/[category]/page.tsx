@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Header } from '@/app/components/feature/Header';
-import { Footer } from '@/app/components/feature/Footer';
+import { Header } from '@/app/components/shared/Header';
+import { Footer } from '@/app/components/shared/Footer';
 import { Icon } from '@/app/components/shared/icon';
 
 // 有効なカテゴリーの定義
