@@ -6,7 +6,9 @@
     "passwordPlaceholder": "비밀번호",
     "signIn": "로그인",
     "signUp": "회원가입",
-    "signInWithGoogle": "Google로 로그인"
+    "signInWithGoogle": "Google로 로그인",
+    "fetchFail": "로그인에 실패했습니다.",
+    "fetchError": "통신 오류가 발생했습니다."
   },
   "register": {
     "userName": "사용자 이름",
@@ -18,14 +20,18 @@
     "passwordPlaceholder": "비밀번호",
     "confirmPasswordPlaceholder": "비밀번호 확인",
     "signUp": "회원가입",
-    "signIn": "로그인"
+    "signIn": "로그인",
+    "fetchFail": "사용자 등록에 실패했습니다.",
+    "fetchError": "통신 오류가 발생했습니다."
   },
   "api-register": {
     "success": "사용자 등록에 성공했습니다.",
-    "error": "사용자 등록에 실패했습니다."
+    "error": "사용자 등록에 실패했습니다.",
+    "validationError": "유효하지 않은 데이터입니다."
   },
   "api-login": {
     "success": "로그인에 성공했습니다.",
-    "error": "로그인에 실패했습니다."
+    "error": "로그인에 실패했습니다.",
+    "validationError": "유효하지 않은 데이터입니다."
   }
 }

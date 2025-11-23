@@ -3,13 +3,15 @@ import { ChevronRight, LockIcon, MailIcon, UserIcon } from "lucide-react";
 import InputLabel from "../../shared/input-label";
 import { useLocale, useTranslations } from "next-intl";
 import SubmitButton from "../../shared/submit-button";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { useForm } from "react-hook-form";
 import { createRegisterSchema, createRegisterFormSchema } from "@/schema/register";
 import { checkLang } from "@/utils/language";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import ValidationError from "../../shared/validation-error";
+import toast from "react-hot-toast";
 
 export default function RegisterForm() {
   const t = useTranslations("register");
@@ -24,7 +26,7 @@ export default function RegisterForm() {
   // サーバー用スキーマ
   const serverSchema = createRegisterSchema(lang);
   type ServerSchemaType = z.infer<typeof serverSchema>;
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -51,15 +53,19 @@ export default function RegisterForm() {
         body: JSON.stringify(serverData),
         credentials: "include",
       });
-
+      if (!response.ok) {
+        toast.error(t("fetchFail"));
+        return;
+      }
       const result = await response.json();
       if (result.success) {
-        console.log("登録成功");
+        toast.success(result.message);
+        router.push("/profile");
       } else {
-        console.error("登録失敗:", result.message);
+        toast.error(result.message);
       }
-    } catch (error) {
-      console.error("エラー:", error);
+    } catch {
+      toast.error(t("fetchError"));
     } finally {
       setIsFetching(false);
     }
@@ -79,7 +85,7 @@ export default function RegisterForm() {
           placeholder={t("userNamePlaceholder")}
           {...register("name")}
         />
-        {errors.name && <p className="text-red">{errors.name.message}</p>}
+        {errors.name && <ValidationError>{errors.name.message}</ValidationError>}
       </div>
       {/* メールアドレス */}
       <div className="flex flex-col items-start space-y-1">
@@ -90,7 +96,7 @@ export default function RegisterForm() {
           placeholder={t("emailPlaceholder")}
           {...register("email")}
         />
-        {errors.email && <p className="text-red">{errors.email.message}</p>}
+        {errors.email && <ValidationError>{errors.email.message}</ValidationError>}
       </div>
       {/* パスワード */}
       <div className="flex flex-col items-start space-y-1">
@@ -102,7 +108,7 @@ export default function RegisterForm() {
           placeholder={t("passwordPlaceholder")}
           {...register("password")}
         />
-        {errors.password && <p className="text-red">{errors.password.message}</p>}
+        {errors.password && <ValidationError>{errors.password.message}</ValidationError>}
       </div>
       {/* 確認 */}
       <div className="flex flex-col items-start space-y-1">
@@ -114,7 +120,9 @@ export default function RegisterForm() {
           placeholder={t("confirmPasswordPlaceholder")}
           {...register("confirmPassword")}
         />
-        {errors.confirmPassword && <p className="text-red">{errors.confirmPassword.message}</p>}
+        {errors.confirmPassword && (
+          <ValidationError>{errors.confirmPassword.message}</ValidationError>
+        )}
       </div>
       {/* ログイン済みの人 */}
       <div className="w-full flex justify-end">
