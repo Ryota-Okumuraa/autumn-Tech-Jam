@@ -1,13 +1,20 @@
 @import "tailwindcss";
 
-
 @theme {
   /* --*: initial; */
 
+<<<<<<< HEAD:next-app/app/globals.css
   --color-base: #F5F0E9;
   --color-main: #FBE481;
+=======
+  --color-base: #f5f0e9;
+  --color-main: #f5f0e9;
+>>>>>>> 2e30494c7c991272d26b71f370148eed39c92afa:next-app/app/[lang]/globals.css
   --color-white: #ffffff;
   --color-black: #333333;
+  --color-gray: #777777;
+  --color-yellow: #fbe481;
+  --color-red: #e6855e;
 
   --font-sans: var(--font-m-plus-1p);
 

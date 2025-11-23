@@ -1,0 +1,23 @@
+{
+  "login": {
+    "email": "이메일",
+    "password": "비밀번호",
+    "emailPlaceholder": "이메일",
+    "passwordPlaceholder": "비밀번호",
+    "signIn": "로그인",
+    "signUp": "회원가입",
+    "signInWithGoogle": "Google로 로그인"
+  },
+  "register": {
+    "userName": "사용자 이름",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "userNamePlaceholder": "사용자 이름",
+    "emailPlaceholder": "이메일",
+    "passwordPlaceholder": "비밀번호",
+    "confirmPasswordPlaceholder": "비밀번호 확인",
+    "signUp": "회원가입",
+    "signIn": "로그인"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "login": {
+    "email": "电子邮件",
+    "password": "密码",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "signIn": "登入",
+    "signUp": "注册",
+    "signInWithGoogle": "使用Google登入"
+  },
+  "register": {
+    "userName": "用户名",
+    "email": "电子邮件",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "userNamePlaceholder": "用户名",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "confirmPasswordPlaceholder": "确认密码",
+    "signUp": "注册",
+    "signIn": "登录"
+  }
+}
