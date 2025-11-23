@@ -24,6 +24,31 @@
     "fetchFail": "사용자 등록에 실패했습니다.",
     "fetchError": "통신 오류가 발생했습니다."
   },
+  "header": {
+    "articlesByCategory": "카테고리별 기사",
+    "categories": {
+      "food": "음식",
+      "cafe": "카페",
+      "culture": "문화",
+      "guide": "가이드",
+      "shopping": "쇼핑",
+      "stories": "스토리"
+    },
+    "newPosts": "새 게시물"
+  },
+  "footer": {
+    "privacyPolicy": "개인정보처리방침",
+    "terms": "이용약관"
+  },
+  "home": {
+    "articleFirst": "기",
+    "artivleSubTitle": "사",
+    "featuredFirst": "나",
+    "featuredSubTitle": "고야 이벤트 !!",
+    "rankingFirst": "랭",
+    "rankingSubTitle": "킹",
+    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,<br />현지 요리, 친근한 동네, 그리고 평온한 분위기."
+  },
   "api-register": {
     "success": "사용자 등록에 성공했습니다.",
     "error": "사용자 등록에 실패했습니다.",

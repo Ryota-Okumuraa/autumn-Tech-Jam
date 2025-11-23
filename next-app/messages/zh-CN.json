@@ -24,6 +24,31 @@
     "fetchFail": "用户注册失败。",
     "fetchError": "发生通信错误。"
   },
+  "header": {
+    "articlesByCategory": "分类文章",
+    "categories": {
+      "food": "美食",
+      "cafe": "咖啡",
+      "culture": "文化",
+      "guide": "指南",
+      "shopping": "购物",
+      "stories": "故事"
+    },
+    "newPosts": "新文章"
+  },
+  "footer": {
+    "privacyPolicy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "home": {
+    "articleFirst": "文",
+    "artivleSubTitle": "章",
+    "featuredFirst": "名",
+    "featuredSubTitle": "古屋活动 !!",
+    "rankingFirst": "排",
+    "rankingSubTitle": "行",
+    "aboutText": "名古屋的魅力在于其日常文化—早晨咖啡传统、<br />当地美食、友好的社区以及宁静的氛围。"
+  },
   "api-register": {
     "success": "用户注册成功。",
     "error": "用户注册失败。",
