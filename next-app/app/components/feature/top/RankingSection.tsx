@@ -4,18 +4,10 @@ import { RankingPostCard } from "../../shared/RankingPostCard";
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { useState, useEffect } from "react";
 import { formatDate } from "@/lib/date";
-
-interface post {
-    id: string;
-    thumbnail: string;
-    title: string;
-    date: string;
-    author: string;
-}
-
+import { Post } from "@/lib/types/post";
 
 export const Ranking = () => {
-    const [rankingPosts, setRankingPosts] = useState<post[]>([]);
+    const [rankingPosts, setRankingPosts] = useState<Post[]>([]);
     useEffect(() => {
         const fetchRankingPosts = async () => {
             const data = await getRankingPosts(7);

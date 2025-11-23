@@ -32,13 +32,13 @@ export default async function Home() {
           className="w-full h-full object-cover" />
       </section>
       {/* FeaturedPosts */}
-      
+
       <FeaturedPosts />
       {/* ArticleList*/}
       <section className="md:pt-15 md:pb-12">
         <div className="md:max-w-[1200px] mx-auto">
           <h2 className="text-[52px] px-4 font-bold">
-            <span className="text-[72px]">{t("articleFirst")}</span>{t("artivleSubTitle")}
+            <span className="text-[72px]">{t("articleFirst")}</span>{t("articleSubTitle")}
           </h2>
           <ArticleList />
         </div>
@@ -54,10 +54,19 @@ export default async function Home() {
       </section>
       {/* Ranking */}
       <section className="py-10 md:pt-30 md:pb-20">
-        <div className="md:max-w-[1200px] mx-auto">
+        <div className="md:max-w-[1200px] mx-auto relative">
           <h2 className="text-[52px] px-4 font-bold">
             <span className="text-[72px]">{t("rankingFirst")}</span>{t("rankingSubTitle")}
           </h2>
+          <div className="absolute top-3 right-13 md:left-[320px] md:top-0 md:right-0 md:w-fit">
+            <Image
+              src="/home-ranking.png"
+              alt="ranking"
+              width={500}
+              height={500}
+              className="w-20 h-20 object-cover md:w-30 md:h-30"
+            />
+          </div>
           <Ranking />
         </div>
       </section>

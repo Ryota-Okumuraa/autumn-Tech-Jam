@@ -1,12 +1,4 @@
-export interface RankingPostResponse {
-    id: string;
-    title: string;
-    thumbnail: string;
-    category: {
-        name: string;
-    };
-    createdAt: Date | string;
-}
+import { RankingPostResponse } from "@/lib/types/post";
 
 export async function getRankingPosts(days: number) {
     try {

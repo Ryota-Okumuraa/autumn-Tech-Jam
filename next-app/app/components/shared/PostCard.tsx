@@ -17,7 +17,9 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
             href={`/post/${id}`}
             className={cn(
                 "min-w-[200px] md:min-w-none",
-                layout === "row" ? "flex max-w-[312px] md:max-w-full " : "max-w-[218px] md:max-w-full",
+                layout === "row"
+                    ? "flex max-w-[312px] md:max-w-full "
+                    : "max-w-[218px] md:max-w-[280px] w-full flex flex-col md:min-w-[280px]",
             )}>
             <div className="flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit h-fit">
                 <Image

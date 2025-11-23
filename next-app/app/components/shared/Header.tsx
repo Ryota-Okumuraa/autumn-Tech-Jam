@@ -137,6 +137,15 @@ export const Header = () => {
                         </Link>
                         <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
                     </div>
+                    <div className="relative pr-2 h-[59px] cursor-pointer ">
+                        <Link
+                            href="/profile"
+                            className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
+                        >
+                            <span className="font-bold">{t("profile")}</span>
+                        </Link>
+                        <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
+                    </div>
                     <UserProfile />
                 </div>
             </div>

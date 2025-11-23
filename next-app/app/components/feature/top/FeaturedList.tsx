@@ -1,14 +1,7 @@
 import { PostCard } from "@/app/components/shared/PostCard";
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { formatDate } from "@/lib/date";
-
-export interface FeaturedPost {
-    id: string;
-    thumbnail: string;
-    title: string;
-    date: string;
-    author: string;
-}
+import { FeaturedPost } from "@/lib/types/post";
 
 export const FeaturedList = async () => {
     let featuredPosts: FeaturedPost[] = [];

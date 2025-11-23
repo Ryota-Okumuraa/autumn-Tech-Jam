@@ -7,19 +7,12 @@ import { Icon } from "@/app/components/shared/icon";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { getPosts } from "@/app/api-client/posts/posts";
 import { formatDate } from "@/lib/date";
+import { Post } from "@/lib/types/post";
 
 const tags = ["food", "shopping", "travel", "dummy", "life", "stories"]
 
-interface post {
-    id: string;
-    thumbnail: string;
-    title: string;
-    date: string;
-    author: string;
-}
-
 export const ArticleList = () => {
-    const [posts, setPosts] = useState<post[]>([]);
+    const [posts, setPosts] = useState<Post[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string>("food");
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -95,7 +88,7 @@ export const ArticleList = () => {
             }
             <div className="flex items-center justify-center mt-10 mb-15 md:justify-end">
                 <Link
-                    href="/"
+                    href={`/posts/${selectedCategory}`}
                     className="relative border-2 border-black rounded-full w-[184px] h-12 flex items-center justify-center bg-base hover:bg-main transition-all duration-300 ease-in-out"
                 >
                     <span>More</span>

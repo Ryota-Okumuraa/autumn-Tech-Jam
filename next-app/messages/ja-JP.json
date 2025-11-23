@@ -30,7 +30,8 @@
       "shopping": "ショッピング",
       "stories": "ストーリー"
     },
-    "newPosts": "新規投稿"
+    "newPosts": "新規投稿",
+    "profile": "プロフィール"
   },
   "footer": {
     "privacyPolicy": "プライバシーポリシー",
@@ -38,7 +39,7 @@
   },
   "home": {
     "articleFirst": "記",
-    "artivleSubTitle": "事",
+    "articleSubTitle": "事",
     "featuredFirst": "名",
     "featuredSubTitle": "古屋のイベント !!",
     "rankingFirst": "ラ",
