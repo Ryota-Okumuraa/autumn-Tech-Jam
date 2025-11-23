@@ -33,5 +33,10 @@
     "success": "登入成功。",
     "error": "登入失敗。",
     "validationError": "無效資料。"
+  },
+  "api-post-delete": {
+    "success": "已刪除貼文。",
+    "error": "刪除貼文失敗。",
+    "notFound": "找不到要刪除的貼文。"
   }
 }

@@ -33,5 +33,10 @@
     "success": "Login succeeded.",
     "error": "Login failed.",
     "validationError": "Invalid data."
+  },
+  "api-post-delete": {
+    "success": "Post deleted successfully.",
+    "error": "Failed to delete post.",
+    "notFound": "Post to delete not found."
   }
 }

@@ -33,5 +33,10 @@
     "success": "ログインに成功しました。",
     "error": "ログインに失敗しました。",
     "validationError": "無効なデータです。"
+  },
+  "api-post-delete": {
+    "success": "投稿を削除しました。",
+    "error": "投稿の削除に失敗しました。",
+    "notFound": "削除する投稿が見つかりませんでした。"
   }
 }
