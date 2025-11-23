@@ -1,0 +1,31 @@
+{
+  "login": {
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "emailPlaceholder": "メールアドレス",
+    "passwordPlaceholder": "パスワード",
+    "signIn": "ログイン",
+    "signUp": "サインアップ",
+    "signInWithGoogle": "Googleでサインイン"
+  },
+  "register": {
+    "userName": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "userNamePlaceholder": "ユーザー名",
+    "emailPlaceholder": "メールアドレス",
+    "passwordPlaceholder": "パスワード",
+    "confirmPasswordPlaceholder": "パスワード確認",
+    "signUp": "新規登録",
+    "signIn": "サインイン"
+  },
+  "api-register": {
+    "success": "ユーザー登録に成功しました。",
+    "error": "ユーザー登録に失敗しました。"
+  },
+  "api-login": {
+    "success": "ログインに成功しました。",
+    "error": "ログインに失敗しました。"
+  }
+}

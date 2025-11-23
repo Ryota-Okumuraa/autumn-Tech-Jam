@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
-
 @theme {
+  --font-mplus: "M PLUS 1p", sans-serif;
   /* --*: initial; */
 
   --color-base: #F5F0E9;
   --color-main: #FBE481;
   --color-white: #ffffff;
   --color-black: #333333;
+  --color-gray: #777777;
+  --color-yellow: #fbe481;
+  --color-red: #e6855e;
 
   --spacing-0: 0px;
   --spacing-1: 4px;
