@@ -4,6 +4,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,8 +34,15 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+      <body className="antialiased font-mplus">
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          <Toaster 
+            position="top-center"
+            toastOptions={{
+              duration : 2000,
+            }} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

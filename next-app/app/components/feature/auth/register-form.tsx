@@ -9,11 +9,13 @@ import { createRegisterSchema, createRegisterFormSchema } from "@/schema/registe
 import { checkLang } from "@/utils/language";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 export default function RegisterForm() {
   const t = useTranslations("register");
   const locale = useLocale();
   const lang = checkLang(locale);
+  const [isFetching , setIsFetching ] = useState(false);
 
   // フロントエンド用スキーマ（confirmPasswordを含む）
   const formSchema = createRegisterFormSchema(lang);
@@ -40,12 +42,14 @@ export default function RegisterForm() {
       password: data.password,
     };
     try {
+      setIsFetching(true);
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(serverData),
+        credentials : "include"
       });
 
       const result = await response.json();
@@ -56,6 +60,8 @@ export default function RegisterForm() {
       }
     } catch (error) {
       console.error("エラー:", error);
+    } finally {
+      setIsFetching(false);
     }
   };
 
@@ -112,12 +118,12 @@ export default function RegisterForm() {
       </div>
       {/* ログイン済みの人 */}
       <div className="w-full flex justify-end">
-        <Link href="/auth/login" className="flex items-center" locale="ja-JP">
+        <Link href="/auth/login" className="flex items-center">
           <p className="text-black ">{t("signIn")}</p>
           <ChevronRight className="text-black w-6 h-6" />
         </Link>
       </div>
-      <SubmitButton text={t("signUp")} />
+      <SubmitButton text={t("signUp")} isFetching={isFetching} />
     </form>
   );
 }

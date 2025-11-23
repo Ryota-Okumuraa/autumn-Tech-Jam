@@ -19,5 +19,13 @@
     "confirmPasswordPlaceholder": "確認密碼",
     "signUp": "註冊",
     "signIn": "登入"
+  },
+  "api-register": {
+    "success": "用戶註冊成功。",
+    "error": "用戶註冊失敗。"
+  },
+  "api-login": {
+    "success": "登入成功。",
+    "error": "登入失敗。"
   }
 }
