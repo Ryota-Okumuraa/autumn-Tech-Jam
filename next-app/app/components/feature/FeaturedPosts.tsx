@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { Icon } from "../sheared/icon";
+import { Icon } from "@/app/components/shared/icon";
 // import fetchpost
 
 export interface FeaturedPost {

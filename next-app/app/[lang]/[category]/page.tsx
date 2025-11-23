@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/app/components/feature/Header';
 import { Footer } from '@/app/components/feature/Footer';
-import { Icon } from '@/app/components/sheared/icon';
+import { Icon } from '@/app/components/shared/icon';
 
 // 有効なカテゴリーの定義
 const VALID_CATEGORIES = ['food', 'shopping', 'culture', 'guide', 'cafe', 'stories'] as const;

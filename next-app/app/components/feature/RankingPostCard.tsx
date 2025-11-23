@@ -13,16 +13,16 @@ interface RankingPostCardProps {
 }
 
 const RankingImage: Record<number, string> = {
-    1: "/ranking-1.png",
-    2: "/ranking-2.png",
-    3: "/ranking-3.png",
-    4: "/ranking-4.png",
-    5: "/ranking-5.png",
-    6: "/ranking-6.png",
-    7: "/ranking-7.png",
-    8: "/ranking-8.png",
-    9: "/ranking-9.png",
-    10: "/ranking-10.png",
+    1: "/ranking/ranking-1.png",
+    2: "/ranking/ranking-2.png",
+    3: "/ranking/ranking-3.png",
+    4: "/ranking/ranking-4.png",
+    5: "/ranking/ranking-5.png",
+    6: "/ranking/ranking-6.png",
+    7: "/ranking/ranking-7.png",
+    8: "/ranking/ranking-8.png",
+    9: "/ranking/ranking-9.png",
+    10: "/ranking/ranking-10.png",
 }
 
 export const RankingPostCard = ({ id, thumbnail, title, date, author, minW = "short", index }: RankingPostCardProps) => {

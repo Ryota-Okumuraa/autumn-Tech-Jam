@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Icon } from '../sheared/icon';
+import { Icon } from '@/app/components/shared/icon';
 
-import { PostTitleEditor } from '../sheared/PostTitleEditor';
-import { PostCategorySelect } from '../sheared/PostCategorySelect';
-import { PostThumbnailUpload } from '../sheared/PostThumbnailUpload';
+import { PostTitleEditor } from '@/app/components/shared/PostTitleEditor';
+import { PostCategorySelect } from '@/app/components/shared/PostCategorySelect';
+import { PostThumbnailUpload } from '@/app/components/shared/PostThumbnailUpload';
 
 
 const CATEGORIES = [

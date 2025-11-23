@@ -11,7 +11,7 @@ export const About = () => {
                     </p>
                 </div>
                 <div className="flex-1 hidden md:block">
-                    <Image src="/dummy.png" alt="about" width={500} height={500} />
+                    <Image src="/about.png" alt="about" width={500} height={500} />
                 </div>
             </div>
         </section>

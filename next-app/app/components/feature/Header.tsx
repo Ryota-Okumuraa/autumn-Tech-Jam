@@ -5,46 +5,46 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utiles";
-import { Icon } from "../sheared/icon";
+import { Icon } from "@/app/components/shared/icon";
 import { UserProfile } from "@/app/components/feature/UserProfile";
-import { LanguageSelect } from "../sheared/LanguageSelect"
+import { LanguageSelect } from "@/app/components/shared/LanguageSelect"
 
 const navigationItems = [
     {
         id: 1,
         href: "/category/food",
         label: "Food",
-        icon: "/category-food.png"
+        icon: "/category/category-food.png"
     },
     {
         id: 2,
         href: "/category/shopping",
         label: "Shopping",
-        icon: "/category-shopping.png"
+        icon: "/category/category-shopping.png"
     },
     {
         id: 3,
         href: "/category/culture",
         label: "Culture",
-        icon: "/category-culture.png"
+        icon: "/category/category-culture.png"
     },
     {
         id: 4,
         href: "/category/guide",
         label: "Guide",
-        icon: "/category-guide.png"
+        icon: "/category/category-guide.png"
     },
     {
         id: 5,
         href: "/category/cafe",
         label: "Cafe",
-        icon: "/category-cafe.png"
+        icon: "/category/category-cafe.png"
     },
     {
         id: 6,
         href: "/category/stories",
         label: "Stories",
-        icon: "/category-stories.png"
+        icon: "/category/category-stories.png"
     }
 ];
 

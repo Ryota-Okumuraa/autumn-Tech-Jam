@@ -4,7 +4,7 @@ export const FV = () => {
     return (
         <section className="h-screen w-full">
             <Image
-                src="/dummy.png"
+                src="/fv-illust.png"
                 alt="FV"
                 width={500}
                 height={500}

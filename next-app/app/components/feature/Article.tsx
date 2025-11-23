@@ -4,7 +4,7 @@ import { cn } from "@/lib/utiles";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Icon } from "../sheared/icon";
+import { Icon } from "@/app/components/shared/icon";
 
 const tags = ["food", "shopping", "travel", "dummy", "life", "stories"]
 

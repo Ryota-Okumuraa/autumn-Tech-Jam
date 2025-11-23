@@ -7,7 +7,7 @@ export const CategoryHead = () => {
                 {/*仮 */}
                 <div className="max-w-full max-h-[240px] rounded-[50px] border-2 border-black p-7 md:rounded-[70px] md:max-w-[400px] md:max-h-[400px] ">
                     <Image
-                        src="/category-food.png"
+                        src="/category/category-food.png"
                         alt="category head"
                         width={500}
                         height={500}
