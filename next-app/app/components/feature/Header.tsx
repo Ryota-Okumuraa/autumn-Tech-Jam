@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utiles";
 import { Icon } from "../sheared/icon";
-import { UserProfile } from "@/app/components/featured/UserProfile";
+import { UserProfile } from "@/app/components/feature/UserProfile";
 import { LanguageSelect } from "../sheared/LanguageSelect"
 
 const navigationItems = [
