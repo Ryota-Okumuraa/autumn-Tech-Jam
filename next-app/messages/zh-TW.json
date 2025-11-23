@@ -6,7 +6,9 @@
     "passwordPlaceholder": "密碼",
     "signIn": "登入",
     "signUp": "註冊",
-    "signInWithGoogle": "使用Google登入"
+    "signInWithGoogle": "使用Google登入",
+    "fetchFail": "登入失敗。",
+    "fetchError": "發生通訊錯誤。"
   },
   "register": {
     "userName": "使用者名稱",
@@ -18,14 +20,18 @@
     "passwordPlaceholder": "密碼",
     "confirmPasswordPlaceholder": "確認密碼",
     "signUp": "註冊",
-    "signIn": "登入"
+    "signIn": "登入",
+    "fetchFail": "用戶註冊失敗。",
+    "fetchError": "發生通訊錯誤。"
   },
   "api-register": {
     "success": "用戶註冊成功。",
-    "error": "用戶註冊失敗。"
+    "error": "用戶註冊失敗。",
+    "validationError": "無效資料。"
   },
   "api-login": {
     "success": "登入成功。",
-    "error": "登入失敗。"
+    "error": "登入失敗。",
+    "validationError": "無效資料。"
   }
 }

@@ -16,10 +16,13 @@ export async function POST(request: NextRequest) {
   try {
     const validatedData = schema.safeParse(body);
     if (!validatedData.success) {
-      return NextResponse.json({
-        success: false,
-        message: validatedData.error.flatten().fieldErrors,
-      });
+      return NextResponse.json(
+        {
+          success: false,
+          message: t("validationError"),
+        },
+        { status: 400 }
+      );
     }
     const { email, password }: schemaType = validatedData.data;
     const supabase = await createClient();

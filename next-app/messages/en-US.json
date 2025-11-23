@@ -6,7 +6,9 @@
     "passwordPlaceholder": "Password",
     "signIn": "Sign in",
     "signUp": "Sign up",
-    "signInWithGoogle": "Sign in with Google"
+    "signInWithGoogle": "Sign in with Google",
+    "fetchFail": "Login failed.",
+    "fetchError": "Communication error occurred."
   },
   "register": {
     "userName": "User name",
@@ -18,14 +20,18 @@
     "passwordPlaceholder": "Password",
     "confirmPasswordPlaceholder": "Confirm password",
     "signUp": "Sign up",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "fetchFail": "User registration failed.",
+    "fetchError": "Communication error occurred."
   },
   "api-register": {
     "success": "User registration succeeded.",
-    "error": "User registration failed."
+    "error": "User registration failed.",
+    "validationError": "invalid data"
   },
   "api-login": {
     "success": "Login succeeded.",
-    "error": "Login failed."
+    "error": "Login failed.",
+    "validationError": "Invalid data."
   }
 }

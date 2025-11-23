@@ -6,7 +6,9 @@
     "passwordPlaceholder": "パスワード",
     "signIn": "ログイン",
     "signUp": "サインアップ",
-    "signInWithGoogle": "Googleでサインイン"
+    "signInWithGoogle": "Googleでサインイン",
+    "fetchFail": "ログインに失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
   },
   "register": {
     "userName": "ユーザー名",
@@ -18,14 +20,18 @@
     "passwordPlaceholder": "パスワード",
     "confirmPasswordPlaceholder": "パスワード確認",
     "signUp": "新規登録",
-    "signIn": "サインイン"
+    "signIn": "サインイン",
+    "fetchFail": "ユーザー登録に失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
   },
   "api-register": {
     "success": "ユーザー登録に成功しました。",
-    "error": "ユーザー登録に失敗しました。"
+    "error": "ユーザー登録に失敗しました。",
+    "validationError": "無効なデータです。"
   },
   "api-login": {
     "success": "ログインに成功しました。",
-    "error": "ログインに失敗しました。"
+    "error": "ログインに失敗しました。",
+    "validationError": "無効なデータです。"
   }
 }
