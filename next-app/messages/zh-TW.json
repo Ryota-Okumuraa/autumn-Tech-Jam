@@ -49,5 +49,10 @@
     "success": "圖片上傳成功。",
     "error": "圖片上傳失敗。",
     "validationError": "此圖片無法上傳。"
+  },
+  "api-posts-user": {
+    "success": "已取得使用者貼文。",
+    "error": "取得使用者貼文失敗。",
+    "notFound": "找不到使用者貼文。"
   }
 }

@@ -49,5 +49,10 @@
     "success": "图片上传成功。",
     "error": "图片上传失败。",
     "validationError": "此图片无法上传。"
+  },
+  "api-posts-user": {
+    "success": "已获取用户帖子。",
+    "error": "获取用户帖子失败。",
+    "notFound": "找不到用户帖子。"
   }
 }
