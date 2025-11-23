@@ -44,5 +44,10 @@
     "success": "Post deleted successfully.",
     "error": "Failed to delete post.",
     "notFound": "Post to delete not found."
+  },
+  "api-post-upload": {
+    "success": "Image uploaded successfully.",
+    "error": "Failed to upload image.",
+    "validationError": "This image cannot be uploaded."
   }
 }

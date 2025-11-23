@@ -44,5 +44,10 @@
     "success": "已刪除貼文。",
     "error": "刪除貼文失敗。",
     "notFound": "找不到要刪除的貼文。"
+  },
+  "api-post-upload": {
+    "success": "圖片上傳成功。",
+    "error": "圖片上傳失敗。",
+    "validationError": "此圖片無法上傳。"
   }
 }

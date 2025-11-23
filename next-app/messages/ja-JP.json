@@ -38,11 +38,16 @@
     "success": "投稿を編集しました。",
     "error": "投稿の編集に失敗しました。",
     "notFound": "編集する投稿が見つかりませんでした。",
-    "validationError" : "この投稿は無効です。"
+    "validationError": "この投稿は無効です。"
   },
   "api-post-delete": {
     "success": "投稿を削除しました。",
     "error": "投稿の削除に失敗しました。",
     "notFound": "削除する投稿が見つかりませんでした。"
+  },
+  "api-post-upload": {
+    "success": "画像のアップロードに成功しました。",
+    "error": "画像のアップロードに失敗しました。",
+    "validationError": "この画像はアップロードできません"
   }
 }

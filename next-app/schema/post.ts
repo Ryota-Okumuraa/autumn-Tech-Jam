@@ -81,7 +81,7 @@ const messages = {
     },
     category: {
       required: "請輸入類別。",
-    }
+    },
   },
 };
 
@@ -90,16 +90,12 @@ export function createAndUpdatePostSchema(locale: langType = "en-US") {
   const msg = messages[locale];
 
   return z.object({
-    title: z
-      .string()
-      .min(1, { message: msg.title.required })
-      .max(255, { message: msg.title.max }),
+    title: z.string().min(1, { message: msg.title.required }).max(255, { message: msg.title.max }),
     content: z.string().min(1, { message: msg.content.required }),
     thumbnail: z
       .string()
       .min(1, { message: msg.thumbnail.required })
       .max(255, { message: msg.thumbnail.max }),
-    category: z.coerce.number()
-      .min(1, { message: msg.category.required }),
+    category: z.coerce.number().min(1, { message: msg.category.required }),
   });
 }
