@@ -5,9 +5,11 @@
   /* --*: initial; */
 
   --color-base: #F5F0E9;
-  --color-main: #F5F0E9;
+  --color-main: #FBE481;
   --color-white: #ffffff;
   --color-black: #333333;
+
+  --font-sans: var(--font-m-plus-1p);
 
   --spacing-0: 0px;
   --spacing-1: 4px;
@@ -54,4 +56,15 @@
 
   /* letter-spacing */
   --tracking-2: 0.02em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-base);
+  border-radius: 4px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
 }
