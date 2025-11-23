@@ -19,5 +19,13 @@
     "confirmPasswordPlaceholder": "비밀번호 확인",
     "signUp": "회원가입",
     "signIn": "로그인"
+  },
+  "api-register": {
+    "success": "사용자 등록에 성공했습니다.",
+    "error": "사용자 등록에 실패했습니다."
+  },
+  "api-login": {
+    "success": "로그인에 성공했습니다.",
+    "error": "로그인에 실패했습니다."
   }
 }

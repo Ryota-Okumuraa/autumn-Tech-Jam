@@ -1,45 +1,36 @@
-import prisma from "@/lib/db";
-import { createRegisterSchema } from "@/schema/register";
+import { createLoginSchema } from "@/schema/login";
 import { checkLang } from "@/utils/language";
 import { createClient } from "@/utils/supabase/server";
 import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
+import z from "zod";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const cookie = await cookies();
   const languCode = checkLang(cookie.get("locale")?.value ?? null);
-  // 送られた言語のスキーマ作成
-  const schema = createRegisterSchema(languCode);
+  const schema = createLoginSchema(languCode);
   type schemaType = z.infer<typeof schema>;
-  const t = await getTranslations("api-register");
+  const t = await getTranslations("api-login");
   try {
     const validatedData = schema.safeParse(body);
     if (!validatedData.success) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: validatedData.error.flatten().fieldErrors,
-        },
-        {
-          status: 400,
-        }
-      );
+      return NextResponse.json({
+        success: false,
+        message: validatedData.error.flatten().fieldErrors,
+      });
     }
-    // ユーザー登録
-    const { name, email, password }: schemaType = validatedData.data;
+    const { email, password }: schemaType = validatedData.data;
     const supabase = await createClient();
     const {
       data: { user },
       error,
-    } = await supabase.auth.signUp({
+    } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    // supabaseで失敗
-    if (!user || !user.id || error) {
+    if (!user || error) {
       return NextResponse.json(
         {
           success: false,
@@ -50,12 +41,6 @@ export async function POST(request: NextRequest) {
         }
       );
     } else {
-      await prisma.profile.create({
-        data: {
-          name,
-          userId: user.id,
-        },
-      });
       return NextResponse.json(
         {
           success: true,
@@ -66,8 +51,7 @@ export async function POST(request: NextRequest) {
         }
       );
     }
-  } catch (error) {
-    console.log(error);
+  } catch {
     return NextResponse.json(
       {
         success: false,

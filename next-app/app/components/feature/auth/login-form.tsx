@@ -4,8 +4,10 @@ import InputLabel from "../../shared/input-label";
 import { useTranslations } from "next-intl";
 import SubmitButton from "../../shared/submit-button";
 import { Link } from "@/i18n/routing";
+import { useState } from "react";
 
 export default function LoginForm() {
+  const [isFetching, setIsFetching] = useState(false);
   const t = useTranslations("login");
   return (
     <form className="flex flex-col items-start space-y-4 w-full max-w-[400px]">
@@ -31,7 +33,7 @@ export default function LoginForm() {
           <ChevronRight className="text-black w-6 h-6" />
         </Link>
       </div>
-      <SubmitButton text={t("signIn")} />
+      <SubmitButton text={t("signIn")} isFetching={isFetching} />
     </form>
   );
 }

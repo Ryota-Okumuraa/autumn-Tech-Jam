@@ -1,6 +1,7 @@
 "use client";
+import { useRouter } from "@/i18n/routing";
 import { createClient } from "@/utils/supabase/client";
-import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 
 export default function Logout() {
@@ -11,7 +12,7 @@ export default function Logout() {
     try {
       const supabase = await createClient();
       await supabase.auth.signOut();
-      router.push("/");
+      router.push("/auth/login");
     } catch (error) {
       console.error(error);
     } finally {

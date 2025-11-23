@@ -19,5 +19,13 @@
     "confirmPasswordPlaceholder": "Confirm password",
     "signUp": "Sign up",
     "signIn": "Sign in"
+  },
+  "api-register": {
+    "success": "User registration succeeded.",
+    "error": "User registration failed."
+  },
+  "api-login": {
+    "success": "Login succeeded.",
+    "error": "Login failed."
   }
 }

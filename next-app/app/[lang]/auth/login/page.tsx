@@ -1,3 +1,4 @@
+import GoogleLogin from "@/app/components/feature/auth/google-login";
 import LoginForm from "@/app/components/feature/auth/login-form";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -13,6 +14,8 @@ export default async function LoginPage() {
         <div className="bg-white rounded-[60px] py-[30px] px-21 w-1/2">
           <h1 className="text-center text-[32px]">{t("signIn")}</h1>
           <LoginForm />
+          <div className="h-px w-[400px] text-center bg-gray my-4"></div>
+          <GoogleLogin />
         </div>
       </div>
     </main>
