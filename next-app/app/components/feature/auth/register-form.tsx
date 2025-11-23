@@ -15,7 +15,7 @@ export default function RegisterForm() {
   const t = useTranslations("register");
   const locale = useLocale();
   const lang = checkLang(locale);
-  const [isFetching , setIsFetching ] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   // フロントエンド用スキーマ（confirmPasswordを含む）
   const formSchema = createRegisterFormSchema(lang);
@@ -49,7 +49,7 @@ export default function RegisterForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(serverData),
-        credentials : "include"
+        credentials: "include",
       });
 
       const result = await response.json();

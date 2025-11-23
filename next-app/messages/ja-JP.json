@@ -20,12 +20,12 @@
     "signUp": "新規登録",
     "signIn": "サインイン"
   },
-  "api-register" : {
-    "success" : "ユーザー登録に成功しました。",
-    "error" : "ユーザー登録に失敗しました。"
+  "api-register": {
+    "success": "ユーザー登録に成功しました。",
+    "error": "ユーザー登録に失敗しました。"
   },
-  "api-login" : {
-    "success" : "ログインに成功しました。",
-    "error" : "ログインに失敗しました。"
+  "api-login": {
+    "success": "ログインに成功しました。",
+    "error": "ログインに失敗しました。"
   }
 }

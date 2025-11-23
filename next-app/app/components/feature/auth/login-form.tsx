@@ -7,7 +7,7 @@ import { Link } from "@/i18n/routing";
 import { useState } from "react";
 
 export default function LoginForm() {
-  const [isFetching , setIsFetching ] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const t = useTranslations("login");
   return (
     <form className="flex flex-col items-start space-y-4 w-full max-w-[400px]">

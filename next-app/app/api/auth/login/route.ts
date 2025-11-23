@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
 
-export async function POST(request : NextRequest) {
+export async function POST(request: NextRequest) {
   const body = await request.json();
   const cookie = await cookies();
   const languCode = checkLang(cookie.get("locale")?.value ?? null);
@@ -17,40 +17,49 @@ export async function POST(request : NextRequest) {
     const validatedData = schema.safeParse(body);
     if (!validatedData.success) {
       return NextResponse.json({
-        success : false,
-        message : validatedData.error.flatten().fieldErrors
-      }
-      )
+        success: false,
+        message: validatedData.error.flatten().fieldErrors,
+      });
     }
-    const { email , password } : schemaType = validatedData.data;
-    const supabase  = await createClient();
-    const { data : { user } , error } = await supabase.auth.signInWithPassword({
+    const { email, password }: schemaType = validatedData.data;
+    const supabase = await createClient();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.signInWithPassword({
       email,
-      password
+      password,
     });
     if (!user || error) {
-      return NextResponse.json({
-        success : false,
-        message : t("error")
-      },
-      {
-        status : 400,
-      })
-    }
-    else {
-      return NextResponse.json({
-        success : true,
-        message : t("success")
-      }, {
-        status : 200
-      })
+      return NextResponse.json(
+        {
+          success: false,
+          message: t("error"),
+        },
+        {
+          status: 400,
+        }
+      );
+    } else {
+      return NextResponse.json(
+        {
+          success: true,
+          message: t("success"),
+        },
+        {
+          status: 200,
+        }
+      );
     }
   } catch {
-    return NextResponse.json({
-      success : false,
-      message : t("error")
-    }, {
-      status : 500
-    })
+    return NextResponse.json(
+      {
+        success: false,
+        message: t("error"),
+      },
+      {
+        status: 500,
+      }
+    );
   }
 }

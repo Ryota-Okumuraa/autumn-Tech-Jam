@@ -37,11 +37,12 @@ export default async function RootLayout({
       <body className="antialiased font-mplus">
         <NextIntlClientProvider messages={messages}>
           {children}
-          <Toaster 
+          <Toaster
             position="top-center"
             toastOptions={{
-              duration : 2000,
-            }} />
+              duration: 2000,
+            }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>
