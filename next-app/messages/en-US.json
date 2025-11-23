@@ -33,5 +33,26 @@
     "success": "Login succeeded.",
     "error": "Login failed.",
     "validationError": "Invalid data."
+  },
+  "api-post-edit": {
+    "success": "Post edited successfully.",
+    "error": "Failed to edit post.",
+    "notFound": "Post to edit not found.",
+    "validationError": "This post is invalid."
+  },
+  "api-post-delete": {
+    "success": "Post deleted successfully.",
+    "error": "Failed to delete post.",
+    "notFound": "Post to delete not found."
+  },
+  "api-post-upload": {
+    "success": "Image uploaded successfully.",
+    "error": "Failed to upload image.",
+    "validationError": "This image cannot be uploaded."
+  },
+  "api-posts-user": {
+    "success": "User posts retrieved successfully.",
+    "error": "Failed to retrieve user posts.",
+    "notFound": "User posts not found."
   }
 }
