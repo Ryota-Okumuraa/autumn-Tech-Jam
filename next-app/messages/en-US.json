@@ -6,7 +6,9 @@
     "passwordPlaceholder": "Password",
     "signIn": "Sign in",
     "signUp": "Sign up",
-    "signInWithGoogle": "Sign in with Google"
+    "signInWithGoogle": "Sign in with Google",
+    "fetchFail": "Login failed.",
+    "fetchError": "Communication error occurred."
   },
   "register": {
     "userName": "User name",
@@ -18,7 +20,9 @@
     "passwordPlaceholder": "Password",
     "confirmPasswordPlaceholder": "Confirm password",
     "signUp": "Sign up",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "fetchFail": "User registration failed.",
+    "fetchError": "Communication error occurred."
   },
   "header": {
     "articlesByCategory": "Articles by Category",
@@ -120,5 +124,35 @@
       "success": "Login succeeded.",
       "error": "Login failed."
     }
+  "api-register": {
+    "success": "User registration succeeded.",
+    "error": "User registration failed.",
+    "validationError": "invalid data"
+  },
+  "api-login": {
+    "success": "Login succeeded.",
+    "error": "Login failed.",
+    "validationError": "Invalid data."
+  },
+  "api-post-edit": {
+    "success": "Post edited successfully.",
+    "error": "Failed to edit post.",
+    "notFound": "Post to edit not found.",
+    "validationError": "This post is invalid."
+  },
+  "api-post-delete": {
+    "success": "Post deleted successfully.",
+    "error": "Failed to delete post.",
+    "notFound": "Post to delete not found."
+  },
+  "api-post-upload": {
+    "success": "Image uploaded successfully.",
+    "error": "Failed to upload image.",
+    "validationError": "This image cannot be uploaded."
+  },
+  "api-posts-user": {
+    "success": "User posts retrieved successfully.",
+    "error": "Failed to retrieve user posts.",
+    "notFound": "User posts not found."
   }
 }

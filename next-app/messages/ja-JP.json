@@ -6,7 +6,9 @@
     "passwordPlaceholder": "パスワード",
     "signIn": "ログイン",
     "signUp": "サインアップ",
-    "signInWithGoogle": "Googleでサインイン"
+    "signInWithGoogle": "Googleでサインイン",
+    "fetchFail": "ログインに失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
   },
   "register": {
     "userName": "ユーザー名",
@@ -18,7 +20,9 @@
     "passwordPlaceholder": "パスワード",
     "confirmPasswordPlaceholder": "パスワード確認",
     "signUp": "新規登録",
-    "signIn": "サインイン"
+    "signIn": "サインイン",
+    "fetchFail": "ユーザー登録に失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
   },
   "header": {
     "articlesByCategory": "カテゴリー別記事",
@@ -115,10 +119,33 @@
   },
   "api-register": {
     "success": "ユーザー登録に成功しました。",
-    "error": "ユーザー登録に失敗しました。"
+    "error": "ユーザー登録に失敗しました。",
+    "validationError": "無効なデータです。"
   },
   "api-login": {
     "success": "ログインに成功しました。",
-    "error": "ログインに失敗しました。"
+    "error": "ログインに失敗しました。",
+    "validationError": "無効なデータです。"
+  },
+  "api-post-edit": {
+    "success": "投稿を編集しました。",
+    "error": "投稿の編集に失敗しました。",
+    "notFound": "編集する投稿が見つかりませんでした。",
+    "validationError": "この投稿は無効です。"
+  },
+  "api-post-delete": {
+    "success": "投稿を削除しました。",
+    "error": "投稿の削除に失敗しました。",
+    "notFound": "削除する投稿が見つかりませんでした。"
+  },
+  "api-post-upload": {
+    "success": "画像のアップロードに成功しました。",
+    "error": "画像のアップロードに失敗しました。",
+    "validationError": "この画像はアップロードできません"
+  },
+  "api-posts-user": {
+    "success": "ユーザーの投稿を取得しました。",
+    "error": "ユーザーの投稿の取得に失敗しました。",
+    "notFound": "ユーザーの投稿が見つかりませんでした。"
   }
 }
