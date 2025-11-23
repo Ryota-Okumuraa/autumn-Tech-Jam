@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "../../../i18n/routing";
 
 import { cn } from "@/lib/utiles";
 import { Icon } from "@/app/components/shared/icon";
@@ -122,7 +122,7 @@ export const Header = () => {
           </div>
           <div className="relative pr-2 h-[59px] cursor-pointer">
             <Link
-              href="/new-post"
+              href="/post/create"
               className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
             >
               <span className="font-bold">New Post</span>
