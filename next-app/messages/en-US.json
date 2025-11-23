@@ -1,0 +1,31 @@
+{
+  "login": {
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signInWithGoogle": "Sign in with Google"
+  },
+  "register": {
+    "userName": "User name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "userNamePlaceholder": "User name",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "signUp": "Sign up",
+    "signIn": "Sign in"
+  },
+  "api-register": {
+    "success": "User registration succeeded.",
+    "error": "User registration failed."
+  },
+  "api-login": {
+    "success": "Login succeeded.",
+    "error": "Login failed."
+  }
+}

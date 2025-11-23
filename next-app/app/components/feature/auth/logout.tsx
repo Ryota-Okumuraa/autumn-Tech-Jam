@@ -1,6 +1,7 @@
 "use client";
-import { createClient } from "@/utils/supabase/client"
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { createClient } from "@/utils/supabase/client";
+
 import { useState } from "react";
 
 export default function Logout() {
@@ -11,16 +12,16 @@ export default function Logout() {
     try {
       const supabase = await createClient();
       await supabase.auth.signOut();
-      router.push("/");
+      router.push("/auth/login");
     } catch (error) {
       console.error(error);
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
   return (
     <button onClick={handleLogout} disabled={isSubmitting}>
       Logout
     </button>
-  )
+  );
 }

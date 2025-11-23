@@ -1,4 +1,4 @@
-import GoogleLogin from "./feature/auth/google-login";
+import GoogleLogin from "../components/feature/auth/google-login";
 
 export default function Home() {
   return (
