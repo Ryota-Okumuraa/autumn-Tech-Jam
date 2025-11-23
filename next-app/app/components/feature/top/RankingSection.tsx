@@ -7,33 +7,35 @@ import { formatDate } from "@/lib/date";
 import { Post } from "@/lib/types/post";
 
 export const Ranking = () => {
-    const [rankingPosts, setRankingPosts] = useState<Post[]>([]);
-    useEffect(() => {
-        const fetchRankingPosts = async () => {
-            const data = await getRankingPosts(7);
-            setRankingPosts(data.map((post) => ({
-                id: post.id,
-                thumbnail: post.thumbnail,
-                title: post.title,
-                date: post.createdAt.toString(),
-                author: post.category.name,
-            })));
-        };
-        fetchRankingPosts();
-    }, []);
-    return (
-        <div className="overflow-x-scroll flex gap-5 pt-10 px-4 relative h-fit md:gap-6">
-            {rankingPosts.map((ranking, index) => (
-                <RankingPostCard
-                    key={ranking.id}
-                    id={Number(ranking.id)}
-                    thumbnail={ranking.thumbnail}
-                    title={ranking.title}
-                    date={formatDate(ranking.date)}
-                    author={ranking.author}
-                    index={index}
-                />
-            ))}
-        </div>
-    );
+  const [rankingPosts, setRankingPosts] = useState<Post[]>([]);
+  useEffect(() => {
+    const fetchRankingPosts = async () => {
+      const data = await getRankingPosts(7);
+      setRankingPosts(
+        data.map((post) => ({
+          id: post.id,
+          thumbnail: post.thumbnail,
+          title: post.title,
+          date: post.createdAt.toString(),
+          author: post.category.name,
+        }))
+      );
+    };
+    fetchRankingPosts();
+  }, []);
+  return (
+    <div className="overflow-x-scroll flex gap-5 pt-10 px-4 relative h-fit md:gap-6">
+      {rankingPosts.map((ranking, index) => (
+        <RankingPostCard
+          key={ranking.id}
+          id={Number(ranking.id)}
+          thumbnail={ranking.thumbnail}
+          title={ranking.title}
+          date={formatDate(ranking.date)}
+          author={ranking.author}
+          index={index}
+        />
+      ))}
+    </div>
+  );
 };

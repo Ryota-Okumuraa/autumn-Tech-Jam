@@ -67,7 +67,8 @@ async function main() {
     {
       title: "がっつり・こってり・名古屋めし！",
       thumbnail: "/dummy.png",
-      content: "名古屋の名物グルメを紹介します。味噌カツ、ひつまぶし、きしめんなど、名古屋ならではの料理を楽しめます。",
+      content:
+        "名古屋の名物グルメを紹介します。味噌カツ、ひつまぶし、きしめんなど、名古屋ならではの料理を楽しめます。",
       categoryId: categoryMap["food"],
       languageId: languageMap["ja-JP"],
       profileId: createdProfiles[0].id,
@@ -116,7 +117,8 @@ async function main() {
     {
       title: "Nagoya's Famous Food Scene",
       thumbnail: "/dummy.png",
-      content: "Discover Nagoya's unique food culture including miso katsu, hitsumabushi, and kishimen noodles.",
+      content:
+        "Discover Nagoya's unique food culture including miso katsu, hitsumabushi, and kishimen noodles.",
       categoryId: categoryMap["food"],
       languageId: languageMap["en-US"],
       profileId: createdProfiles[1].id,
@@ -140,7 +142,8 @@ async function main() {
     {
       title: "Complete Nagoya Travel Guide",
       thumbnail: "/dummy.png",
-      content: "Everything you need to know about visiting Nagoya's top attractions and how to get there.",
+      content:
+        "Everything you need to know about visiting Nagoya's top attractions and how to get there.",
       categoryId: categoryMap["guide"],
       languageId: languageMap["en-US"],
       profileId: createdProfiles[1].id,
