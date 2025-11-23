@@ -1,11 +1,31 @@
-import GoogleLogin from "../components/feature/auth/google-login";
+import { Header } from "@/app/components/feature/Header";
+import { FeaturedPosts } from "@/app/components/feature/FeaturedPosts";
+import { Article } from "@/app/components/feature/Article";
+import { Featured } from "@/app/components/feature/Featured"
+import { Ranking } from "@/app/components/feature/RankingSection";
+import { About } from "@/app/components/feature/About";
+import { Footer } from "@/app/components/feature/Footer";
+import { FixedBg } from "@/app/components/feature/FixedBg";
+import { FV } from "@/app/components/feature/FV";
+import { CategoryHead } from "@/app/components/feature/CategoryHead";
+import { CategoryPostList } from "@/app/components/feature/CategoryPostList";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <GoogleLogin />
-      </main>
-    </div>
+    <main className="">
+      <FixedBg />
+      <Header />
+      <FV />
+      <FeaturedPosts />
+      <Article />
+      <Featured />
+      <Ranking />
+      <About />
+      <Footer />
+      <CategoryHead />
+      <CategoryPostList
+        category="food"
+      />
+    </main>
   );
 }
