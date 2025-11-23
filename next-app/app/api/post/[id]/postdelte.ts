@@ -16,7 +16,7 @@ export async function DELETE(request: Request){
     });
     return NextResponse.json({
       success: true,
-      message: ["削除できたー"]
+      message: ["削除しました。"]
     });
     }
     catch (error: any) {

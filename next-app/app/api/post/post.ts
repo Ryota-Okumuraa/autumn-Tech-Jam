@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/db";
 import { getAuthenticatedUser } from '@/utils/supabase/server';
 
 export async function POST(request: Request) {
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
             data: {
                 title,
                 content,
-                thumbnail: thumbnail || null,
+                thumbnail: thumbnail,
                 category,
                 authorId: authorId,
             },
