@@ -14,7 +14,7 @@ export function PostCard ({title, thumbnail, createdAt, author, layout}:Page) {
             (
             layout === "row" ? "flex max-w-[312px] " : "max-h-[218px]" ,
         )}>
-        <div className="flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-[#FBE481] w-fit h-fit">
+        <div className="flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit h-fit">
         <Image src={thumbnail} alt="thumbnail" width={272} height={172} className="transition-transform ease-in-out object-cover
         hover:scale-105"/>
         </div>
