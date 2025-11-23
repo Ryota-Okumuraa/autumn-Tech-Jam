@@ -34,6 +34,12 @@
     "error": "Login failed.",
     "validationError": "Invalid data."
   },
+  "api-post-edit": {
+    "success": "Post edited successfully.",
+    "error": "Failed to edit post.",
+    "notFound": "Post to edit not found.",
+    "validationError": "This post is invalid."
+  },
   "api-post-delete": {
     "success": "Post deleted successfully.",
     "error": "Failed to delete post.",

@@ -34,6 +34,12 @@
     "error": "登入失敗。",
     "validationError": "無效資料。"
   },
+  "api-post-edit": {
+    "success": "已編輯貼文。",
+    "error": "編輯貼文失敗。",
+    "notFound": "找不到要編輯的貼文。",
+    "validationError": "此貼文無效。"
+  },
   "api-post-delete": {
     "success": "已刪除貼文。",
     "error": "刪除貼文失敗。",

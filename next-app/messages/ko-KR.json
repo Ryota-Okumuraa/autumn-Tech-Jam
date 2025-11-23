@@ -34,6 +34,12 @@
     "error": "로그인에 실패했습니다.",
     "validationError": "유효하지 않은 데이터입니다."
   },
+  "api-post-edit": {
+    "success": "게시물을 편집했습니다.",
+    "error": "게시물 편집에 실패했습니다.",
+    "notFound": "편집할 게시물을 찾을 수 없습니다.",
+    "validationError": "이 게시물은 유효하지 않습니다."
+  },
   "api-post-delete": {
     "success": "게시물을 삭제했습니다.",
     "error": "게시물 삭제에 실패했습니다.",
