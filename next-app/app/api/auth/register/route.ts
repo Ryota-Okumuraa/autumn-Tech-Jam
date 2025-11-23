@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
       email,
       password,
     });
+    // supabaseで失敗
     if (!user || !user.id || error) {
       return NextResponse.json(
         {
@@ -46,23 +47,24 @@ export async function POST(request: NextRequest) {
           status: 400,
         }
       );
+    } else {
+      // プロフィールの作成
+      await prisma.profile.create({
+        data: {
+          name,
+          userId: user.id,
+        },
+      });
+      return NextResponse.json(
+        {
+          success: true,
+          message: "ユーザー登録に成功しました。",
+        },
+        {
+          status: 200,
+        }
+      );
     }
-    // プロフィールの作成
-    await prisma.profile.create({
-      data: {
-        name,
-        userId: user.id,
-      },
-    });
-    return NextResponse.json(
-      {
-        success: true,
-        message: "ユーザー登録に成功しました。",
-      },
-      {
-        status: 200,
-      }
-    );
   } catch (error) {
     console.log(error);
     return NextResponse.json(

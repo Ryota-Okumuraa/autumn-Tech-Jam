@@ -22,8 +22,13 @@ export async function GET(request: Request) {
       error,
     } = await supabase.auth.exchangeCodeForSession(code);
 
-    if (user && user.id && !error) {
-      // ユーザーから取得したデータを使ってprofileテーブルにデータを追加
+    // エラーチェックを先に行う
+    if (error) {
+      console.error("Exchange code error:", error);
+      return NextResponse.redirect(errorUrl);
+    }
+
+    if (user && user.id) {
       try {
         const isExistUser = await prisma.profile.findFirst({
           where: {
@@ -32,21 +37,24 @@ export async function GET(request: Request) {
         });
         // ユーザーが存在しない場合はprofileテーブルにデータを追加
         if (!isExistUser) {
+          // Google認証の場合、full_name、name、emailの順でフォールバック
+          const name = user.user_metadata.name || "user";
+
           await prisma.profile.create({
             data: {
               userId: user.id,
-              name: user.user_metadata.name,
+              name: name,
             },
           });
         }
       } catch (error) {
-        console.log(error);
+        console.error("Prisma error:", error);
         return NextResponse.redirect(errorUrl);
       }
-      const forwardedHost = request.headers.get("x-forwarded-host"); // original origin before load balancer
+
+      const forwardedHost = request.headers.get("x-forwarded-host");
       const isLocalEnv = process.env.NODE_ENV === "development";
       if (isLocalEnv) {
-        // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
         return NextResponse.redirect(`${origin}${next}`);
       } else if (forwardedHost) {
         return NextResponse.redirect(`https://${forwardedHost}${next}`);
@@ -56,6 +64,5 @@ export async function GET(request: Request) {
     }
   }
 
-  // return the user to an error page with instructions
   return NextResponse.redirect(errorUrl);
 }

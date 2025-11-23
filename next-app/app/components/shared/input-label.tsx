@@ -9,7 +9,14 @@ interface props {
   className?: string;
 }
 
-export default function InputLabel({ id, label, icon, type = "text", placeholder }: props) {
+export default function InputLabel({
+  id,
+  label,
+  icon,
+  type = "text",
+  placeholder,
+  ...props
+}: props) {
   return (
     <div className="flex flex-col items-start space-y-1">
       <label htmlFor={id} className="flex items-center space-x-2 px-2">
@@ -21,6 +28,7 @@ export default function InputLabel({ id, label, icon, type = "text", placeholder
         type={type}
         placeholder={placeholder}
         className="border border-black rounded-xl w-[400px] py-3 pl-[18px] placeholder:text-gray text-gray"
+        {...props}
       />
     </div>
   );
