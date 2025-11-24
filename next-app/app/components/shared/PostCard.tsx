@@ -1,15 +1,8 @@
 import { cn } from "@/lib/utiles";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { PostCardProps } from "@/lib/types/post";
 
-type PostCardProps = {
-  id: string;
-  title: string;
-  thumbnail: string;
-  date: string;
-  author: string;
-  layout: "row" | "column";
-};
 
 export function PostCard({ title, thumbnail, date, author, layout, id }: PostCardProps) {
   return (
@@ -22,7 +15,10 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
           : "max-w-[218px] md:max-w-[280px] w-full flex-col md:min-w-[280px]"
       )}
     >
-      <div className="flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit h-fit flex-1">
+      <div className={cn(
+        "flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit ",
+        layout === "row" && "flex-1",
+      )}>
         <Image
           src={thumbnail}
           alt="thumbnail"
@@ -39,7 +35,7 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
       >
         <h4
           className={cn(
-            "flex line-clamp-2 text-[14px] mt-4 font-bold h- md:text-md",
+            "flex line-clamp-2 text-[14px] mt-4 font-bold h- md:text-[16px]",
             layout === "row" && "mt-0"
           )}
         >

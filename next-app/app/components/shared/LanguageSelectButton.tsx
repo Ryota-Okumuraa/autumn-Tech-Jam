@@ -44,7 +44,7 @@ export const LanguageSelectButton = () => {
   `;
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block cursor-pointer">
       <div className="relative inline-block">
         <div className={shadowClasses} />
         <button className={buttonClasses} onClick={handleClick}>

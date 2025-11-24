@@ -69,7 +69,7 @@ export const ArticleList = () => {
           <p>生地がありません</p>
         </div>
       ) : (
-        <div className="overflow-x-scroll flex gap-5 mt-10 px-4 relative pb-4 md:grid md:grid-cols-4 md:grid-rows-2">
+        <div className="overflow-x-scroll flex gap-5 mt-10 px-4 relative pb-4 md:grid md:grid-cols-3 md:grid-rows-2 xl:grid-cols-4">
           {posts.map((post) => (
             <PostCard
               key={post.id}

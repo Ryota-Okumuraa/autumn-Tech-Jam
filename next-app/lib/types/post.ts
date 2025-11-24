@@ -42,6 +42,11 @@ export interface FetchPostsParams {
   pageType?: boolean;
 }
 
+export interface FetchUserPostsParams {
+  profileId: string;
+  offset?: number;
+}
+
 /**
  * UIで使用するPost型（フォーマット済み）
  */
@@ -64,3 +69,16 @@ export type PostCardProps = Post & {
  * FeaturedPost型（Postのエイリアス）
  */
 export type FeaturedPost = Post;
+
+/**
+ * Post取得APIのレスポンス型
+ */
+export interface PostResponse {
+  id: string;
+  thumbnail: string;
+  title: string;
+  content: string;
+  createdAt: string | Date;
+  category: string;
+  author: string;
+}

@@ -38,7 +38,7 @@ export const RankingPostCard = ({
   const rankingImageSrc = RankingImage[rankingNumber];
 
   return (
-    <article className={cn("w-full", minW === "short" && "min-w-[272px]")}>
+    <article className={cn("w-full", minW === "short" && "min-w-[272px] h-full")}>
       <Link href={`/posts/${id}`}>
         <div className="rounded-[20px] overflow-hidden border-2 border-black group hover:border-main">
           <Image
@@ -49,8 +49,14 @@ export const RankingPostCard = ({
             className="object-cover rounded-[20px] w-full  h-auto group-hover:scale-105 transition-all duration-300 ease-in-out"
           />
         </div>
-        <div className="mt-1 flex gap-4 items-center justify-start">
-          <Image src={rankingImageSrc} alt={`Ranking ${rankingNumber}`} width={50} height={50} />
+        <div className="mt-1 flex gap-4 items-center justify-start h-full">
+          <Image
+            src={rankingImageSrc}
+            alt={`Ranking ${rankingNumber}`}
+            width={50}
+            height={50}
+            className="max-h-[90px] w-auto items-baseline"
+          />
           <div>
             <h4 className="font-bold line-clamp-2 h-12">{title}</h4>
             <div className="flex gap-4 items-center mt-3">
