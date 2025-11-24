@@ -76,7 +76,7 @@ export default function SelectCategory({...props}) {
           </button>
         </div>
         {isMenuOpen && (
-          <div className="absolute top-full left-2 mt-4 w-full bg-main border border-black rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto">
+          <div className="absolute top-full left-2 mt-4 w-full bg-main border border-black rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
             <ul className="py-1">
               {categories.map((category, index) => {
                 const isFirst = index === 0;

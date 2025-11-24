@@ -1,4 +1,3 @@
-import { Header } from "@/app/components/shared/Header"
 import { Footer } from "@/app/components/shared/Footer"
 import { getPost } from "@/app/api-client/post"
 import { RankingPostCard } from "@/app/components/shared/RankingPostCard";
