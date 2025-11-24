@@ -1,9 +1,12 @@
 // lib/posts.ts
 import prisma from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getTranslations } from "next-intl/server";
 
-export async function GET({ params }: { params: Promise<{ postId: string }> }) {
+export async function GET(
+  _request: NextRequest,
+  { params }: { params: Promise<{ postId: string }> }
+) {
   const t = await getTranslations("api-detail");
   const { postId } = await params;
   try {

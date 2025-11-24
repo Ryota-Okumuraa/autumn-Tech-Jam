@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { Icon } from "@/app/components/shared/icon";
+import { Icon } from "@/app/components/shared/lucide";
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { formatDate } from "@/lib/date";

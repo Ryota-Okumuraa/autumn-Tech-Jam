@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 
 import { cn } from "@/lib/utiles";
 import { useTranslations } from "next-intl";
-import { Icon } from "@/app/components/shared/icon";
+import { Icon } from "@/app/components/shared/lucide";
 import { UserProfile } from "@/app/components/feature/UserProfile";
 import { LanguageSelectButton } from "@/app/components/shared/LanguageSelectButton";
 
