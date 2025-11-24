@@ -15,7 +15,7 @@ export async function getUserPosts({ profileId, offset = 0 }: FetchUserPostsPara
         if (!res.ok) {
             throw new Error("Failed to fetch user posts");
         }
-        const data: PostsResponse = await res.json();
+        const data = await res.json() as PostsResponse;
         return data;
     } catch (error) {
         console.error("Error fetching user posts:", error);

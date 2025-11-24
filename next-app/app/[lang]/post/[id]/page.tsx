@@ -10,33 +10,29 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
 interface PostPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    }
+    }>;
 }
 
 export default async function PostPage({ params }: PostPageProps) {
     const { id } = await params;
     const t = await getTranslations("postPage")
 
-    // 並列実行でパフォーマンスを改善
-    const [rankingData, postData] = await Promise.all([
-        getRankingPosts(7),
-        getPost(id)
-    ]);
-    
+    const rankingData = await getRankingPosts(7);
     const rankingPosts = rankingData.map((post) => ({
         id: post.id,
         thumbnail: post.thumbnail,
         title: post.title,
-        date: formatDate(post.createdAt.toString()),
+        date: post.createdAt.toString(),
         author: post.category.name,
     }));
+
+    const postData = await getPost(id);
 
     if (!postData) {
         notFound();
     }
-
 
     return (
         <>

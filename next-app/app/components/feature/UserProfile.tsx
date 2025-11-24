@@ -1,5 +1,7 @@
 "use client";
 
+import { getUserProfile } from "@/app/api-client/profile/userProfile";
+import { UserProfileResponse } from "@/lib/types/profile";
 import { useState, useEffect } from "react";
 
 interface User {
@@ -10,31 +12,39 @@ interface User {
 
 export const UserProfile = () => {
   const [user, setUser] = useState<User | null>(null);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //     const loadUser = async () => {
-  //         try {
-  //             setIsLoading(true);
-  //             const userData = await fetchUser();
-  //             setUser(userData);
-  //         } catch (err) {
-  //             setError(err instanceof Error ? err.message : "エラーが発生しました");
-  //         } finally {
-  //             setIsLoading(false);
-  //         }
-  //     };
+  useEffect(() => {
+    const loadUser = async () => {
+      try {
+        const userData = await getUserProfile();
+        // nullチェックを追加
+        if (userData) {
+          setUser({
+            id: Number(userData.id),
+            name: userData.name,
+            email: userData.email,
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching user profile:", err);
+        // エラー時も明示的にnullを設定
+        setUser(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  //     loadUser();
-  // }, []);
+    loadUser();
+  }, []);
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="pb-10">
-  //       <p className="font-bold">Loading...</p>
-  //     </div>
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <div className="pb-10">
+        <p className="font-bold">Loading...</p>
+      </div>
+    );
+  }
 
   if (!user) {
     return null;
