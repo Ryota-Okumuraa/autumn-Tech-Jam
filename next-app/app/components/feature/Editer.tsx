@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/app/components/shared/icon";
 
 import { PostTitleEditor } from "@/app/components/shared/PostTitleEditor";
@@ -20,6 +21,7 @@ const CATEGORIES = [
 
 export const Editer = () => {
   const router = useRouter();
+  const t = useTranslations("post-create");
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
@@ -50,7 +52,7 @@ export const Editer = () => {
             <div className="border-white bg-main rounded-full w-10 h-10 flex items-center justify-center">
               <Icon.ArrowLeft className="w-9 h-9 text-[#777777]" />
             </div>
-            <p className="text-xl">Back</p>
+            <p className="text-xl">{t("back")}</p>
           </Link>
           <div className="h-12 relative w-[180px]">
             <button className="h-[45px] w-[175px] bg-white border-2 border-black rounded-sm text-black font-bold text-xl">

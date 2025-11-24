@@ -3,7 +3,6 @@ import { getUserPosts } from "@/app/api-client/posts/userPosts";
 import { formatDate } from "@/lib/date";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { Pagenation } from "@/app/components/shared/Pagenation";
-import { Header } from "@/app/components/shared/Header";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/app/components/shared/Footer";
 

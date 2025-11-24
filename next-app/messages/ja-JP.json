@@ -50,6 +50,25 @@
     "rankingSubTitle": "ンキング",
     "aboutText": "名古屋の魅力は日常の文化にあります—朝のカフェの伝統、地元料理、親しみやすい街並み、そして穏やかな雰囲気。"
   },
+<<<<<<< HEAD
+=======
+  "api-category": {
+    "food": "グルメ",
+    "cafe": "カフェ",
+    "culture": "文化",
+    "guide": "ガイド",
+    "shopping": "ショッピング",
+    "stories": "ストーリー"
+  },
+  "post-create": {
+    "back": "戻る",
+    "title": "タイトル",
+    "titlePlaceholder": "タイトルを入力してください。",
+    "category": "カテゴリー",
+    "thumbnail": "サムネイル",
+    "uploading": "アップロード中..."
+  },
+>>>>>>> 752c39c20205ad32d6d5f2b25fea57002dace98f
   "categoryHead": {
     "food": "グルメ",
     "cafe": "カフェ",
@@ -128,6 +147,13 @@
     "error": "ログインに失敗しました。",
     "validationError": "無効なデータです。"
   },
+<<<<<<< HEAD
+=======
+  "api-post": {
+    "success": "投稿に成功しました。",
+    "error": "投稿に失敗しました。"
+  },
+>>>>>>> 752c39c20205ad32d6d5f2b25fea57002dace98f
   "api-post-edit": {
     "success": "投稿を編集しました。",
     "error": "投稿の編集に失敗しました。",
