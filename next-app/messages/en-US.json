@@ -54,19 +54,10 @@
   "post-create": {
     "back": "Back"
   },
-  "api-register": {
-    "success": "User registration succeeded.",
-    "error": "User registration failed.",
-    "validationError": "invalid data"
-  },
-  "api-login": {
-    "success": "Login succeeded.",
-    "error": "Login failed.",
-    "validationError": "Invalid data."
-  },
   "api-post": {
     "success" : "success to create post",
-    "error": "failed to create post"
+    "error": "failed to create post",
+    "aboutText": "Nagoya’s charm lies in its everyday culture—morning café traditions,local dishes, friendly neighborhoods, and a calm atmosphere."
   },
   "categoryHead": {
     "food": "Food",
@@ -135,6 +126,14 @@
       "q3": "Are there any hidden gems in Nagoya?",
       "a3": "The Osu Kannon area, Arimatsu district, and local izakayas in the backstreets are hidden gems. These places offer authentic experiences away from the main tourist spots."
     }
+  },
+  "api-register": {
+    "success": "User registration succeeded.",
+    "error": "User registration failed."
+  },
+  "api-login": {
+    "success": "Login succeeded.",
+    "error": "Login failed."
   },
   "api-post-edit": {
     "success": "Post edited successfully.",
