@@ -3,7 +3,6 @@ import LoginForm from "@/app/components/feature/auth/login-form";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-
 export default async function LoginPage() {
   const t = await getTranslations("login");
   return (
@@ -17,7 +16,7 @@ export default async function LoginPage() {
           <LoginForm />
           <div className="h-px w-[400px] text-center bg-gray my-4 w-full flex justify-center"></div>
           <div className="w-full flex justify-center">
-          <GoogleLogin />
+            <GoogleLogin />
           </div>
         </div>
       </div>
