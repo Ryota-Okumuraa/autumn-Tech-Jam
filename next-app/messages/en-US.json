@@ -62,6 +62,10 @@
     "error": "Login failed.",
     "validationError": "Invalid data."
   },
+  "api-post": {
+    "success" : "success to create post",
+    "error": "failed to create post"
+  },
   "api-post-edit": {
     "success": "Post edited successfully.",
     "error": "Failed to edit post.",

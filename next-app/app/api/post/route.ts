@@ -1,97 +1,118 @@
 // app/api/posts/route.ts
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import prisma from "@/lib/db";// ← あなたの prisma クライアント
+import prisma from "@/lib/db"; // ← あなたの prisma クライアント
 import { createClient } from "@/utils/supabase/server";
-
-// 許可されたカテゴリ一覧
-const ALLOWED_CATEGORIES = [
-    "food",
-    "cafe",
-    "shopping",
-    "culture",
-    "guide",
-    "stories",
-] as const;
+import { z } from "zod";
+import { checkLang } from "@/utils/language";
+import { createAndUpdatePostSchema } from "@/schema/post";
+import { getTranslations } from "next-intl/server";
 
 export async function POST(request: Request) {
-    try {
-        // ① Supabase からログイン中のユーザー取得
-        const supabase = await createClient();
-        // ユーザー情報取得
-        const {
-            data: { user },
-            error,
-        } = await supabase.auth.getUser();
+  const t = await getTranslations("api-post");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  try {
+    // ① Supabase からログイン中のユーザー取得
+    const supabase = await createClient();
+    // ユーザー情報取得
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
 
-        if (!user)
-            return NextResponse.json(
-                {
-                    success: false,
-                    messages: ["ログインされていません"],
-                    postId: null,
-                },
-                { status: 401 }
-            );
+    if (!user || error)
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 401 }
+      );
 
-        // ② request.body を取得
-        const body = await request.json();
-        const { thumbnail, title, content, category } = body; //リクエストに送られてきた内容が入ってくる。
+    // -------------------------
+    // ② リクエスト取得
+    // -------------------------
+    const body = await request.json();
 
-        // ③ category が許可リストにない場合はエラー
-        if (!ALLOWED_CATEGORIES.includes(category)) {
-            return NextResponse.json(
-                { error: "Invalid category" },
-                { status: 400 }
-            );
-        }
-
-        // ④ supabase.user.id から Profile を特定
-        const profile = await prisma.profile.findUnique({
-            where: { userId: user.id },
-        });
-
-        if (!profile) {
-            return NextResponse.json(
-                {
-                    success: false,
-                    messages: ["プロフィールが見つかりません"],
-                    postId: null,
-                },
-                { status: 404 }
-            );
-        }
-
-        // ⑤ Post を作成
-        const newPost = await prisma.post.create({
-            data: {
-                thumbnail,
-                title,
-                content,
-                profileId: profile.id,
-                category: {
-                    connect: { name: category },
-                },
-            },
-            include: {
-                category: true,
-            },
-        });
-
-        return NextResponse.json({
-            success: true,
-            messages: ["投稿が正常に作成されました"],
-            postId: newPost.id,
-        });
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json(
-            {
-                success: false,
-                messages: ["サーバーエラーが発生しました"],
-                postId: null,
-            },
-            { status: 500 }
-        );
+    // -------------------------
+    // ③ Zod バリデーション
+    // -------------------------
+    const cookie = await cookies();
+    const lang = checkLang(cookie.get("locale")?.value || "en-US");
+    const schema = createAndUpdatePostSchema(lang);
+    const parsed = schema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: t("error"),
+        },
+        { status: 400 }
+      );
     }
+    // ここは正確なデータ
+    const { thumbnail, title, content, category } = parsed.data;
+
+    // ④ supabase.user.id から Profile を特定
+    const profile = await prisma.profile.findFirst({
+      select: {
+        id: true,
+      },
+      where: { userId: user.id },
+    });
+    if (!profile) {
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 400 }
+      );
+    }
+
+    // language取得
+    const language = await prisma.language.findFirst({
+      select: {
+        id: true,
+      },
+      where: {
+        name: lang,
+      },
+    });
+
+    if (!language) {
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 400 }
+      );
+    }
+
+    // ⑤ Post を作成
+    const newPost = await prisma.post.create({
+      data: {
+        thumbnail,
+        title,
+        content,
+        profileId: profile.id,
+        categoryId: category,
+        languageId: language.id,
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      message:  "投稿が正常に作成されました",
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      {
+        success: false,
+        messages: t("error"),
+      },
+      { status: 500 }
+    );
+  }
 }

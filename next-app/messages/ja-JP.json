@@ -62,6 +62,10 @@
     "error": "ログインに失敗しました。",
     "validationError": "無効なデータです。"
   },
+  "api-post": {
+    "success" : "投稿に成功しました。",
+    "error": "投稿に失敗しました。"
+  },
   "api-post-edit": {
     "success": "投稿を編集しました。",
     "error": "投稿の編集に失敗しました。",

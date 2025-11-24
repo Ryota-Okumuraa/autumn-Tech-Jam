@@ -12,12 +12,8 @@ export default function CreateForm() {
       </div>
       <div className="flex items-center justify-between">
         {/* mdファイル */}
-        <div className="w-[70%]">
-
-        </div>
-        <div className="w-[30%]">
-          
-        </div>
+        <div className="w-[70%]"></div>
+        <div className="w-[30%]"></div>
       </div>
     </form>
   );
