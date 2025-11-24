@@ -22,7 +22,6 @@ export default function Thumbnail() {
     setIsFetching(true);
 
     try {
-      // FormDataを作成してAPIに送信
       const formData = new FormData();
       formData.append("file", file);
 

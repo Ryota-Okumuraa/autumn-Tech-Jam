@@ -13,6 +13,9 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
+    "@blocknote/core": "^0.42.3",
+    "@blocknote/mantine": "^0.42.3",
+    "@blocknote/react": "^0.42.3",
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^6.19.0",
     "@supabase/ssr": "^0.7.0",
