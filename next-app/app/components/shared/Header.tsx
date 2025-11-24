@@ -13,44 +13,47 @@ import { LanguageSelectButton } from "@/app/components/shared/LanguageSelectButt
 export const Header = () => {
   const t = useTranslations("header");
 
-  const navigationItems = useMemo(() => [
-    {
-      id: 1,
-      href: "/posts/food",
-      label: t("categories.food"),
-      icon: "/category/category-food.png",
-    },
-    {
-      id: 2,
-      href: "/posts/shopping",
-      label: t("categories.shopping"),
-      icon: "/category/category-shopping.png",
-    },
-    {
-      id: 3,
-      href: "/posts/culture",
-      label: t("categories.culture"),
-      icon: "/category/category-culture.png",
-    },
-    {
-      id: 4,
-      href: "/posts/guide",
-      label: t("categories.guide"),
-      icon: "/category/category-guide.png",
-    },
-    {
-      id: 5,
-      href: "/posts/cafe",
-      label: t("categories.cafe"),
-      icon: "/category/category-cafe.png",
-    },
-    {
-      id: 6,
-      href: "/posts/stories",
-      label: t("categories.stories"),
-      icon: "/category/category-stories.png",
-    },
-  ], [t]);
+  const navigationItems = useMemo(
+    () => [
+      {
+        id: 1,
+        href: "/posts/food",
+        label: t("categories.food"),
+        icon: "/category/category-food.png",
+      },
+      {
+        id: 2,
+        href: "/posts/shopping",
+        label: t("categories.shopping"),
+        icon: "/category/category-shopping.png",
+      },
+      {
+        id: 3,
+        href: "/posts/culture",
+        label: t("categories.culture"),
+        icon: "/category/category-culture.png",
+      },
+      {
+        id: 4,
+        href: "/posts/guide",
+        label: t("categories.guide"),
+        icon: "/category/category-guide.png",
+      },
+      {
+        id: 5,
+        href: "/posts/cafe",
+        label: t("categories.cafe"),
+        icon: "/category/category-cafe.png",
+      },
+      {
+        id: 6,
+        href: "/posts/stories",
+        label: t("categories.stories"),
+        icon: "/category/category-stories.png",
+      },
+    ],
+    [t]
+  );
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -64,7 +67,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="flex fixed top-0 left-0 w-full py-2 px-4 z-10">
+      <header className="flex sticky top-0 left-0 w-full py-2 px-4 z-50 shrink-0 bg-base">
         <div className="flex items-center justify-between gap-4 w-full">
           <div>
             <Image src="/logo.png" alt="logo" width={100} height={100} className="w-10 h-10" />
@@ -95,7 +98,7 @@ export const Header = () => {
       </header>
       <div
         className={cn(
-          "fixed z-8 top-0 right-0 w-full h-screen bg-base transition-all transform duration-300 ease-in-out px-4 md:max-w-[380px] md:px-8 md:rounded-bl-[40px] overflow-y-scroll",
+          "fixed z-40 top-0 right-0 w-full h-screen bg-base transition-all transform duration-300 ease-in-out px-4 md:max-w-[380px] md:px-8 md:rounded-bl-[40px] overflow-y-scroll",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -123,7 +126,7 @@ export const Header = () => {
           </div>
           <div className="relative pr-2 h-[59px] cursor-pointer">
             <Link
-              href="/posts/create"
+              href="/post/create"
               className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
             >
               <span className="font-bold">{t("newPosts")}</span>

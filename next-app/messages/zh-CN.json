@@ -64,6 +64,7 @@
     "titlePlaceholder": "请输入标题。",
     "category": "分类",
     "thumbnail": "缩略图",
+    "articleContent": "文章内容",
     "uploading": "上传中..."
   },
   "categoryHead": {

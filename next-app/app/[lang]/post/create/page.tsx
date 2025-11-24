@@ -1,12 +1,13 @@
 import CreateForm from "@/app/components/feature/post-create/create-form";
-import { Header } from "@/app/components/shared/Header";
+
 export default function CreatePostPage() {
   return (
-    <main className="bg-base w-full min-h-screen flex space-y-8">
-      <Header />
-      <div className="w-full">
-        <CreateForm />
+    <div className="flex flex-col h-full">
+      <div className="bg-base w-full h-full flex flex-col space-y-8">
+        <div className="w-full h-full">
+          <CreateForm />
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

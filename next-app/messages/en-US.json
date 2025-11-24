@@ -64,6 +64,7 @@
     "titlePlaceholder": "Please enter a title.",
     "category": "Category",
     "thumbnail": "Thumbnail",
+    "articleContent": "Article Content",
     "uploading": "Uploading..."
   },
   "categoryHead": {

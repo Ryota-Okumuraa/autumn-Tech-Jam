@@ -5,7 +5,11 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslations } from "next-intl";
 
-export default function Thumbnail() {
+interface ThumbnailProps {
+  setValue: (name: "thumbnail", value: string) => void;
+}
+
+export default function Thumbnail({ setValue }: ThumbnailProps) {
   const t = useTranslations("post-create");
   const [imageUrl, setImageUrl] = useState<string>("/default-image.svg");
   const [isFetching, setIsFetching] = useState(false);
@@ -33,20 +37,24 @@ export default function Thumbnail() {
 
       const result = await response.json();
 
-      if (result.success && result.url) {
+      if (result.success) {
         // publicUrlを保存
         toast.success(result.message);
-        setPublicUrl(result.url.publicUrl);
+        setPublicUrl(result.url);
+        setValue("thumbnail", result.url);
+        console.log(result.url);
       } else {
         toast.error(result.message);
         // エラーの場合はデフォルト画像に戻す
         setImageUrl("/default-image.svg");
         setPublicUrl(null);
+        setValue("thumbnail", "");
       }
     } catch {
       toast.error("Upload error");
       setImageUrl("/default-image.svg");
       setPublicUrl(null);
+      setValue("thumbnail", "");
     } finally {
       setIsFetching(false);
     }
@@ -54,7 +62,7 @@ export default function Thumbnail() {
 
   return (
     <label
-      htmlFor="thumbnail"
+      htmlFor="thumbnail-file"
       className="w-full flex flex-col items-start space-y-2 cursor-pointer"
     >
       <span className="text-black">{t("thumbnail")}</span>
@@ -68,13 +76,13 @@ export default function Thumbnail() {
       </div>
       <input
         type="file"
-        id="thumbnail"
-        name="thumbnail"
+        id="thumbnail-file"
+        name="thumbnail-file"
         onChange={handleFileChange}
         accept="image/*"
         className="hidden"
       />
-      {publicUrl && <input type="hidden" name="thumbnailUrl" value={publicUrl} />}
+      <input type="hidden" id="thumbnail" name="thumbnail" value={publicUrl ?? ""} />
     </label>
   );
 }

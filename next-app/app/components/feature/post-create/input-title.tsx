@@ -9,6 +9,7 @@ export default function InputTitle({ ...props }) {
         type="text"
         className="w-full py-3 pl-4 border border-black rounded-xl placeholder:text-gray bg-white"
         id="title"
+        name="title"
         {...props}
         placeholder={t("titlePlaceholder")}
       />

@@ -64,6 +64,7 @@
     "titlePlaceholder": "タイトルを入力してください。",
     "category": "カテゴリー",
     "thumbnail": "サムネイル",
+    "articleContent": "記事内容",
     "uploading": "アップロード中..."
   },
   "categoryHead": {

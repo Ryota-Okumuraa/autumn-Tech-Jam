@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 export async function GET() {
   const supabase = await createClient();
-  const t = await getTranslations("api-post");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  const t = await getTranslations("api-post"); //messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
 
   // Supabaseのログインユーザーを取得
   const {
@@ -23,9 +23,9 @@ export async function GET() {
         userId: user.id, //user.idがsupabaseから取ってきたuserのid
       },
       select: {
-        id : true,
+        id: true,
         name: true,
-        message: true
+        message: true,
       },
     });
 
@@ -38,9 +38,12 @@ export async function GET() {
       email: user.email,
     });
   } catch (error) {
-    return NextResponse.json({
-      success: false,
-      message : t("error")
-    } , { status : 500});
+    return NextResponse.json(
+      {
+        success: false,
+        message: t("error"),
+      },
+      { status: 500 }
+    );
   }
 }
