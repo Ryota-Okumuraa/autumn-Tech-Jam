@@ -21,12 +21,12 @@ export default function NotFound() {
                         <div className="font-medium text-sm mt-2">The page you are looking for could not be found</div>
                         <div className="py-8" />
                         <div>
-                            <button className="bg-white border-2 border-black px-6 py-3 rounded-xl hover:bg-[#e5e5e5]">
-                                Return to top page
-                            </button>
-                        </div>
+                        <button className="bg-white border-2 border-black px-6 py-3 rounded-xl hover:bg-[#e5e5e5]">
+                            Return to top page
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
     )
 };
