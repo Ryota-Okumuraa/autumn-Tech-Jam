@@ -1,49 +1,117 @@
+// app/api/posts/route.ts
 import { NextResponse } from "next/server";
-import prisma from "@/lib/db";
-import { getAuthenticatedUser } from '@/utils/supabase/server';
+import { cookies } from "next/headers";
+import prisma from "@/lib/db"; // ← あなたの prisma クライアント
+import { createClient } from "@/utils/supabase/server";
+import { checkLang } from "@/utils/language";
+import { createAndUpdatePostSchema } from "@/schema/post";
+import { getTranslations } from "next-intl/server";
 
-const body = await request.json(){
+export async function POST(request: Request) {
+  const t = await getTranslations("api-post");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  try {
+    // ① Supabase からログイン中のユーザー取得
+    const supabase = await createClient();
+    // ユーザー情報取得
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
 
-    let body;
-    try {
-        body = await request.json();
-    } catch (e) {
-        return NextResponse.json({ success: false, messages: ["JSON形式が不正です"] }, { status: 400 });
+    if (!user || error)
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 401 }
+      );
+
+    // -------------------------
+    // ② リクエスト取得
+    // -------------------------
+    const body = await request.json();
+
+    // -------------------------
+    // ③ Zod バリデーション
+    // -------------------------
+    const cookie = await cookies();
+    const lang = checkLang(cookie.get("locale")?.value || "en-US");
+    const schema = createAndUpdatePostSchema(lang);
+    const parsed = schema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: t("error"),
+        },
+        { status: 400 }
+      );
+    }
+    // ここは正確なデータ
+    const { thumbnail, title, content, category } = parsed.data;
+
+    // ④ supabase.user.id から Profile を特定
+    const profile = await prisma.profile.findFirst({
+      select: {
+        id: true,
+      },
+      where: { userId: user.id },
+    });
+    if (!profile) {
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 400 }
+      );
     }
 
-    const { thumbnail, title, content, category } = body;
-    const authResult = await getAuthenticatedUser(request);
-    const user = authResult?.user;
+    // language取得
+    const language = await prisma.language.findFirst({
+      select: {
+        id: true,
+      },
+      where: {
+        name: lang,
+      },
+    });
 
-    if (!user) {
-        return NextResponse.json({
-            success: false,
-            messages: ["認証してください"]
-        }, { status: 401 });
+    if (!language) {
+      return NextResponse.json(
+        {
+          success: false,
+          messages: t("error"),
+        },
+        { status: 400 }
+      );
     }
-    const profileId = user.id;
 
-    try {
-        const post = await prisma.post.create({
-            data: {
-                title,
-                content,
-                thumbnail: thumbnail,
-                category,
-                profileId: profileId,
-            },
-        });
-        return NextResponse.json({
-            success: true,
-            messages: ["投稿しました"],
-            postId: post.id.toString(),
-        }, { status: 201 });
+    // ⑤ Post を作成
+    const newPost = await prisma.post.create({
+      data: {
+        thumbnail,
+        title,
+        content,
+        profileId: profile.id,
+        categoryId: category,
+        languageId: language.id,
+      },
+    });
 
-    } catch (error) {
-        console.error("投稿に失敗しました:", error);
-        return NextResponse.json({
-            success: false,
-            messages: ["サーバーエラー"]
-        }, { status: 500 });
-    }
+    return NextResponse.json({
+      success: true,
+      message: t("success")
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      {
+        success: false,
+        messages: t("error"),
+      },
+      { status: 500 }
+    );
+  }
 }

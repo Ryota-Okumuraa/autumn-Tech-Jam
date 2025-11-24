@@ -7,9 +7,9 @@ import Image from "next/image";
 export default async function LoginPage() {
   const t = await getTranslations("login");
   return (
-    <main className="bg-[#F5F0E9] w-full h-screen flex items-center justify-center py-10 px-4 sm:px-6">
-      <div className="w-full max-w-[1200px] mx-auto flex md:flex-row md:justify-between md:max-h-[800px]">
-        <div className="w-1/2 relative hidden md:block">
+    <main className="bg-base w-full h-screen flex items-center justify-center">
+      <div className="w-[80%] max-w-[1200px] mx-auto flex justify-between max-h-[800px]">
+        <div className="w-1/2 relative">
           <Image src={"/login-icon.svg"} alt={t("signIn")} fill className="object-contain" />
         </div>
         <div className="bg-white rounded-[60px] py-10 px-6 sm:px-12 md:px-21 w-full max-w-[450px] md:max-w-none md:w-1/2 lg:w-[45%]">

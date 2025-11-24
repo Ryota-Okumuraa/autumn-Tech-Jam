@@ -4,13 +4,17 @@
   --font-mplus: "M PLUS 1p", sans-serif;
   /* --*: initial; */
 
-  --color-base: #F5F0E9;
-  --color-main: #FBE481;
+  --font-m-plus-1p: "M PLUS 1p", sans-serif;
+
+  --color-base: #f5f0e9;
+  --color-main: #fbe481;
   --color-white: #ffffff;
   --color-black: #333333;
   --color-gray: #777777;
   --color-yellow: #fbe481;
   --color-red: #e6855e;
+
+  --font-sans: var(--font-m-plus-1p);
 
   --spacing-0: 0px;
   --spacing-1: 4px;
@@ -57,4 +61,15 @@
 
   /* letter-spacing */
   --tracking-2: 0.02em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-base);
+  border-radius: 4px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--font-regular);
+  color: var(--color-black);
 }
