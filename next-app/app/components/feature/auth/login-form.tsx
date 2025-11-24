@@ -6,11 +6,12 @@ import SubmitButton from "../../shared/submit-button";
 import { Link } from "@/i18n/routing";
 import { useState } from "react";
 
+
 export default function LoginForm() {
   const [isFetching, setIsFetching] = useState(false);
   const t = useTranslations("login");
   return (
-    <form className="flex flex-col items-start space-y-4 w-full max-w-[400px]">
+    <form className="flex flex-col items-center space-y-4 w-full max-w-auto mx-auto">
       {/*  メールアドレス */}
       <InputLabel
         id="email"
@@ -33,7 +34,9 @@ export default function LoginForm() {
           <ChevronRight className="text-black w-6 h-6" />
         </Link>
       </div>
+      <div className="w-full flex justify-center">
       <SubmitButton text={t("signIn")} isFetching={isFetching} />
+      </div>
     </form>
   );
 }
