@@ -1,9 +1,12 @@
 import prisma from "@/lib/db";
 import { createClient } from "@/utils/supabase/server";
 import { getTranslations } from "next-intl/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function DELETE({ params }: { params: Promise<{ postId: string }> }) {
+export async function DELETE(
+  _request: NextRequest,
+  { params }: { params: Promise<{ postId: string }> }
+) {
   // 投稿削除
   const { postId } = await params;
   const t = await getTranslations("api-post-delete");

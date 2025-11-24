@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import { Toaster } from "react-hot-toast";
 import { Header } from "../components/shared/Header";
+import { Footer } from "../components/shared/Footer";
 
 // TODO:metadataの設定を行う
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
 
@@ -36,18 +37,17 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased font-mplus bg-base">
+      <body className="antialiased font-mplus bg-base flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          <main className="mt-20">
-            <Header />
-            {children}
-          </main>
+          <Header />
+          <main className="h-screen">{children}</main>
           <Toaster
             position="top-center"
             toastOptions={{
               duration: 2000,
             }}
           />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

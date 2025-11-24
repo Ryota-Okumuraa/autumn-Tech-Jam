@@ -96,6 +96,6 @@ export function createAndUpdatePostSchema(locale: langType = "en-US") {
       .string()
       .min(1, { message: msg.thumbnail.required })
       .max(255, { message: msg.thumbnail.max }),
-    category: z.coerce.number().min(1, { message: msg.category.required }),
+    category: z.number().min(1, { message: msg.category.required }),
   });
 }

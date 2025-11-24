@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utiles";
 import Image from "next/image";
-import { Icon } from "./icon";
+import { Icon } from "./lucide";
 
 interface PostThumbnailUploadProps {
   thumbnail: File | null;

@@ -64,7 +64,9 @@
     "titlePlaceholder": "请输入标题。",
     "category": "分类",
     "thumbnail": "缩略图",
-    "uploading": "上传中..."
+    "articleContent": "文章内容",
+    "uploading": "上传中...",
+    "error": "获取帖子失败。"
   },
   "categoryHead": {
     "food": "美食",
@@ -161,9 +163,12 @@
     "error": "获取个人资料失败。"
   },
   "api-post-edit": {
-    "success": "已编辑帖子。",
-    "error": "编辑帖子失败。",
-    "notFound": "找不到要编辑的帖子。",
+    "success": "已获取帖子。",
+    "error": "获取帖子失败。"
+  },
+  "api-post-update": {
+    "success": "已更新帖子。",
+    "error": "更新帖子失败。",
     "validationError": "此帖子无效。"
   },
   "api-post-delete": {

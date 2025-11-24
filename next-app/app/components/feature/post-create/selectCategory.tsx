@@ -5,18 +5,28 @@ import useSWR from "swr";
 import fetcher from "@/lib/fetcher";
 import { useTranslations } from "next-intl";
 
-export default function SelectCategory({...props}) {
+interface props {
+  setValue: (name: "category", value: number) => void;
+  defaultValue?: number;
+}
+export default function SelectCategory({ setValue, defaultValue }: props) {
   const t = useTranslations("post-create");
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<{ id: number; name: string } | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<{ id: number; name: string } | null>(
+    null
+  );
   const [isClicked, setIsClicked] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const { isLoading } = useSWR<CategoriesResponse>(`/api/category`, fetcher, {
     onSuccess: (data) => {
       setCategories(data.categories);
-      if (data.categories.length > 0) {
-        setSelectedCategory(data.categories[0]);
+      if (defaultValue) {
+        const category = data.categories.find((c) => c.id === defaultValue);
+        if (category) {
+          setSelectedCategory(category);
+          setValue("category", category.id);
+        }
       }
     },
   });
@@ -30,6 +40,7 @@ export default function SelectCategory({...props}) {
 
   const handleCategoryChange = (category: { id: number; name: string }) => {
     setSelectedCategory(category);
+    setValue("category", category.id);
     setIsClicked(false);
     setIsMenuOpen(false);
   };
@@ -53,9 +64,7 @@ export default function SelectCategory({...props}) {
         <span className="text-black">{t("category")}</span>
         <div className="relative w-full">
           <div className={shadowClasses} />
-          <div className={buttonClasses}>
-            Loading...
-          </div>
+          <div className={buttonClasses}>Loading...</div>
         </div>
       </div>
     );
@@ -67,11 +76,7 @@ export default function SelectCategory({...props}) {
       <div className="relative w-full">
         <div className="relative inline-block w-full">
           <div className={shadowClasses} />
-          <button 
-            type="button"
-            className={buttonClasses} 
-            onClick={handleClick}
-          >
+          <button type="button" className={buttonClasses} onClick={handleClick}>
             {selectedCategory ? selectedCategory.name : "Select a category"}
           </button>
         </div>
@@ -103,13 +108,7 @@ export default function SelectCategory({...props}) {
           </div>
         )}
         {/* フォーム送信用のhidden input */}
-        <input 
-          type="hidden" 
-          name="category" 
-          id="category"
-          value={selectedCategory?.id || ""} 
-          {...props}
-        />
+        <input type="hidden" id="category" value={selectedCategory?.id || ""} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing";
-import { Icon } from "@/app/components/shared/icon";
+import { Icon } from "@/app/components/shared/lucide";
 
 interface PagenationProps {
   currentPage: number;

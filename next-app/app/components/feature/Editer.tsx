@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Icon } from "@/app/components/shared/icon";
+import { Icon } from "@/app/components/shared/lucide";
 
 import { PostTitleEditor } from "@/app/components/shared/PostTitleEditor";
 import { PostCategorySelect } from "@/app/components/shared/PostCategorySelect";

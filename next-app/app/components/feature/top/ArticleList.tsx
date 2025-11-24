@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utiles";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Icon } from "@/app/components/shared/icon";
+import { Icon } from "@/app/components/shared/lucide";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { getPosts } from "@/app/api-client/posts/posts";
 import { formatDate } from "@/lib/date";

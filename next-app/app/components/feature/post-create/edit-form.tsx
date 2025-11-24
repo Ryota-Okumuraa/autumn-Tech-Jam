@@ -20,7 +20,17 @@ const Article = dynamic(() => import("./article"), {
   ssr: false,
 });
 
-export default function CreateForm() {
+interface EditFormProps {
+  post: {
+    id: string;
+    title: string;
+    content: string;
+    thumbnail: string;
+    category: number;
+  };
+}
+
+export default function EditForm({ post }: EditFormProps) {
   const router = useRouter();
   const locale = useLocale();
   const lang = checkLang(locale);
@@ -34,12 +44,18 @@ export default function CreateForm() {
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     mode: "onBlur",
+    defaultValues: {
+      title: post.title,
+      content: post.content,
+      thumbnail: post.thumbnail,
+      category: post.category,
+    },
   });
 
   const onsubmit = async (data: FormData) => {
     try {
-      const res = await fetch("/api/post", {
-        method: "POST",
+      const res = await fetch(`/api/post/${post.id}/update`, {
+        method: "PUT",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
@@ -50,6 +66,7 @@ export default function CreateForm() {
       if (result.success) {
         toast.success(result.message);
         router.push("/profile");
+        router.refresh();
       } else {
         toast.error(result.message);
       }
@@ -65,7 +82,11 @@ export default function CreateForm() {
       </div>
       <div className="flex items-start justify-between flex-1">
         <div className="w-[70%] h-full pr-8 border-r-2 border-r-black">
-          <Article setValue={setValue} error={errors.content?.message} />
+          <Article
+            setValue={setValue}
+            error={errors.content?.message}
+            defaultValue={post.content}
+          />
         </div>
         <div className="w-[30%] flex flex-col space-y-4 pl-8">
           <div className="w-full flex flex-col items-start space-y-1">
@@ -73,11 +94,11 @@ export default function CreateForm() {
             {errors.title && <ValidationError>{errors.title.message}</ValidationError>}
           </div>
           <div className="w-full flex flex-col items-start space-y-2">
-            <SelectCategory setValue={setValue} />
+            <SelectCategory setValue={setValue} defaultValue={post.category} />
             {errors.category && <ValidationError>{errors.category.message}</ValidationError>}
           </div>
           <div className="w-full flex flex-col items-start space-y-1">
-            <Thumbnail setValue={setValue} />
+            <Thumbnail setValue={setValue} defaultValue={post.thumbnail} />
             {errors.thumbnail && <ValidationError>{errors.thumbnail.message}</ValidationError>}
           </div>
         </div>

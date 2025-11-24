@@ -49,7 +49,6 @@ export default async function Home() {
               height={500}
               className="w-20 h-20 object-cover md:h-30 md:w-30"
             />
-
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ import { createAndUpdatePostSchema } from "@/schema/post";
 import { getTranslations } from "next-intl/server";
 
 export async function POST(request: Request) {
-  const t = await getTranslations("api-post");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  const t = await getTranslations("api-post"); //messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
   try {
     // ① Supabase からログイン中のユーザー取得
     const supabase = await createClient();
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: t("success")
+      message: t("success"),
     });
   } catch (error) {
     console.error(error);
