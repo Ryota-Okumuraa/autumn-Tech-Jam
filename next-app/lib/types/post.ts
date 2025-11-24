@@ -79,6 +79,8 @@ export interface PostResponse {
   title: string;
   content: string;
   createdAt: string | Date;
-  category: string;
   author: string;
+  category: {
+    name: string;
+  }
 }

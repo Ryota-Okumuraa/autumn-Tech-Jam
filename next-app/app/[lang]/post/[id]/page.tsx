@@ -1,4 +1,3 @@
-import { Header } from "@/app/components/shared/Header"
 import { Footer } from "@/app/components/shared/Footer"
 import { getPost } from "@/app/api-client/post"
 import { RankingPostCard } from "@/app/components/shared/RankingPostCard";
@@ -19,20 +18,24 @@ export default async function PostPage({ params }: PostPageProps) {
     const { id } = await params;
     const t = await getTranslations("postPage")
 
-    const rankingData = await getRankingPosts(7);
+    // 並列実行でパフォーマンスを改善
+    const [rankingData, postData] = await Promise.all([
+        getRankingPosts(7),
+        getPost(id)
+    ]);
+
     const rankingPosts = rankingData.map((post) => ({
         id: post.id,
         thumbnail: post.thumbnail,
         title: post.title,
-        date: post.createdAt.toString(),
+        date: formatDate(post.createdAt.toString()),
         author: post.category.name,
     }));
-
-    const postData = await getPost(id);
 
     if (!postData) {
         notFound();
     }
+
 
     return (
         <>
@@ -40,23 +43,23 @@ export default async function PostPage({ params }: PostPageProps) {
                 <div className="mx-auto max-w-[1200px] px-4">
                     <div className="flex flex-col mt-14">
                         <h1 className="text-3xl font-bold text-center">
-                            {postData.title}
+                            {postData.post.title}
                         </h1>
                         <Image
-                            src={postData.thumbnail}
-                            alt={postData.title}
+                            src={postData.post.thumbnail}
+                            alt={postData.post.title}
                             width={1000}
                             height={1000}
                             className="w-full mt-4 rounded-xl border-2  border-black"
                         />
                         <div className="flex gap-4 text-sm mt-2">
-                            <p>{formatDate(postData.createdAt.toString())}</p>
-                            <p>{postData.category}</p>
-                            <p>{postData.author}</p>
+                            <p>{formatDate(postData.post.createdAt.toString())}</p>
+                            <p>{postData.post.category.name}</p>
+                            <p>{postData.post.author}</p>
                         </div>
                         <div>
                             <ReactMarkdown>
-                                {postData.content}
+                                {postData.post.content}
                             </ReactMarkdown>
                         </div>
                     </div>

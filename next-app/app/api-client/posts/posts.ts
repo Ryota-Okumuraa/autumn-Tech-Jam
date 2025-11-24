@@ -17,14 +17,11 @@ export async function getPosts({ category, offset = 0, pageType = false }: Fetch
     if (!res.ok) {
       throw new Error("Failed to fetch posts");
     }
+
     const data: PostsResponse = await res.json();
     return data;
   } catch (error) {
     console.error("Error fetching posts:", error);
-    return {
-      success: false,
-      posts: [],
-      totalCount: 0,
-    };
+    return null;
   }
 }

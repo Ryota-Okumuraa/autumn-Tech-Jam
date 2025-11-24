@@ -1,17 +1,11 @@
 "use client";
 
 import { getUserProfile } from "@/app/api-client/profile/userProfile";
-import { UserProfileResponse } from "@/lib/types/profile";
 import { useState, useEffect } from "react";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
+import { UserProfileResponse } from "@/lib/types/profile";
 
 export const UserProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserProfileResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +15,7 @@ export const UserProfile = () => {
         // nullチェックを追加
         if (userData) {
           setUser({
-            id: Number(userData.id),
+            id: userData.id,
             name: userData.name,
             email: userData.email,
           });

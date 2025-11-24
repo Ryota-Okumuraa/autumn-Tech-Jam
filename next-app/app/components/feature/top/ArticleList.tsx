@@ -9,7 +9,7 @@ import { getPosts } from "@/app/api-client/posts/posts";
 import { formatDate } from "@/lib/date";
 import { Post } from "@/lib/types/post";
 
-const tags = ["food", "shopping", "travel", "dummy", "life", "stories"];
+const tags = ["food", "shopping", "culture", "guide", "cafe", "stories"];
 
 export const ArticleList = () => {
   const [posts, setPosts] = useState<Post[]>([]);

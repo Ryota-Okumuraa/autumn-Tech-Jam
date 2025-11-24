@@ -27,6 +27,7 @@ export const FeaturedPosts = () => {
           date: post.createdAt.toString(),
           author: post.category.name,
         }));
+        
         setPosts(data);
       } catch (error) {
         console.error("Error fetching featured posts:", error);
@@ -89,7 +90,7 @@ export const FeaturedPosts = () => {
               />
               <h4 className="mt-4 font-bold line-clamp-2">{post.title}</h4>
               <div className="flex gap-6 items-center mt-3">
-                <span className="text-xs">{post.date}</span>
+                <span className="text-xs">{formatDate(post.date)}</span>
                 <span className="text-xs">{post.author}</span>
               </div>
             </div>
