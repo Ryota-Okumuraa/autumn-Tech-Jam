@@ -63,7 +63,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="flex fixed top-0 left-0 w-full py-2 px-4 z-10">
+      <header className="flex fixed top-0 left-0 w-full py-2 px-4 z-50">
         <div className="flex items-center justify-between gap-4 w-full">
           <div>
             <Image src="/logo.png" alt="logo" width={100} height={100} className="w-10 h-10" />
@@ -94,7 +94,7 @@ export const Header = () => {
       </header>
       <div
         className={cn(
-          "fixed z-8 top-0 right-0 w-full h-screen bg-base transition-all transform duration-300 ease-in-out px-4 md:max-w-[380px] md:px-8 md:rounded-bl-[40px] overflow-y-scroll",
+          "fixed z-40 top-0 right-0 w-full h-screen bg-base transition-all transform duration-300 ease-in-out px-4 md:max-w-[380px] md:px-8 md:rounded-bl-[40px] overflow-y-scroll",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

@@ -18,8 +18,8 @@ export default function CreateForm() {
         <BackButton />
         <UploadButton />
       </div>
-      <div className="flex items-center justify-between">
-        <div className="w-[70%] h- pr-8 border-r-2 border-r-black">
+      <div className="flex items-center justify-between h-full">
+        <div className="w-[70%] h-full pr-8 border-r-2 border-r-black">
           <Article />
         </div>
         <div className="w-[30%] flex flex-col space-y-4 pl-8">
