@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 export async function GET({ params } : {
   params: Promise<{ postId: string }>;
 }) {
-    const t = await getTranslations("api-post");
+    const t = await getTranslations("api-detail");
     const { postId } = await params;
     try {
         const post = await prisma.post.findFirst({

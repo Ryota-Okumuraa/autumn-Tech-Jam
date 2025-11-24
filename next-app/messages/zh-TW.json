@@ -148,6 +148,18 @@
     "success": "發佈成功。",
     "error": "發佈失敗。"
   },
+  "api-detail": {
+    "success": "文章取得成功。",
+    "error": "文章取得失敗。"
+  },
+  "api-popular": {
+    "success": "依分類取得熱門文章成功。",
+    "error": "依分類取得熱門文章失敗。"
+  },
+  "api-profile": {
+    "success": "取得個人資料成功。",
+    "error": "取得個人資料失敗。"
+  },
   "api-post-edit": {
     "success": "已編輯貼文。",
     "error": "編輯貼文失敗。",
