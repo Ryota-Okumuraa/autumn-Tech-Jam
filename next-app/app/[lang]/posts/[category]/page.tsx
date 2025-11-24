@@ -89,7 +89,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <CategoryHead category={category} />
           {/* 投稿一覧 */}
           <div className="flex items-center justify-center text-center font-bold md:text-2xl">
-            {totalCount}{t("article")}
+            {totalCount}
+            {t("article")}
           </div>
           {posts.length === 0 ? (
             <div className="text-center py-20">

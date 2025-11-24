@@ -22,10 +22,10 @@ export default function Logout() {
     }
   };
   return (
-
     <div className="relative pr-2 h-[59px] cursor-pointer ">
       <button
-        onClick={handleLogout} disabled={isSubmitting}
+        onClick={handleLogout}
+        disabled={isSubmitting}
         className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
       >
         <span>{t("logout")}</span>

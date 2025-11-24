@@ -3,7 +3,6 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { PostCardProps } from "@/lib/types/post";
 
-
 export function PostCard({ title, thumbnail, date, author, layout, id }: PostCardProps) {
   return (
     <Link
@@ -15,10 +14,12 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
           : "max-w-[218px] md:max-w-[280px] w-full flex-col md:min-w-[280px]"
       )}
     >
-      <div className={cn(
-        "flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit ",
-        layout === "row" && "flex-1",
-      )}>
+      <div
+        className={cn(
+          "flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit ",
+          layout === "row" && "flex-1"
+        )}
+      >
         <Image
           src={thumbnail}
           alt="thumbnail"

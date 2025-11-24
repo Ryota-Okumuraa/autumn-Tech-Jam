@@ -64,7 +64,9 @@
     "titlePlaceholder": "Please enter a title.",
     "category": "Category",
     "thumbnail": "Thumbnail",
-    "uploading": "Uploading..."
+    "articleContent": "Article Content",
+    "uploading": "Uploading...",
+    "error": "Failed to retrieve post."
   },
   "categoryHead": {
     "food": "Food",
@@ -148,10 +150,25 @@
     "success": "success to create post",
     "error": "failed to create post"
   },
+  "api-detail": {
+    "success": "Successfully retrieved the article.",
+    "error": "Failed to retrieve the article."
+  },
+  "api-popular": {
+    "success": "Successfully retrieved popular articles by category.",
+    "error": "Failed to retrieve popular articles by category."
+  },
+  "api-profile": {
+    "success": "Successfully retrieved profile.",
+    "error": "Failed to retrieve profile."
+  },
   "api-post-edit": {
-    "success": "Post edited successfully.",
-    "error": "Failed to edit post.",
-    "notFound": "Post to edit not found.",
+    "success": "Post retrieved successfully.",
+    "error": "Failed to retrieve post."
+  },
+  "api-post-update": {
+    "success": "Post updated successfully.",
+    "error": "Failed to update post.",
     "validationError": "This post is invalid."
   },
   "api-post-delete": {
