@@ -9,11 +9,22 @@ import Image from "next/image"
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 
-export default async function PostPage({ params }: { params: { id: string } }) {
-    const { id } = params;
+interface PostPageProps {
+    params: {
+        id: string;
+    }
+}
+
+export default async function PostPage({ params }: PostPageProps) {
+    const { id } = await params;
     const t = await getTranslations("postPage")
 
-    const rankingData = await getRankingPosts(7);
+    // 並列実行でパフォーマンスを改善
+    const [rankingData, postData] = await Promise.all([
+        getRankingPosts(7),
+        getPost(id)
+    ]);
+    
     const rankingPosts = rankingData.map((post) => ({
         id: post.id,
         thumbnail: post.thumbnail,
@@ -22,7 +33,6 @@ export default async function PostPage({ params }: { params: { id: string } }) {
         author: post.category.name,
     }));
 
-    const postData = await getPost(id);
     if (!postData) {
         notFound();
     }
