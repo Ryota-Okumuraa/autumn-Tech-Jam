@@ -68,6 +68,7 @@
   },
   "CategoryPage": {
     "noPosts": "No posts found in this category.",
+    "article": "article",
     "food": {
       "q1": "What are the must-try dishes in Nagoya?",
       "a1": "Nagoya is famous for hitsumabushi (grilled eel), miso katsu, tebasaki (chicken wings), and kishimen noodles. These dishes represent the hearty and flavorful local cuisine.",
@@ -115,24 +116,15 @@
       "a2": "Locals appreciate the city's balance of modern convenience and traditional values. The food culture, friendly community, and easy access to nature make it a great place to live.",
       "q3": "Are there any hidden gems in Nagoya?",
       "a3": "The Osu Kannon area, Arimatsu district, and local izakayas in the backstreets are hidden gems. These places offer authentic experiences away from the main tourist spots."
-    },
-    "api-register": {
-      "success": "User registration succeeded.",
-      "error": "User registration failed."
-    },
-    "api-login": {
-      "success": "Login succeeded.",
-      "error": "Login failed."
     }
+  },
   "api-register": {
     "success": "User registration succeeded.",
-    "error": "User registration failed.",
-    "validationError": "invalid data"
+    "error": "User registration failed."
   },
   "api-login": {
     "success": "Login succeeded.",
-    "error": "Login failed.",
-    "validationError": "Invalid data."
+    "error": "Login failed."
   },
   "api-post-edit": {
     "success": "Post edited successfully.",
@@ -154,5 +146,14 @@
     "success": "User posts retrieved successfully.",
     "error": "Failed to retrieve user posts.",
     "notFound": "User posts not found."
+  },
+  "ProfilePage": {
+    "article": "article"
+  },
+  "Logout": {
+    "logout": "Logout"
+  },
+  "PostPage": {
+    "ranking": "Ranking"
   }
 }
