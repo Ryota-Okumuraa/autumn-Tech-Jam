@@ -144,6 +144,10 @@
     "error": "登录失败。",
     "validationError": "无效数据。"
   },
+  "api-post": {
+    "success": "发布成功。",
+    "error": "发布失败。"
+  },
   "api-post-edit": {
     "success": "已编辑帖子。",
     "error": "编辑帖子失败。",

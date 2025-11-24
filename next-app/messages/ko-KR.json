@@ -144,6 +144,10 @@
     "error": "로그인에 실패했습니다.",
     "validationError": "유효하지 않은 데이터입니다."
   },
+  "api-post": {
+    "success": "게시에 성공했습니다.",
+    "error": "게시에 실패했습니다."
+  },
   "api-post-edit": {
     "success": "게시물을 편집했습니다.",
     "error": "게시물 편집에 실패했습니다.",

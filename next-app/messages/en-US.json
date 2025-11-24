@@ -136,11 +136,17 @@
   },
   "api-register": {
     "success": "User registration succeeded.",
-    "error": "User registration failed."
+    "error": "User registration failed.",
+    "validationError": "Invalid data."
   },
   "api-login": {
     "success": "Login succeeded.",
-    "error": "Login failed."
+    "error": "Login failed.",
+    "validationError": "Invalid data."
+  },
+  "api-post": {
+    "success": "success to create post",
+    "error": "failed to create post"
   },
   "api-post-edit": {
     "success": "Post edited successfully.",
