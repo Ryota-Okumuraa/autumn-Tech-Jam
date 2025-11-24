@@ -29,7 +29,7 @@ export default async function PostPage({ params }: PostPageProps) {
         thumbnail: post.thumbnail,
         title: post.title,
         date: formatDate(post.createdAt.toString()),
-        author: post.category.name,
+        author: post.profile.name,
     }));
 
     if (!postData) {
@@ -43,23 +43,23 @@ export default async function PostPage({ params }: PostPageProps) {
                 <div className="mx-auto max-w-[1200px] px-4">
                     <div className="flex flex-col mt-14">
                         <h1 className="text-3xl font-bold text-center">
-                            {postData.post.title}
+                            {postData.title}
                         </h1>
                         <Image
-                            src={postData.post.thumbnail}
-                            alt={postData.post.title}
+                            src={postData.thumbnail}
+                            alt={postData.title}
                             width={1000}
                             height={1000}
                             className="w-full mt-4 rounded-xl border-2  border-black"
                         />
                         <div className="flex gap-4 text-sm mt-2">
-                            <p>{formatDate(postData.post.createdAt.toString())}</p>
-                            <p>{postData.post.category.name}</p>
-                            <p>{postData.post.author}</p>
+                            <p>{formatDate(postData.createdAt)}</p>
+                            <p>{postData.profile.name}</p>
+                            <p>{postData.author}</p>
                         </div>
                         <div>
                             <ReactMarkdown>
-                                {postData.post.content}
+                                {postData.content}
                             </ReactMarkdown>
                         </div>
                     </div>

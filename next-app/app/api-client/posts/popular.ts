@@ -13,7 +13,10 @@ export async function getPopularPosts(category: string, limit: number) {
             throw new Error("Failed to fetch popular posts");
         }
         const data = await res.json();
-        return data;
+        return {
+            success: data.success || false,
+            posts: data.posts || [],
+        }
     } catch (error) {
         console.error("Error fetching popular posts:", error);
     }

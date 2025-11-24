@@ -21,7 +21,7 @@ export const ArticleList = () => {
       setIsLoading(true);
       try {
         const data = await getPosts({ category: selectedCategory, offset: 0, pageType: false });
-        if (data.success) {
+        if (data && data.success) {
           const posts = data.posts.map((post) => {
             return {
               id: post.id,
