@@ -1,6 +1,10 @@
 import PrismaClient from '@prisma/client';
-import { getAuthenticateDelete } from '@/utils/supabase/server'
+import { getAuthenticateUser } from '@/utils/supabase/server'
+import { createClient } from "@/utils/supabase/server";
 
+const supabase = await createClient();
+const { data : { user } , error } = await supabase.auth.getUser();
+const userId = user.id;
 
 export async function DELETE(request: Request){
 
@@ -10,21 +14,23 @@ export async function DELETE(request: Request){
   try {
     const deletePost = await prisma.post.delete({
       where: {
-        id: parseInt(request.params.id)
-        name: parseInt(request.params.name)
+        id: id
       }
+      profile : {
+      where : {
+        userId : userId
+    }
+  }
     });
     return NextResponse.json({
       success: true,
-      message: ["削除しました。"]
+      message: ["delete success"]
     });
     }
     catch (error: any) {
-    if (error.code == "P2025") {
       return NextResponse.json({
         success: false,
-        message: ["削除できませんでした。"]
+        message: ["delete fail"]
         },{status: 404});
-      }
   }
 }

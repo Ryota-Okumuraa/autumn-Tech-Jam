@@ -1,7 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/db";
 
 interface BlogPost {
   thumbnail: string;
@@ -9,7 +8,7 @@ interface BlogPost {
   content: string;
 }
 
-export async function GET("posts/[id]/detail") {
+export async function GET() {
   try {
     const posts = await prisma.post.findMany({
       select: {
@@ -21,7 +20,11 @@ export async function GET("posts/[id]/detail") {
         createdAt: 'desc',
       },
     });
-    return NextResponse.json(posts as BlogPost[], { status: 200 });
+    return NextResponse.json({
+      data: posts,
+      message: "記事の読み込みに成功しました。"
+    }
+      , { status: 200 });
   } catch (error) {
     console.error("Error fetching blog posts:", error);
 

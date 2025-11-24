@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import { getAuthenticatedUser } from '@/utils/supabase/server';
 
-export async function POST(request: Request) {
+const body = await request.json(){
 
     let body;
     try {
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
             messages: ["認証してください"]
         }, { status: 401 });
     }
-    const authorId = user.id;
+    const profileId = user.id;
 
     try {
         const post = await prisma.post.create({
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
                 content,
                 thumbnail: thumbnail,
                 category,
-                authorId: authorId,
+                profileId: profileId,
             },
         });
         return NextResponse.json({
