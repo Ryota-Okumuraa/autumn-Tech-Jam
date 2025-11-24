@@ -3,60 +3,12 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from "@/app/components/shared/icon";
-// import fetchpost
+import { getRankingPosts } from "@/app/api-client/posts/ranking";
+import { PostCard } from "@/app/components/shared/PostCard";
+import { formatDate } from "@/lib/date";
+import { FeaturedPost } from "@/lib/types/post";
 
-export interface FeaturedPost {
-  id: number;
-  thumbnail: string;
-  title: string;
-  date: string;
-  author: string;
-}
-
-const SCROLL_AMOUNT = 324;
-
-const featuredPosts = [
-  {
-    id: 1,
-    thumbnail: "/dummy.png",
-    title:
-      "がっつり・こってり・名古屋めし！ がっつり・こってり・名古屋めし！がっつり・こってり・名古屋めし！",
-    date: "2025.11.28",
-    author: "味噌ガール0号",
-  },
-  {
-    id: 2,
-    thumbnail: "/dummy.png",
-    title: "名古屋の隠れた名店を発見！",
-    date: "2025.11.27",
-    author: "グルメ探検家",
-  },
-  {
-    id: 3,
-    thumbnail: "/dummy.png",
-    title: "名古屋コーチンの絶品親子丼",
-    date: "2025.11.26",
-    author: "ご当地グルメ研究家",
-  },
-];
-
-// 仮コンポーネント
-const PostCard = ({ post }: { post: (typeof featuredPosts)[0] }) => (
-  <div className="max-w-[280px] h-fit">
-    <Image
-      src={post.thumbnail}
-      alt={post.title}
-      width={500}
-      height={500}
-      className="max-w-[280px] object-cover rounded-[20px] border-2 border-black"
-    />
-    <h4 className="mt-4 font-bold line-clamp-2">{post.title}</h4>
-    <div className="flex gap-6 items-center mt-3">
-      <span className="text-xs">{post.date}</span>
-      <span className="text-xs">{post.author}</span>
-    </div>
-  </div>
-);
+const SCROLL_AMOUNT = 328;
 
 export const FeaturedPosts = () => {
   const [posts, setPosts] = useState<FeaturedPost[]>([]);
@@ -67,13 +19,15 @@ export const FeaturedPosts = () => {
     const loadPosts = async () => {
       try {
         setIsLoading(true);
-        // apifetch
-        // const data = await fetchFeaturedPosts();
-        //setPosts(data);
-
-        //仮
-        const mockData: FeaturedPost[] = featuredPosts;
-        setPosts(mockData);
+        const res = await getRankingPosts(3);
+        const data = res.map((post) => ({
+          id: post.id,
+          thumbnail: post.thumbnail,
+          title: post.title,
+          date: post.createdAt.toString(),
+          author: post.category.name,
+        }));
+        setPosts(data);
       } catch (error) {
         console.error("Error fetching featured posts:", error);
       } finally {
@@ -124,7 +78,7 @@ export const FeaturedPosts = () => {
           Featured Posts
         </h2>
         <div className="flex px-4 gap-5 overflow-x-scroll pb-4">
-          {featuredPosts.map((post) => (
+          {posts.map((post) => (
             <div className="max-w-[200px]" key={post.id}>
               <Image
                 src={post.thumbnail}
@@ -163,8 +117,16 @@ export const FeaturedPosts = () => {
             </button>
             {/* スクロール可能なコンテナ */}
             <div ref={scrollContainerRef} className="flex gap-12 px-20 overflow-x-hidden">
-              {featuredPosts.map((post) => (
-                <PostCard key={post.id} post={post} />
+              {posts.map((post) => (
+                <PostCard
+                  key={post.id.toString()}
+                  id={post.id}
+                  title={post.title}
+                  thumbnail={post.thumbnail}
+                  date={formatDate(post.date)}
+                  author={post.author}
+                  layout="column"
+                />
               ))}
             </div>
           </div>

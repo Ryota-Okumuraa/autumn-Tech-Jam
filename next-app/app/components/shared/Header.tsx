@@ -1,54 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 import { cn } from "@/lib/utiles";
+import { useTranslations } from "next-intl";
 import { Icon } from "@/app/components/shared/icon";
 import { UserProfile } from "@/app/components/feature/UserProfile";
-import { LanguageSelect } from "@/app/components/shared/LanguageSelect";
-
-const navigationItems = [
-  {
-    id: 1,
-    href: "/category/food",
-    label: "Food",
-    icon: "/category/category-food.png",
-  },
-  {
-    id: 2,
-    href: "/category/shopping",
-    label: "Shopping",
-    icon: "/category/category-shopping.png",
-  },
-  {
-    id: 3,
-    href: "/category/culture",
-    label: "Culture",
-    icon: "/category/category-culture.png",
-  },
-  {
-    id: 4,
-    href: "/category/guide",
-    label: "Guide",
-    icon: "/category/category-guide.png",
-  },
-  {
-    id: 5,
-    href: "/category/cafe",
-    label: "Cafe",
-    icon: "/category/category-cafe.png",
-  },
-  {
-    id: 6,
-    href: "/category/stories",
-    label: "Stories",
-    icon: "/category/category-stories.png",
-  },
-];
+import { LanguageSelectButton } from "@/app/components/shared/LanguageSelectButton";
 
 export const Header = () => {
+  const t = useTranslations("header");
+
+  const navigationItems = useMemo(() => [
+    {
+      id: 1,
+      href: "/posts/food",
+      label: t("categories.food"),
+      icon: "/category/category-food.png",
+    },
+    {
+      id: 2,
+      href: "/posts/shopping",
+      label: t("categories.shopping"),
+      icon: "/category/category-shopping.png",
+    },
+    {
+      id: 3,
+      href: "/posts/culture",
+      label: t("categories.culture"),
+      icon: "/category/category-culture.png",
+    },
+    {
+      id: 4,
+      href: "/posts/guide",
+      label: t("categories.guide"),
+      icon: "/category/category-guide.png",
+    },
+    {
+      id: 5,
+      href: "/posts/cafe",
+      label: t("categories.cafe"),
+      icon: "/category/category-cafe.png",
+    },
+    {
+      id: 6,
+      href: "/posts/stories",
+      label: t("categories.stories"),
+      icon: "/category/category-stories.png",
+    },
+  ], [t]);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -67,9 +70,7 @@ export const Header = () => {
             <Image src="/logo.png" alt="logo" width={100} height={100} className="w-10 h-10" />
           </div>
           <div className="flex items-center gap-8">
-            <LanguageSelect
-            // onLanguageChange={handleLanguageChange}
-            />
+            <LanguageSelectButton />
             <button
               className="bg-main border-2 border-black rounded-sm w-16 h-16 flex items-center justify-center cursor-pointer focus:outline-none"
               onClick={toggleMenu}
@@ -100,7 +101,7 @@ export const Header = () => {
       >
         <div className="flex flex-col justify-between gap-10 pt-40 h-full">
           <div>
-            <p className="font-bold text-xl ">Articles by Category</p>
+            <p className="font-bold text-xl ">{t("articlesByCategory")}</p>
             <nav className="pt-[10px]">
               <ul className="flex flex-col">
                 {navigationItems.map((item) => (
@@ -122,13 +123,22 @@ export const Header = () => {
           </div>
           <div className="relative pr-2 h-[59px] cursor-pointer">
             <Link
-              href="/new-post"
+              href="/posts/create"
               className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
             >
-              <span className="font-bold">New Post</span>
+              <span className="font-bold">{t("newPosts")}</span>
             </Link>
             <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
           </div>
+          {/* <div className="relative pr-2 h-[59px] cursor-pointer ">
+            <Link
+              href={`/profile/${profileId}`}
+              className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
+            >
+              <span className="font-bold">{t("profile")}</span>
+            </Link>           
+            <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
+          </div> */}
           <UserProfile />
         </div>
       </div>
