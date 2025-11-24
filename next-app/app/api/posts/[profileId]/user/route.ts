@@ -52,12 +52,12 @@ export async function GET(
       },
     });
     const res = posts.map((post) => ({
-      id : post.id,
-      title : post.title,
-      thumbnail : post.thumbnail,
-      createdAt : post.createdAt,
-      author : post.profile.name,
-    }))
+      id: post.id,
+      title: post.title,
+      thumbnail: post.thumbnail,
+      createdAt: post.createdAt,
+      author: post.profile.name,
+    }));
     return NextResponse.json(
       {
         success: true,

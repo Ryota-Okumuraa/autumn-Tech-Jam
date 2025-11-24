@@ -49,8 +49,21 @@
     "rankingSubTitle": "anking",
     "aboutText": "Nagoya's charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
   },
+  "api-category": {
+    "food": "food",
+    "cafe": "cafe",
+    "culture": "culture",
+    "guide": "guide",
+    "shopping": "shopping",
+    "stories": "stories"
+  },
   "post-create": {
-    "back": "Back"
+    "back": "Back",
+    "title": "Title",
+    "titlePlaceholder": "Please enter a title.",
+    "category": "Category",
+    "thumbnail": "Thumbnail",
+    "uploading": "Uploading..."
   },
   "api-register": {
     "success": "User registration succeeded.",

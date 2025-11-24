@@ -37,11 +37,11 @@ export async function GET(request: Request) {
         thumbnail: true,
         title: true,
         createdAt: true,
-        profile : {
-          select : {
-            name : true
-          }
-        }
+        profile: {
+          select: {
+            name: true,
+          },
+        },
       },
       take,
       skip: offset * 20, //offsetに1,2,3,4のように値が入ってきて、*20をすることによって、データを取ってくる際に、同じデータを取ってくるのを避ける。
@@ -50,17 +50,17 @@ export async function GET(request: Request) {
     });
 
     const res = posts.map((post) => ({
-      id : post.id,
-      thumbnail : post.thumbnail,
-      title : post.title,
-      createdAt : post.createdAt,
-      author : post.profile.name,
-    }))
+      id: post.id,
+      thumbnail: post.thumbnail,
+      title: post.title,
+      createdAt: post.createdAt,
+      author: post.profile.name,
+    }));
 
     return NextResponse.json(
       {
         success: true,
-        posts : res,
+        posts: res,
         totalCount,
       },
       { status: 200 }

@@ -49,8 +49,21 @@
     "rankingSubTitle": "行",
     "aboutText": "名古屋的魅力在於其日常文化—早晨咖啡傳統、<br />當地美食、友好的社區以及寧靜的氛圍。"
   },
+  "api-category": {
+    "food": "美食",
+    "cafe": "咖啡",
+    "culture": "文化",
+    "guide": "指南",
+    "shopping": "購物",
+    "stories": "故事"
+  },
   "post-create": {
-    "back": "返回"
+    "back": "返回",
+    "title": "標題",
+    "titlePlaceholder": "請輸入標題。",
+    "category": "分類",
+    "thumbnail": "縮圖",
+    "uploading": "上傳中..."
   },
   "api-register": {
     "success": "用戶註冊成功。",
