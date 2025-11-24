@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Header } from "@/app/components/shared/Header";
 import { Footer } from "@/app/components/shared/Footer";
-import { Icon } from "@/app/components/shared/icon";
 import { CategoryHead } from "@/app/components/feature/category/CategoryHead";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { formatDate } from "@/lib/date";
@@ -39,7 +37,7 @@ interface CategoryPageProps {
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const t = await getTranslations("CategoryPage");
-  const { category, lang } = await params;
+  const { category } = await params;
   const resolvedSearchParams = await searchParams;
   const currentPage = Number(resolvedSearchParams.page) || 1;
   const offset = currentPage - 1;
@@ -84,15 +82,14 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
   const totalPages = totalCount ? Math.ceil(totalCount / POSTS_PER_PAGE) : 1;
 
   return (
-    <main>
-      <Header />
-      <section className="md:pt-15 md:pb-12">
-        <div className="md:max-w-[1200px] mx-auto">
+    <>
+      <section className="md:pt-12 md:pb-12">
+        <div className="md:max-w-[1200px] mx-auto px-4">
           {/* カテゴリー名の表示 */}
           <CategoryHead category={category} />
           {/* 投稿一覧 */}
           <div className="flex items-center justify-center text-center font-bold md:text-2xl">
-            {totalCount}article
+            {totalCount}{t("article")}
           </div>
           {posts.length === 0 ? (
             <div className="text-center py-20">
@@ -129,7 +126,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         </div>
       </section>
       <Footer />
-    </main>
+    </>
   );
 }
 
