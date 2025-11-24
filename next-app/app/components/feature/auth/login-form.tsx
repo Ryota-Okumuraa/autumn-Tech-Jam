@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ValidationError from "../../shared/validation-error";
 import toast from "react-hot-toast";
 
+
 export default function LoginForm() {
   const [isFetching, setIsFetching] = useState(false);
   const t = useTranslations("login");
@@ -97,7 +98,9 @@ export default function LoginForm() {
           <ChevronRight className="text-black w-6 h-6" />
         </Link>
       </div>
+      <div className="w-full flex justify-center">
       <SubmitButton text={t("signIn")} isFetching={isFetching} />
+      </div>
     </form>
   );
 }
