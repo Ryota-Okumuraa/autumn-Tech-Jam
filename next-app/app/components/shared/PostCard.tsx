@@ -3,6 +3,7 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { PostCardProps } from "@/lib/types/post";
 
+
 export function PostCard({ title, thumbnail, date, author, layout, id }: PostCardProps) {
   return (
     <Link
