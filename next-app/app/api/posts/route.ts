@@ -1,6 +1,5 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
-import { success } from "zod";
 
 export async function GET(request: Request) {
   try {
@@ -38,11 +37,11 @@ export async function GET(request: Request) {
         thumbnail: true,
         title: true,
         createdAt: true,
-        category: {
-          select: {
-            name: true,
-          },
-        },
+        profile : {
+          select : {
+            name : true
+          }
+        }
       },
       take,
       skip: offset * 20, //offsetに1,2,3,4のように値が入ってきて、*20をすることによって、データを取ってくる際に、同じデータを取ってくるのを避ける。
@@ -50,10 +49,18 @@ export async function GET(request: Request) {
       orderBy: { createdAt: "desc" },
     });
 
+    const res = posts.map((post) => ({
+      id : post.id,
+      thumbnail : post.thumbnail,
+      title : post.title,
+      createdAt : post.createdAt,
+      author : post.profile.name,
+    }))
+
     return NextResponse.json(
       {
         success: true,
-        posts,
+        posts : res,
         totalCount,
       },
       { status: 200 }

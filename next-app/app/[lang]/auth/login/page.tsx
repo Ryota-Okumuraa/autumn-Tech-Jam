@@ -6,7 +6,7 @@ import Image from "next/image";
 export default async function LoginPage() {
   const t = await getTranslations("login");
   return (
-    <main className="bg-[#F5F0E9] w-full h-screen flex items-center justify-center">
+    <main className="bg-base w-full h-screen flex items-center justify-center">
       <div className="w-[80%] max-w-[1200px] mx-auto flex justify-between max-h-[800px]">
         <div className="w-1/2 relative">
           <Image src={"/login-icon.svg"} alt={t("signIn")} fill className="object-contain" />

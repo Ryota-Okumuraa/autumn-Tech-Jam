@@ -47,7 +47,10 @@
     "featuredSubTitle": "vents in Nagoya !!",
     "rankingFirst": "R",
     "rankingSubTitle": "anking",
-    "aboutText": "Nagoya’s charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
+    "aboutText": "Nagoya's charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
+  },
+  "post-create": {
+    "back": "Back"
   },
   "api-register": {
     "success": "User registration succeeded.",

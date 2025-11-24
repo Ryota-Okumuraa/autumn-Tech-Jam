@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Header } from "@/app/components/shared/Header";
 import { ArticleList } from "@/app/components/feature/top/ArticleList";
-import { FeaturedList } from "@/app/components/feature/top/FeaturedList"
+import { FeaturedList } from "@/app/components/feature/top/FeaturedList";
 import { FeaturedPosts } from "@/app/components/feature/top/FeaturedPost";
 import { Ranking } from "@/app/components/feature/top/RankingSection";
 import { Footer } from "@/app/components/shared/Footer";
@@ -29,16 +29,18 @@ export default async function Home() {
           alt="FV"
           width={500}
           height={500}
-          className="w-full h-full object-cover" />
+          className="w-full h-full object-cover"
+        />
       </section>
       {/* FeaturedPosts */}
-      
+
       <FeaturedPosts />
       {/* ArticleList*/}
       <section className="md:pt-15 md:pb-12">
         <div className="md:max-w-[1200px] mx-auto">
           <h2 className="text-[52px] px-4 font-bold">
-            <span className="text-[72px]">{t("articleFirst")}</span>{t("artivleSubTitle")}
+            <span className="text-[72px]">{t("articleFirst")}</span>
+            {t("artivleSubTitle")}
           </h2>
           <ArticleList />
         </div>
@@ -47,7 +49,8 @@ export default async function Home() {
       <section className="rounded-[26px] bg-main/60 backdrop-blur-md py-10 md:py-12">
         <div className="md:max-w-[1200px] mx-auto">
           <h2 className="text-[28px] px-4 font-bold md:text-[40px]">
-            <span className="text-[38px] md:text-[52px]">{t("featuredFirst")}</span>{t("featuredSubTitle")}
+            <span className="text-[38px] md:text-[52px]">{t("featuredFirst")}</span>
+            {t("featuredSubTitle")}
           </h2>
           <FeaturedList />
         </div>
@@ -56,7 +59,8 @@ export default async function Home() {
       <section className="py-10 md:pt-30 md:pb-20">
         <div className="md:max-w-[1200px] mx-auto">
           <h2 className="text-[52px] px-4 font-bold">
-            <span className="text-[72px]">{t("rankingFirst")}</span>{t("rankingSubTitle")}
+            <span className="text-[72px]">{t("rankingFirst")}</span>
+            {t("rankingSubTitle")}
           </h2>
           <Ranking />
         </div>
@@ -65,9 +69,7 @@ export default async function Home() {
       <section className="bg-main/60 mr-4 pl-4 rounded-r-[20px] py-30 mt-10 mb-4">
         <div className="md:max-w-[1200px] flex items-center mx-auto">
           <div className="flex-1">
-            <p className="text-xl">
-              {t("aboutText")}
-            </p>
+            <p className="text-xl">{t("aboutText")}</p>
           </div>
           <div className="flex-1 hidden md:block">
             <Image src="/about.png" alt="about" width={500} height={500} />
