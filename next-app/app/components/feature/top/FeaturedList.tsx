@@ -1,19 +1,14 @@
 import { PostCard } from "@/app/components/shared/PostCard";
+// ここ変更
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { formatDate } from "@/lib/date";
-
-export interface FeaturedPost {
-  id: string;
-  thumbnail: string;
-  title: string;
-  date: string;
-  author: string;
-}
+import { FeaturedPost } from "@/lib/types/post";
 
 export const FeaturedList = async () => {
   let featuredPosts: FeaturedPost[] = [];
 
   try {
+    // getRankingPostsではなくて、category別のranking
     const res = await getRankingPosts(7);
     featuredPosts = res.map((post) => ({
       id: post.id,

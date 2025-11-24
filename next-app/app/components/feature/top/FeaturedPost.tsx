@@ -6,16 +6,9 @@ import { Icon } from "@/app/components/shared/icon";
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { formatDate } from "@/lib/date";
+import { FeaturedPost } from "@/lib/types/post";
 
-interface FeaturedPost {
-  id: string;
-  thumbnail: string;
-  title: string;
-  date: string;
-  author: string;
-}
-
-const SCROLL_AMOUNT = 324;
+const SCROLL_AMOUNT = 328;
 
 export const FeaturedPosts = () => {
   const [posts, setPosts] = useState<FeaturedPost[]>([]);
