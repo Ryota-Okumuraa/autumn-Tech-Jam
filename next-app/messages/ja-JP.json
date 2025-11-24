@@ -162,9 +162,12 @@
     "error": "カテゴリ別人気記事取得に失敗しました。"
   },
   "api-post-edit": {
-    "success": "投稿を編集しました。",
-    "error": "投稿の編集に失敗しました。",
-    "notFound": "編集する投稿が見つかりませんでした。",
+    "success": "投稿を取得しました。",
+    "error": "投稿の取得に失敗しました。"
+  },
+  "api-post-update": {
+    "success": "投稿を更新しました。",
+    "error": "投稿の更新に失敗しました。",
     "validationError": "この投稿は無効です。"
   },
   "api-post-delete": {

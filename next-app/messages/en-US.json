@@ -162,9 +162,12 @@
     "error": "Failed to retrieve profile."
   },
   "api-post-edit": {
-    "success": "Post edited successfully.",
-    "error": "Failed to edit post.",
-    "notFound": "Post to edit not found.",
+    "success": "Post retrieved successfully.",
+    "error": "Failed to retrieve post."
+  },
+  "api-post-update": {
+    "success": "Post updated successfully.",
+    "error": "Failed to update post.",
     "validationError": "This post is invalid."
   },
   "api-post-delete": {

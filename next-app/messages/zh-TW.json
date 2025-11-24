@@ -162,9 +162,12 @@
     "error": "取得個人資料失敗。"
   },
   "api-post-edit": {
-    "success": "已編輯貼文。",
-    "error": "編輯貼文失敗。",
-    "notFound": "找不到要編輯的貼文。",
+    "success": "已取得貼文。",
+    "error": "取得貼文失敗。"
+  },
+  "api-post-update": {
+    "success": "已更新貼文。",
+    "error": "更新貼文失敗。",
     "validationError": "此貼文無效。"
   },
   "api-post-delete": {
