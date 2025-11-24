@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 import { getTranslations } from "next-intl/server";
 
+// 記事を取得。詳細。ただし、ユーザー認証をしてる。
 export async function GET({
   params,
 }: {
