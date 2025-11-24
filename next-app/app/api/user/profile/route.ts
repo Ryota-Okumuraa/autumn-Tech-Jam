@@ -21,6 +21,7 @@ export async function GET() {
     },
     select: {
       name: true,
+      message: true
     },
   });
 
@@ -29,6 +30,7 @@ export async function GET() {
     success: true,
     id: user.id,
     name: profile?.name ?? null, // プロフィールが無い時は null
+    message: profile?.message ?? null,
     email: user.email,
   });
 }

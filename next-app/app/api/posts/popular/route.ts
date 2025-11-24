@@ -27,6 +27,9 @@ export async function GET(request: Request) {
             name: true, // ← categoryId は返さず category の名前だけ返す
           },
         },
+        _count: {
+          select: { views: true }, // ← これを追加
+        },
       },
       orderBy: {
         views: {
@@ -35,9 +38,20 @@ export async function GET(request: Request) {
       },
       take: limit,
     });
+
+    // レスポンス整形
+    const formattedPosts = categoryPopular.map((post) => ({
+      id: post.id,
+      thumbnail: post.thumbnail,
+      title: post.title,
+      createdAt: post.createdAt,
+      category: post.category.name, // ← nameだけ返す
+      views: post._count.views, // ← カウント数を返す
+    }));
+
     return Response.json({
       success: true,
-      posts: categoryPopular,
+      posts: formattedPosts,
     });
   } catch (e: unknown) {
     const message = e instanceof Error ? e.message : "エラーが発生しました";
