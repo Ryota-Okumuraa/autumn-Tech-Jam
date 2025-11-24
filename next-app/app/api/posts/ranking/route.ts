@@ -32,9 +32,9 @@ export async function GET(request: Request) {
         thumbnail: true,
         title: true,
         createdAt: true,
-        category: {
+        profile: {
           select: {
-            name: true, // ← categoryId は返さず category の名前だけ返す
+            name: true,
           },
         },
       },
@@ -45,7 +45,20 @@ export async function GET(request: Request) {
       },
       take: 10,
     });
-    return Response.json(rankingPosts);
+    const res = rankingPosts.map((post) => ({
+      id: post.id,
+      thumbnail: post.thumbnail,
+      title: post.title,
+      createdAt: post.createdAt,
+      author: post.profile.name,
+    }));
+    return Response.json(
+      {
+        success: true,
+        posts: res,
+      },
+      { status: 200 }
+    );
   } catch (e: unknown) {
     const message = e instanceof Error ? e.message : "エラーが発生しました";
     return Response.json({ success: false, message }, { status: 500 });

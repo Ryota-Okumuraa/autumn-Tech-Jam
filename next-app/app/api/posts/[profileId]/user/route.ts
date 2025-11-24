@@ -12,7 +12,6 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const offsetParam = searchParams.get("offset") || "0";
   const t = await getTranslations("api-posts-user");
-  
   // 数値に変換してバリデーション。0以上の整数
   const validatedOffset = z.coerce.number().int().nonnegative().safeParse(offsetParam);
   if (!validatedOffset.success) {
@@ -30,7 +29,7 @@ export async function GET(
         id: true,
         title: true,
         thumbnail: true,
-        category: {
+        profile: {
           select: {
             name: true,
           },
@@ -51,10 +50,17 @@ export async function GET(
         profileId: profileId,
       },
     });
+    const res = posts.map((post) => ({
+      id: post.id,
+      title: post.title,
+      thumbnail: post.thumbnail,
+      createdAt: post.createdAt,
+      author: post.profile.name,
+    }));
     return NextResponse.json(
       {
         success: true,
-        posts: posts,
+        posts: res,
         totalCount: count,
       },
       { status: 200 }

@@ -1,6 +1,5 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
-import { success } from "zod";
 
 export async function GET(request: Request) {
   try {
@@ -38,7 +37,7 @@ export async function GET(request: Request) {
         thumbnail: true,
         title: true,
         createdAt: true,
-        category: {
+        profile: {
           select: {
             name: true,
           },
@@ -50,10 +49,18 @@ export async function GET(request: Request) {
       orderBy: { createdAt: "desc" },
     });
 
+    const res = posts.map((post) => ({
+      id: post.id,
+      thumbnail: post.thumbnail,
+      title: post.title,
+      createdAt: post.createdAt,
+      author: post.profile.name,
+    }));
+
     return NextResponse.json(
       {
         success: true,
-        posts,
+        posts: res,
         totalCount,
       },
       { status: 200 }

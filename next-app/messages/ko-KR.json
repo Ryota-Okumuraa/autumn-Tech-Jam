@@ -43,11 +43,20 @@
   },
   "home": {
     "articleFirst": "기",
+    "artivleSubTitle": "사",
     "articleSubTitle": "사",
     "featuredFirst": "나",
     "featuredSubTitle": "고야 이벤트 !!",
     "rankingFirst": "랭",
     "rankingSubTitle": "킹",
+    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,<br />현지 요리, 친근한 동네, 그리고 평온한 분위기."
+  },
+  "api-post": {
+  "success": "게시에 성공했습니다.",
+  "error": "게시에 실패했습니다."
+  },
+  "post-create": {
+    "back": "뒤로",
     "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,현지 요리, 친근한 동네, 그리고 평온한 분위기."
   },
   "categoryHead": {

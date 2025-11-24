@@ -43,12 +43,16 @@
   },
   "home": {
     "articleFirst": "記",
+    "artivleSubTitle": "事",
     "articleSubTitle": "事",
     "featuredFirst": "名",
     "featuredSubTitle": "古屋のイベント !!",
     "rankingFirst": "ラ",
     "rankingSubTitle": "ンキング",
     "aboutText": "名古屋の魅力は日常の文化にあります—朝のカフェの伝統、地元料理、親しみやすい街並み、そして穏やかな雰囲気。"
+  },
+  "post-create": {
+    "back": "戻る"
   },
   "categoryHead": {
     "food": "グルメ",
@@ -127,6 +131,10 @@
     "success": "ログインに成功しました。",
     "error": "ログインに失敗しました。",
     "validationError": "無効なデータです。"
+  },
+  "api-post": {
+    "success" : "投稿に成功しました。",
+    "error": "投稿に失敗しました。"
   },
   "api-post-edit": {
     "success": "投稿を編集しました。",
