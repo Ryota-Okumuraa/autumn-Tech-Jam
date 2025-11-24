@@ -65,7 +65,8 @@
     "category": "分类",
     "thumbnail": "缩略图",
     "articleContent": "文章内容",
-    "uploading": "上传中..."
+    "uploading": "上传中...",
+    "error": "获取帖子失败。"
   },
   "categoryHead": {
     "food": "美食",

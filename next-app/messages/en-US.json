@@ -65,7 +65,8 @@
     "category": "Category",
     "thumbnail": "Thumbnail",
     "articleContent": "Article Content",
-    "uploading": "Uploading..."
+    "uploading": "Uploading...",
+    "error": "Failed to retrieve post."
   },
   "categoryHead": {
     "food": "Food",

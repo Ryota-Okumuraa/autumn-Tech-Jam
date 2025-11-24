@@ -65,7 +65,8 @@
     "category": "分類",
     "thumbnail": "縮圖",
     "articleContent": "文章內容",
-    "uploading": "上傳中..."
+    "uploading": "上傳中...",
+    "error": "取得貼文失敗。"
   },
   "categoryHead": {
     "food": "美食",

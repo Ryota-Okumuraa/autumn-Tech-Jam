@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 export async function GET() {
   const supabase = await createClient();
-  const t = await getTranslations("api-profile");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  const t = await getTranslations("api-profile"); //messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
 
   // Supabaseのログインユーザーを取得
   const {

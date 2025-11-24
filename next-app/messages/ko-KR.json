@@ -65,7 +65,8 @@
     "category": "카테고리",
     "thumbnail": "썸네일",
     "articleContent": "기사 내용",
-    "uploading": "업로드 중..."
+    "uploading": "업로드 중...",
+    "error": "게시물 가져오기에 실패했습니다."
   },
   "categoryHead": {
     "food": "음식",

@@ -7,14 +7,15 @@ import { useTranslations } from "next-intl";
 
 interface ThumbnailProps {
   setValue: (name: "thumbnail", value: string) => void;
+  defaultValue?: string;
 }
 
-export default function Thumbnail({ setValue }: ThumbnailProps) {
+export default function Thumbnail({ setValue, defaultValue }: ThumbnailProps) {
   const t = useTranslations("post-create");
-  const [imageUrl, setImageUrl] = useState<string>("/default-image.svg");
+  const [imageUrl, setImageUrl] = useState<string>(defaultValue || "/default-image.svg");
   const [isFetching, setIsFetching] = useState(false);
   // 画像アップロードのurl入れる
-  const [publicUrl, setPublicUrl] = useState<string | null>(null);
+  const [publicUrl, setPublicUrl] = useState<string | null>(defaultValue || null);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

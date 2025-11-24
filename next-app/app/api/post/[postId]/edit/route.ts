@@ -1,14 +1,17 @@
 import prisma from "@/lib/db";
 import { createClient } from "@/utils/supabase/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getTranslations } from "next-intl/server";
 
 // 記事を取得。詳細。ただし、ユーザー認証をしてる。
-export async function GET({
-  params,
-}: {
-  params: Promise<{ postId: string }>;
-}) {
+export async function GET(
+  _request: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{ postId: string }>;
+  }
+) {
   const { postId } = await params;
   const t = await getTranslations("api-post-edit");
 
@@ -82,4 +85,3 @@ export async function GET({
     );
   }
 }
-

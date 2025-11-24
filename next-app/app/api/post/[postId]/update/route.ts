@@ -6,13 +6,14 @@ import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT({
-  req,
-  params,
-}: {
-  req: NextRequest;
-  params: Promise<{ postId: string }>;
-}) {
+export async function PUT(
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{ postId: string }>;
+  }
+) {
   const { postId } = await params;
   const t = await getTranslations("api-post-update");
   const body = await req.json();
@@ -48,6 +49,7 @@ export async function PUT({
       );
     }
 
+    console.log("ここまでおけ");
     // 更新
     await prisma.post.update({
       where: {
@@ -71,7 +73,8 @@ export async function PUT({
       },
       { status: 200 }
     );
-  } catch {
+  } catch (e) {
+    console.log(e);
     return NextResponse.json(
       {
         success: false,

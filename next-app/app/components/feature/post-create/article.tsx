@@ -10,11 +10,13 @@ import { useEffect } from "react";
 interface props {
   setValue: (name: "content", value: string) => void; // または具体的な型を指定
   error?: string;
+  defaultValue?: string;
 }
 
-export default function Article({ setValue, error }: props) {
+export default function Article({ setValue, error, defaultValue }: props) {
   const t = useTranslations("post-create");
   const editor = useCreateBlockNote({
+    initialContent: defaultValue ? JSON.parse(defaultValue) : undefined,
     uploadFile: async (file) => {
       const formData = new FormData();
       formData.append("file", file);

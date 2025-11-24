@@ -7,8 +7,9 @@ import { useTranslations } from "next-intl";
 
 interface props {
   setValue: (name: "category", value: number) => void;
+  defaultValue?: number;
 }
-export default function SelectCategory({ setValue }: props) {
+export default function SelectCategory({ setValue, defaultValue }: props) {
   const t = useTranslations("post-create");
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<{ id: number; name: string } | null>(
@@ -20,6 +21,13 @@ export default function SelectCategory({ setValue }: props) {
   const { isLoading } = useSWR<CategoriesResponse>(`/api/category`, fetcher, {
     onSuccess: (data) => {
       setCategories(data.categories);
+      if (defaultValue) {
+        const category = data.categories.find((c) => c.id === defaultValue);
+        if (category) {
+          setSelectedCategory(category);
+          setValue("category", category.id);
+        }
+      }
     },
   });
 
@@ -100,11 +108,7 @@ export default function SelectCategory({ setValue }: props) {
           </div>
         )}
         {/* フォーム送信用のhidden input */}
-        <input
-          type="hidden"
-          id="category"
-          value={selectedCategory?.id || ""}
-        />
+        <input type="hidden" id="category" value={selectedCategory?.id || ""} />
       </div>
     </div>
   );

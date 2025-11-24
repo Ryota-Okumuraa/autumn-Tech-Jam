@@ -65,7 +65,8 @@
     "category": "カテゴリー",
     "thumbnail": "サムネイル",
     "articleContent": "記事内容",
-    "uploading": "アップロード中..."
+    "uploading": "アップロード中...",
+    "error": "投稿の取得に失敗しました。"
   },
   "categoryHead": {
     "food": "グルメ",
@@ -153,7 +154,7 @@
     "success": "記事の取得に成功しました。",
     "error": "記事の取得に失敗しました。"
   },
-  "api-profile":{
+  "api-profile": {
     "success": "プロフィールの取得に成功しました。",
     "error": "プロフィールの取得に失敗しました。"
   },
