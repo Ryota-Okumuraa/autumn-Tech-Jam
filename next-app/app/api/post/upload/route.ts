@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const schema = createUploadSchema(lang);
   const t = await getTranslations("api-post-upload");
   try {
-    const validatedData = schema.safeParse(file);
+    const validatedData = schema.safeParse({ file });
     // バリデーションエラーまたはファイルが存在しない場合
     if (!validatedData.success || !(file instanceof File)) {
       return NextResponse.json(
@@ -59,7 +59,9 @@ export async function POST(req: NextRequest) {
       );
     }
     // 公開urlの取得
-    const publicUrl = supabase.storage.from("post").getPublicUrl(path);
+    const {
+      data: { publicUrl },
+    } = supabase.storage.from("post").getPublicUrl(path);
     return NextResponse.json(
       {
         success: true,

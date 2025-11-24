@@ -8,7 +8,7 @@ type Props = {
   answer: string;
 };
 
-export default function Qanda({ question, answer }: Props) {
+export const QandA = ({ question, answer }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const id = useId();
 
@@ -65,4 +65,4 @@ export default function Qanda({ question, answer }: Props) {
       </div>
     </div>
   );
-}
+};

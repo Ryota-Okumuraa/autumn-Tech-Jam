@@ -1,6 +1,6 @@
 //import Qanda from "@/components/shared/qanda";
 //import { PostCard } from "@/components/shared/postcard";
-import { UploadButton } from "@/components/shared/uploadButton";
+import { UploadButton } from "@/app/components/shared/uploadButton";
 
 function Page() {
   return (

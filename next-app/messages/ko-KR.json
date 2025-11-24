@@ -43,21 +43,28 @@
   },
   "home": {
     "articleFirst": "기",
-    "artivleSubTitle": "사",
     "articleSubTitle": "사",
     "featuredFirst": "나",
     "featuredSubTitle": "고야 이벤트 !!",
     "rankingFirst": "랭",
     "rankingSubTitle": "킹",
-    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,<br />현지 요리, 친근한 동네, 그리고 평온한 분위기."
+    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통, 현지 요리, 친근한 동네, 그리고 평온한 분위기."
   },
-  "api-post": {
-  "success": "게시에 성공했습니다.",
-  "error": "게시에 실패했습니다."
+  "api-category": {
+    "food": "음식",
+    "cafe": "카페",
+    "culture": "문화",
+    "guide": "가이드",
+    "shopping": "쇼핑",
+    "stories": "스토리"
   },
   "post-create": {
     "back": "뒤로",
-    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,현지 요리, 친근한 동네, 그리고 평온한 분위기."
+    "title": "제목",
+    "titlePlaceholder": "제목을 입력해주세요.",
+    "category": "카테고리",
+    "thumbnail": "썸네일",
+    "uploading": "업로드 중..."
   },
   "categoryHead": {
     "food": "음식",
@@ -136,6 +143,10 @@
     "success": "로그인에 성공했습니다.",
     "error": "로그인에 실패했습니다.",
     "validationError": "유효하지 않은 데이터입니다."
+  },
+  "api-post": {
+    "success": "게시에 성공했습니다.",
+    "error": "게시에 실패했습니다."
   },
   "api-post-edit": {
     "success": "게시물을 편집했습니다.",

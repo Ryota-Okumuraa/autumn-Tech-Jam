@@ -43,21 +43,28 @@
   },
   "home": {
     "articleFirst": "文",
-    "artivleSubTitle": "章",
     "articleSubTitle": "章",
     "featuredFirst": "名",
     "featuredSubTitle": "古屋活动 !!",
     "rankingFirst": "排",
     "rankingSubTitle": "行",
-    "aboutText": "名古屋的魅力在于其日常文化—早晨咖啡传统、<br />当地美食、友好的社区以及宁静的氛围。"
+    "aboutText": "名古屋的魅力在于其日常文化—早晨咖啡传统、当地美食、友好的社区以及宁静的氛围。"
   },
-  "api-post": {
-  "success": "发布成功。",
-  "error": "发布失败。"
+  "api-category": {
+    "food": "美食",
+    "cafe": "咖啡",
+    "culture": "文化",
+    "guide": "指南",
+    "shopping": "购物",
+    "stories": "故事"
   },
   "post-create": {
     "back": "返回",
-    "aboutText": "名古屋的魅力在于其日常文化—早晨咖啡传统、当地美食、友好的社区以及宁静的氛围。"
+    "title": "标题",
+    "titlePlaceholder": "请输入标题。",
+    "category": "分类",
+    "thumbnail": "缩略图",
+    "uploading": "上传中..."
   },
   "categoryHead": {
     "food": "美食",
@@ -136,6 +143,10 @@
     "success": "登录成功。",
     "error": "登录失败。",
     "validationError": "无效数据。"
+  },
+  "api-post": {
+    "success": "发布成功。",
+    "error": "发布失败。"
   },
   "api-post-edit": {
     "success": "已编辑帖子。",
