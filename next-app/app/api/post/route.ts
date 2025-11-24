@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import prisma from "@/lib/db"; // ← あなたの prisma クライアント
 import { createClient } from "@/utils/supabase/server";
-import { z } from "zod";
 import { checkLang } from "@/utils/language";
 import { createAndUpdatePostSchema } from "@/schema/post";
 import { getTranslations } from "next-intl/server";
@@ -103,7 +102,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message:  "投稿が正常に作成されました",
+      message: t("success")
     });
   } catch (error) {
     console.error(error);
