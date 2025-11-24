@@ -43,21 +43,28 @@
   },
   "home": {
     "articleFirst": "A",
-    "artivleSubTitle": "rticle",
     "articleSubTitle": "rticle",
     "featuredFirst": "E",
     "featuredSubTitle": "vents in Nagoya !!",
     "rankingFirst": "R",
     "rankingSubTitle": "anking",
-    "aboutText": "Nagoya's charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
+    "aboutText": "Nagoya's charm lies in its everyday culture—morning café traditions, local dishes, friendly neighborhoods, and a calm atmosphere."
+  },
+  "api-category": {
+    "food": "food",
+    "cafe": "cafe",
+    "culture": "culture",
+    "guide": "guide",
+    "shopping": "shopping",
+    "stories": "stories"
   },
   "post-create": {
-    "back": "Back"
-  },
-  "api-post": {
-    "success" : "success to create post",
-    "error": "failed to create post",
-    "aboutText": "Nagoya’s charm lies in its everyday culture—morning café traditions,local dishes, friendly neighborhoods, and a calm atmosphere."
+    "back": "Back",
+    "title": "Title",
+    "titlePlaceholder": "Please enter a title.",
+    "category": "Category",
+    "thumbnail": "Thumbnail",
+    "uploading": "Uploading..."
   },
   "categoryHead": {
     "food": "Food",
@@ -129,11 +136,17 @@
   },
   "api-register": {
     "success": "User registration succeeded.",
-    "error": "User registration failed."
+    "error": "User registration failed.",
+    "validationError": "Invalid data."
   },
   "api-login": {
     "success": "Login succeeded.",
-    "error": "Login failed."
+    "error": "Login failed.",
+    "validationError": "Invalid data."
+  },
+  "api-post": {
+    "success": "success to create post",
+    "error": "failed to create post"
   },
   "api-post-edit": {
     "success": "Post edited successfully.",

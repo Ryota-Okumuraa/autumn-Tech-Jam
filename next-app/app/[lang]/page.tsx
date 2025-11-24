@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { getTranslations } from "next-intl/server";
-import { Header } from "@/app/components/shared/Header";
 import { ArticleList } from "@/app/components/feature/top/ArticleList";
 import { FeaturedList } from "@/app/components/feature/top/FeaturedList";
 import { FeaturedPosts } from "@/app/components/feature/top/FeaturedPost";
