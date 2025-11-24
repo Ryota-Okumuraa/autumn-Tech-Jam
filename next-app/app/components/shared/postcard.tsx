@@ -17,7 +17,7 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
     >
       <div
         className={cn(
-        "flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit ",
+          "flex overflow-hidden duration-200 rounded-xl border-2 border-black hover:border-main w-fit ",
           layout === "row" && "flex-1"
         )}
       >
