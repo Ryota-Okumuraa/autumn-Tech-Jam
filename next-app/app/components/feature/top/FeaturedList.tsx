@@ -1,4 +1,4 @@
-import { PostCard } from "@/app/components/shared/PostCard";
+import { PostCard } from "@/app/components/shared/postcardddd";
 // ここ変更
 import { getRankingPosts } from "@/app/api-client/posts/ranking";
 import { formatDate } from "@/lib/date";

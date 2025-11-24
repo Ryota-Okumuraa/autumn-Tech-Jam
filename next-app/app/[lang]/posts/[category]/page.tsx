@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Header } from "@/app/components/shared/Header";
 import { Footer } from "@/app/components/shared/Footer";
 import { CategoryHead } from "@/app/components/feature/category/CategoryHead";
-import { PostCard } from "@/app/components/shared/PostCard";
+import { PostCard } from "@/app/components/shared/postcardddd";
 import { formatDate } from "@/lib/date";
 import { getPosts } from "@/app/api-client/posts/posts";
 import { QandA } from "@/app/components/feature/category/QandA";

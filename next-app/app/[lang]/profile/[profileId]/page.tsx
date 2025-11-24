@@ -1,7 +1,7 @@
 import Logout from "../../../components/feature/auth/logout";
 import { getUserPosts } from "@/app/api-client/posts/userPosts";
 import { formatDate } from "@/lib/date";
-import { PostCard } from "@/app/components/shared/PostCard";
+import { PostCard } from "@/app/components/shared/postcardddd";
 import { Pagenation } from "@/app/components/shared/Pagenation";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/app/components/shared/Footer";
