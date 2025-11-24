@@ -1,8 +1,8 @@
 // app/api/posts/route.ts
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import prisma from "@/lib/db";// ← あなたの prisma クライアント
+import { createClient } from "@/utils/supabase/server";
 
 // 許可されたカテゴリ一覧
 const ALLOWED_CATEGORIES = [
@@ -17,9 +17,11 @@ const ALLOWED_CATEGORIES = [
 export async function POST(request: Request) {
     try {
         // ① Supabase からログイン中のユーザー取得
-        const supabase = createRouteHandlerClient({ cookies });
+        const supabase = await createClient();
+        // ユーザー情報取得
         const {
             data: { user },
+            error,
         } = await supabase.auth.getUser();
 
         if (!user)
