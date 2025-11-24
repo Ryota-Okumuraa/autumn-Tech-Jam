@@ -5,7 +5,10 @@ import useSWR from "swr";
 import fetcher from "@/lib/fetcher";
 import { useTranslations } from "next-intl";
 
-export default function SelectCategory({ ...props }) {
+interface props {
+  setValue: (name: "category", value: number) => void;
+}
+export default function SelectCategory({ setValue }: props) {
   const t = useTranslations("post-create");
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<{ id: number; name: string } | null>(
@@ -17,9 +20,6 @@ export default function SelectCategory({ ...props }) {
   const { isLoading } = useSWR<CategoriesResponse>(`/api/category`, fetcher, {
     onSuccess: (data) => {
       setCategories(data.categories);
-      if (data.categories.length > 0) {
-        setSelectedCategory(data.categories[0]);
-      }
     },
   });
 
@@ -32,6 +32,7 @@ export default function SelectCategory({ ...props }) {
 
   const handleCategoryChange = (category: { id: number; name: string }) => {
     setSelectedCategory(category);
+    setValue("category", category.id);
     setIsClicked(false);
     setIsMenuOpen(false);
   };
@@ -99,7 +100,11 @@ export default function SelectCategory({ ...props }) {
           </div>
         )}
         {/* フォーム送信用のhidden input */}
-        <input type="hidden" id="category" value={selectedCategory?.id || ""} {...props} />
+        <input
+          type="hidden"
+          id="category"
+          value={selectedCategory?.id || ""}
+        />
       </div>
     </div>
   );

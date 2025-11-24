@@ -73,7 +73,7 @@ export default function CreateForm() {
             {errors.title && <ValidationError>{errors.title.message}</ValidationError>}
           </div>
           <div className="w-full flex flex-col items-start space-y-2">
-            <SelectCategory {...register("category", { valueAsNumber: true })} />
+            <SelectCategory setValue={setValue} />
             {errors.category && <ValidationError>{errors.category.message}</ValidationError>}
           </div>
           <div className="w-full flex flex-col items-start space-y-1">
