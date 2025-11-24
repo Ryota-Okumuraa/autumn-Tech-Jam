@@ -51,7 +51,7 @@ export default function Article({ setValue, error, defaultValue }: props) {
       <div className="h-full">
         <BlockNoteView
           editor={editor}
-          className="h-full [&_.bn-editor]:h-full [&_.bn-editor]:py-4 [&_.bn-editor]:px-2 [&_.bn-editor]:overflow-y-auto"
+          className="h-full [&_.bn-editor]:h-full [&_.bn-editor]:py-4 [&_.bn-editor]:px-2 [&_.bn-editor]:overflow-y-scroll [&_.bn-editor]:max-h-[calc(100vh-200px)]"
           onChange={() => {
             // 内容がからであるかどうかのチェック。からの場合は空文字列を設定。
             const hasContent = editor.document.some(
