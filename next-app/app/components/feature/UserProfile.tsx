@@ -10,7 +10,7 @@ interface User {
 
 export const UserProfile = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   // useEffect(() => {
   //     const loadUser = async () => {
@@ -28,13 +28,13 @@ export const UserProfile = () => {
   //     loadUser();
   // }, []);
 
-  if (isLoading) {
-    return (
-      <div className="pb-10">
-        <p className="font-bold">Loading...</p>
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="pb-10">
+  //       <p className="font-bold">Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   if (!user) {
     return null;

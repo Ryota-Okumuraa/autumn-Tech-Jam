@@ -1,26 +1,7 @@
-interface fetchPostsParams {
-  category: string;
-  offset?: number;
-  pageType?: boolean;
-}
+import { FetchPostsParams } from "@/lib/types/post";
+import { PostsResponse } from "@/lib/types/post";
 
-export interface Post {
-  id: string;
-  thumbnail: string;
-  title: string;
-  createdAt: string;
-  category: {
-    name: string;
-  };
-}
-
-export interface PostsResponse {
-  success: boolean;
-  posts: Post[];
-  totalCount: number;
-}
-
-export async function getPosts({ category, offset = 0, pageType = false }: fetchPostsParams) {
+export async function getPosts({ category, offset = 0, pageType = false }: FetchPostsParams) {
   try {
     const params = new URLSearchParams({
       category,
@@ -29,7 +10,9 @@ export async function getPosts({ category, offset = 0, pageType = false }: fetch
     });
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;
     const url = `${baseUrl}/posts?${params.toString()}`;
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch posts");

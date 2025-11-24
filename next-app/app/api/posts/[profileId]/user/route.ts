@@ -12,7 +12,6 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const offsetParam = searchParams.get("offset") || "0";
   const t = await getTranslations("api-posts-user");
-
   // 数値に変換してバリデーション。0以上の整数
   const validatedOffset = z.coerce.number().int().nonnegative().safeParse(offsetParam);
   if (!validatedOffset.success) {

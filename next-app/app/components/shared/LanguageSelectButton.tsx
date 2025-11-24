@@ -44,7 +44,7 @@ export const LanguageSelectButton = () => {
   `;
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block cursor-pointer">
       <div className="relative inline-block">
         <div className={shadowClasses} />
         <button className={buttonClasses} onClick={handleClick}>
@@ -52,7 +52,7 @@ export const LanguageSelectButton = () => {
         </button>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-full left-2 mt-4 w-40 bg-main border border-black rounded-xl shadow-lg z-50">
+        <div className="absolute top-full left-2 mt-4 w-40 bg-main border border-black rounded-xl shadow-lg z-20">
           <ul className="py-1">
             {languages.map((lang, index) => {
               const isFirst = index === 0;
