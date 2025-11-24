@@ -149,6 +149,18 @@
     "success": "success to create post",
     "error": "failed to create post"
   },
+  "api-detail": {
+    "success": "Successfully retrieved the article.",
+    "error": "Failed to retrieve the article."
+  },
+  "api-popular": {
+    "success": "Successfully retrieved popular articles by category.",
+    "error": "Failed to retrieve popular articles by category."
+  },
+  "api-profile": {
+    "success": "Successfully retrieved profile.",
+    "error": "Failed to retrieve profile."
+  },
   "api-post-edit": {
     "success": "Post edited successfully.",
     "error": "Failed to edit post.",

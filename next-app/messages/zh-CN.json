@@ -149,6 +149,18 @@
     "success": "发布成功。",
     "error": "发布失败。"
   },
+  "api-detail": {
+    "success": "文章获取成功。",
+    "error": "文章获取失败。"
+  },
+  "api-popular": {
+    "success": "按分类获取热门文章成功。",
+    "error": "按分类获取热门文章失败."
+  },
+  "api-profile": {
+    "success": "获取个人资料成功。",
+    "error": "获取个人资料失败。"
+  },
   "api-post-edit": {
     "success": "已编辑帖子。",
     "error": "编辑帖子失败。",

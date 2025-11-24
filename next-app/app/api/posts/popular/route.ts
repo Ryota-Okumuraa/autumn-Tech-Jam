@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import { getTranslations } from "next-intl/server";
 
 export async function GET(request: Request) {
-  const t = await getTranslations("api-post"); //messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
+  const t = await getTranslations("api-popular");//messagesフォルダの各言語jsonのapi-postを探し、userが使っている言語(cookieから取得)を取ってこれる。
   try {
     //カテゴリー別で最新順の閲覧数の高い記事をlimit数分返すAPI
     const { searchParams } = new URL(request.url);
