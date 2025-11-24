@@ -1,0 +1,86 @@
+{
+  "login": {
+    "email": "电子邮件",
+    "password": "密码",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "signIn": "登入",
+    "signUp": "注册",
+    "signInWithGoogle": "使用Google登入",
+    "fetchFail": "登录失败。",
+    "fetchError": "发生通信错误。"
+  },
+  "register": {
+    "userName": "用户名",
+    "email": "电子邮件",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "userNamePlaceholder": "用户名",
+    "emailPlaceholder": "电子邮件",
+    "passwordPlaceholder": "密码",
+    "confirmPasswordPlaceholder": "确认密码",
+    "signUp": "注册",
+    "signIn": "登录",
+    "fetchFail": "用户注册失败。",
+    "fetchError": "发生通信错误。"
+  },
+  "header": {
+    "articlesByCategory": "分类文章",
+    "categories": {
+      "food": "美食",
+      "cafe": "咖啡",
+      "culture": "文化",
+      "guide": "指南",
+      "shopping": "购物",
+      "stories": "故事"
+    },
+    "newPosts": "新文章"
+  },
+  "footer": {
+    "privacyPolicy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "home": {
+    "articleFirst": "文",
+    "artivleSubTitle": "章",
+    "featuredFirst": "名",
+    "featuredSubTitle": "古屋活动 !!",
+    "rankingFirst": "排",
+    "rankingSubTitle": "行",
+    "aboutText": "名古屋的魅力在于其日常文化—早晨咖啡传统、<br />当地美食、友好的社区以及宁静的氛围。"
+  },
+  "post-create": {
+    "back": "返回"
+  },
+  "api-register": {
+    "success": "用户注册成功。",
+    "error": "用户注册失败。",
+    "validationError": "无效数据。"
+  },
+  "api-login": {
+    "success": "登录成功。",
+    "error": "登录失败。",
+    "validationError": "无效数据。"
+  },
+  "api-post-edit": {
+    "success": "已编辑帖子。",
+    "error": "编辑帖子失败。",
+    "notFound": "找不到要编辑的帖子。",
+    "validationError": "此帖子无效。"
+  },
+  "api-post-delete": {
+    "success": "已删除帖子。",
+    "error": "删除帖子失败。",
+    "notFound": "找不到要删除的帖子。"
+  },
+  "api-post-upload": {
+    "success": "图片上传成功。",
+    "error": "图片上传失败。",
+    "validationError": "此图片无法上传。"
+  },
+  "api-posts-user": {
+    "success": "已获取用户帖子。",
+    "error": "获取用户帖子失败。",
+    "notFound": "找不到用户帖子。"
+  }
+}

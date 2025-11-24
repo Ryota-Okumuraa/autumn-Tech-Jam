@@ -1,0 +1,86 @@
+{
+  "login": {
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "emailPlaceholder": "メールアドレス",
+    "passwordPlaceholder": "パスワード",
+    "signIn": "ログイン",
+    "signUp": "サインアップ",
+    "signInWithGoogle": "Googleでサインイン",
+    "fetchFail": "ログインに失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
+  },
+  "register": {
+    "userName": "ユーザー名",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "userNamePlaceholder": "ユーザー名",
+    "emailPlaceholder": "メールアドレス",
+    "passwordPlaceholder": "パスワード",
+    "confirmPasswordPlaceholder": "パスワード確認",
+    "signUp": "新規登録",
+    "signIn": "サインイン",
+    "fetchFail": "ユーザー登録に失敗しました。",
+    "fetchError": "通信エラーが発生しました。"
+  },
+  "header": {
+    "articlesByCategory": "カテゴリー別記事",
+    "categories": {
+      "food": "グルメ",
+      "cafe": "カフェ",
+      "culture": "文化",
+      "guide": "ガイド",
+      "shopping": "ショッピング",
+      "stories": "ストーリー"
+    },
+    "newPosts": "新規投稿"
+  },
+  "footer": {
+    "privacyPolicy": "プライバシーポリシー",
+    "terms": "利用規約"
+  },
+  "home": {
+    "articleFirst": "記",
+    "artivleSubTitle": "事",
+    "featuredFirst": "名",
+    "featuredSubTitle": "古屋のイベント !!",
+    "rankingFirst": "ラ",
+    "rankingSubTitle": "ンキング",
+    "aboutText": "名古屋の魅力は日常の文化にあります—朝のカフェの伝統、地元料理、親しみやすい街並み、そして穏やかな雰囲気。"
+  },
+  "post-create": {
+    "back": "戻る"
+  },
+  "api-register": {
+    "success": "ユーザー登録に成功しました。",
+    "error": "ユーザー登録に失敗しました。",
+    "validationError": "無効なデータです。"
+  },
+  "api-login": {
+    "success": "ログインに成功しました。",
+    "error": "ログインに失敗しました。",
+    "validationError": "無効なデータです。"
+  },
+  "api-post-edit": {
+    "success": "投稿を編集しました。",
+    "error": "投稿の編集に失敗しました。",
+    "notFound": "編集する投稿が見つかりませんでした。",
+    "validationError": "この投稿は無効です。"
+  },
+  "api-post-delete": {
+    "success": "投稿を削除しました。",
+    "error": "投稿の削除に失敗しました。",
+    "notFound": "削除する投稿が見つかりませんでした。"
+  },
+  "api-post-upload": {
+    "success": "画像のアップロードに成功しました。",
+    "error": "画像のアップロードに失敗しました。",
+    "validationError": "この画像はアップロードできません"
+  },
+  "api-posts-user": {
+    "success": "ユーザーの投稿を取得しました。",
+    "error": "ユーザーの投稿の取得に失敗しました。",
+    "notFound": "ユーザーの投稿が見つかりませんでした。"
+  }
+}

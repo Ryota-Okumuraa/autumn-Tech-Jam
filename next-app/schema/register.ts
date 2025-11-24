@@ -15,7 +15,11 @@ const messages = {
     password: {
       min: "パスワードは8文字以上で入力してください",
       max: "パスワードは255文字以内で入力してください",
-    }
+    },
+    confirmPassword: {
+      required: "確認パスワードが未入力です",
+      mismatch: "パスワードが一致しません",
+    },
   },
   "en-US": {
     name: {
@@ -30,7 +34,11 @@ const messages = {
     password: {
       min: "Password must be at least 8 characters",
       max: "Password must be within 255 characters",
-    }
+    },
+    confirmPassword: {
+      required: "Confirm password is required",
+      mismatch: "Passwords do not match",
+    },
   },
   "ko-KR": {
     name: {
@@ -45,7 +53,11 @@ const messages = {
     password: {
       min: "비밀번호는 8자 이상 입력해주세요",
       max: "비밀번호는 255자 이내로 입력해주세요",
-    }
+    },
+    confirmPassword: {
+      required: "확인 비밀번호를 입력해주세요",
+      mismatch: "비밀번호가 일치하지 않습니다",
+    },
   },
   "zh-CN": {
     name: {
@@ -60,7 +72,11 @@ const messages = {
     password: {
       min: "密码请输入8个字符以上",
       max: "密码请在255个字符以内输入",
-    }
+    },
+    confirmPassword: {
+      required: "请输入确认密码",
+      mismatch: "密码不匹配",
+    },
   },
   "zh-TW": {
     name: {
@@ -75,19 +91,20 @@ const messages = {
     password: {
       min: "密碼請輸入8個字元以上",
       max: "密碼請在255個字元以內輸入",
-    }
+    },
+    confirmPassword: {
+      required: "請輸入確認密碼",
+      mismatch: "密碼不匹配",
+    },
   },
 };
 
 // ユーザー登録のスキーマを生成する関数
 export function createRegisterSchema(locale: langType = "en-US") {
   const msg = messages[locale];
-  
+
   return z.object({
-    name: z
-      .string()
-      .min(1, { message: msg.name.required })
-      .max(20, { message: msg.name.max }),
+    name: z.string().min(1, { message: msg.name.required }).max(20, { message: msg.name.max }),
     email: z
       .string()
       .min(1, { message: msg.email.required })
@@ -96,9 +113,23 @@ export function createRegisterSchema(locale: langType = "en-US") {
     password: z
       .string()
       .min(8, { message: msg.password.min })
-      .max(255, { message: msg.password.max })
+      .max(255, { message: msg.password.max }),
   });
 }
 
-// デフォルトのスキーマ（日本語）
-export const registerSchema = createRegisterSchema("ja-JP");
+// フロントエンド用のスキーマ(パスワード確認付き)
+export function createRegisterFormSchema(locale: langType = "en-US") {
+  const msg = messages[locale];
+  const serverSchema = createRegisterSchema(locale);
+
+  return serverSchema
+    .extend({
+      confirmPassword: z.string().min(1, {
+        message: msg.confirmPassword.required,
+      }),
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: msg.confirmPassword.mismatch,
+      path: ["confirmPassword"],
+    });
+}

@@ -1,0 +1,86 @@
+{
+  "login": {
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signInWithGoogle": "Sign in with Google",
+    "fetchFail": "Login failed.",
+    "fetchError": "Communication error occurred."
+  },
+  "register": {
+    "userName": "User name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "userNamePlaceholder": "User name",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "fetchFail": "User registration failed.",
+    "fetchError": "Communication error occurred."
+  },
+  "header": {
+    "articlesByCategory": "Articles by Category",
+    "categories": {
+      "food": "Food",
+      "cafe": "Cafe",
+      "culture": "Culture",
+      "guide": "Guide",
+      "shopping": "Shopping",
+      "stories": "Stories"
+    },
+    "newPosts": "New Posts"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "home": {
+    "articleFirst": "A",
+    "artivleSubTitle": "rticle",
+    "featuredFirst": "E",
+    "featuredSubTitle": "vents in Nagoya !!",
+    "rankingFirst": "R",
+    "rankingSubTitle": "anking",
+    "aboutText": "Nagoya's charm lies in its everyday culture—morning café traditions,<br />local dishes, friendly neighborhoods, and a calm atmosphere."
+  },
+  "post-create": {
+    "back": "Back"
+  },
+  "api-register": {
+    "success": "User registration succeeded.",
+    "error": "User registration failed.",
+    "validationError": "invalid data"
+  },
+  "api-login": {
+    "success": "Login succeeded.",
+    "error": "Login failed.",
+    "validationError": "Invalid data."
+  },
+  "api-post-edit": {
+    "success": "Post edited successfully.",
+    "error": "Failed to edit post.",
+    "notFound": "Post to edit not found.",
+    "validationError": "This post is invalid."
+  },
+  "api-post-delete": {
+    "success": "Post deleted successfully.",
+    "error": "Failed to delete post.",
+    "notFound": "Post to delete not found."
+  },
+  "api-post-upload": {
+    "success": "Image uploaded successfully.",
+    "error": "Failed to upload image.",
+    "validationError": "This image cannot be uploaded."
+  },
+  "api-posts-user": {
+    "success": "User posts retrieved successfully.",
+    "error": "Failed to retrieve user posts.",
+    "notFound": "User posts not found."
+  }
+}

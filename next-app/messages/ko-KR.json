@@ -1,0 +1,86 @@
+{
+  "login": {
+    "email": "이메일",
+    "password": "비밀번호",
+    "emailPlaceholder": "이메일",
+    "passwordPlaceholder": "비밀번호",
+    "signIn": "로그인",
+    "signUp": "회원가입",
+    "signInWithGoogle": "Google로 로그인",
+    "fetchFail": "로그인에 실패했습니다.",
+    "fetchError": "통신 오류가 발생했습니다."
+  },
+  "register": {
+    "userName": "사용자 이름",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "userNamePlaceholder": "사용자 이름",
+    "emailPlaceholder": "이메일",
+    "passwordPlaceholder": "비밀번호",
+    "confirmPasswordPlaceholder": "비밀번호 확인",
+    "signUp": "회원가입",
+    "signIn": "로그인",
+    "fetchFail": "사용자 등록에 실패했습니다.",
+    "fetchError": "통신 오류가 발생했습니다."
+  },
+  "header": {
+    "articlesByCategory": "카테고리별 기사",
+    "categories": {
+      "food": "음식",
+      "cafe": "카페",
+      "culture": "문화",
+      "guide": "가이드",
+      "shopping": "쇼핑",
+      "stories": "스토리"
+    },
+    "newPosts": "새 게시물"
+  },
+  "footer": {
+    "privacyPolicy": "개인정보처리방침",
+    "terms": "이용약관"
+  },
+  "home": {
+    "articleFirst": "기",
+    "artivleSubTitle": "사",
+    "featuredFirst": "나",
+    "featuredSubTitle": "고야 이벤트 !!",
+    "rankingFirst": "랭",
+    "rankingSubTitle": "킹",
+    "aboutText": "나고야의 매력은 일상 문화에 있습니다—아침 카페 전통,<br />현지 요리, 친근한 동네, 그리고 평온한 분위기."
+  },
+  "post-create": {
+    "back": "뒤로"
+  },
+  "api-register": {
+    "success": "사용자 등록에 성공했습니다.",
+    "error": "사용자 등록에 실패했습니다.",
+    "validationError": "유효하지 않은 데이터입니다."
+  },
+  "api-login": {
+    "success": "로그인에 성공했습니다.",
+    "error": "로그인에 실패했습니다.",
+    "validationError": "유효하지 않은 데이터입니다."
+  },
+  "api-post-edit": {
+    "success": "게시물을 편집했습니다.",
+    "error": "게시물 편집에 실패했습니다.",
+    "notFound": "편집할 게시물을 찾을 수 없습니다.",
+    "validationError": "이 게시물은 유효하지 않습니다."
+  },
+  "api-post-delete": {
+    "success": "게시물을 삭제했습니다.",
+    "error": "게시물 삭제에 실패했습니다.",
+    "notFound": "삭제할 게시물을 찾을 수 없습니다."
+  },
+  "api-post-upload": {
+    "success": "이미지 업로드에 성공했습니다.",
+    "error": "이미지 업로드에 실패했습니다.",
+    "validationError": "이 이미지는 업로드할 수 없습니다."
+  },
+  "api-posts-user": {
+    "success": "사용자의 게시물을 가져왔습니다.",
+    "error": "사용자의 게시물 가져오기에 실패했습니다.",
+    "notFound": "사용자의 게시물을 찾을 수 없습니다."
+  }
+}
