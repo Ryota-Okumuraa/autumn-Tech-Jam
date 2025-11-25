@@ -50,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
                             alt={postData.title}
                             width={1000}
                             height={1000}
-                            className="w-full mt-4 rounded-xl border-2  border-black"
+                            className="w-full mt-4 rounded-xl border-2  border-black max-h-[256px] md:max-h-[400px] object-cover"
                         />
                         <div className="flex gap-4 text-sm mt-2">
                             <p>{formatDate(postData.createdAt)}</p>
@@ -66,7 +66,7 @@ export default async function PostPage({ params }: PostPageProps) {
                             alt={postData.title}
                             width={1000}
                             height={1000}
-                            className="w-full mt-4 rounded-xl border-2  border-black max-w-[600px]"
+                            className="w-full mt-4 rounded-xl border-2  border-black max-w-[600px] max-h-[256px] md:max-h-[400px] object-cover"
                         />
                         <div className="flex flex-col gap-4 text-left">
                             <h1 className="text-3xl font-bold">{postData.title}</h1>

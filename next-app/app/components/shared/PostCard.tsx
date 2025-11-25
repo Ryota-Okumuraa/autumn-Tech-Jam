@@ -25,7 +25,7 @@ export function PostCard({ title, thumbnail, date, author, layout, id }: PostCar
       className={cn(
         "min-w-[200px] md:min-w-none flex",
         layout === "row"
-          ? "max-w-[314px] md:max-w-full max-h-[180px] md:max-h-[180px] gap-4 md:gap-6 "
+          ? "max-w-[314px] md:max-w-full h-[180px] gap-4 md:gap-6 "
           : "max-w-[218px] md:max-w-[280px] w-full flex-col md:min-w-[280px]"
       )}
     >
