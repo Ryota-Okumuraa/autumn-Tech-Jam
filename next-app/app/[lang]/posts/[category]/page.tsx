@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { Header } from "@/app/components/shared/Header";
 import { Footer } from "@/app/components/shared/Footer";
 import { CategoryHead } from "@/app/components/feature/category/CategoryHead";
 import { PostCard } from "@/app/components/shared/PostCard";
@@ -16,14 +15,14 @@ type Category = (typeof VALID_CATEGORIES)[number];
 const POSTS_PER_PAGE = 20;
 
 // カテゴリー名のマッピング
-const categoryLabels: Record<Category, string> = {
-  food: "Food",
-  shopping: "Shopping",
-  culture: "Culture",
-  guide: "Guide",
-  cafe: "Cafe",
-  stories: "Stories",
-};
+// const categoryLabels: Record<Category, string> = {
+//   food: "Food",
+//   shopping: "Shopping",
+//   culture: "Culture",
+//   guide: "Guide",
+//   cafe: "Cafe",
+//   stories: "Stories",
+// };
 
 interface CategoryPageProps {
   params: Promise<{
@@ -69,8 +68,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         id: post.id,
         title: post.title,
         thumbnail: post.thumbnail,
-        date: formatDate(post.createdAt),
-        author: post.category.name,
+        date: post.date,
+        author: post.author,
       }));
       totalCount = res.totalCount;
     }
@@ -126,7 +125,6 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <QandA question={t(`${category}.q3`)} answer={t(`${category}.a3`)} />
         </div>
       </section>
-      <Footer />
     </>
   );
 }

@@ -5,7 +5,6 @@ import { ArticleList } from "@/app/components/feature/top/ArticleList";
 import { FeaturedList } from "@/app/components/feature/top/FeaturedList";
 import { FeaturedPosts } from "@/app/components/feature/top/FeaturedPost";
 import { Ranking } from "@/app/components/feature/top/RankingSection";
-import { Footer } from "@/app/components/shared/Footer";
 
 export default async function Home() {
   const t = await getTranslations("home");
@@ -21,7 +20,7 @@ export default async function Home() {
         />
       </div>
       {/* FV */}
-      <section className="h-screen w-full">
+      <section className="h-screen w-full relative">
         <Image
           src="/fv-illust.png"
           alt="FV"
@@ -29,9 +28,17 @@ export default async function Home() {
           height={500}
           className="w-full h-full object-cover"
         />
+        <div className="relative max-w-[1200px] mx-auto">
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            width={550}
+            height={550}
+            className="absolute bottom-20 left-4 w-40vw max-w-[210px] h-auto z-10 md:max-w-[450px] md:left-4"
+          />
+        </div>
       </section>
       {/* FeaturedPosts */}
-
       <FeaturedPosts />
       {/* ArticleList*/}
       <section className="mt-15 md:pt-15 md:pb-12 relative">
@@ -108,8 +115,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      {/* Footer */}
-      <Footer />
     </>
   );
 }

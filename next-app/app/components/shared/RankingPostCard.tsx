@@ -39,7 +39,7 @@ export const RankingPostCard = ({
 
   return (
     <article className={cn("w-full", minW === "short" && "min-w-[272px] h-full")}>
-      <Link href={`/posts/${id}`}>
+      <Link href={`/post/${id}`}>
         <div className="rounded-[20px] overflow-hidden border-2 border-black group hover:border-main">
           <Image
             src={thumbnail}

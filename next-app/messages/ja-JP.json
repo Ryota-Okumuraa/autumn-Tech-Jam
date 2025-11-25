@@ -194,5 +194,8 @@
   },
   "PostPage": {
     "ranking": "ランキング"
+  },
+  "UseUserProfile": {
+    "userProfile": "プロフィール"
   }
 }

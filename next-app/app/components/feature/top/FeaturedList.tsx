@@ -1,6 +1,6 @@
 import { PostCard } from "@/app/components/shared/PostCard";
 // ここ変更
-import { getRankingPosts } from "@/app/api-client/posts/ranking";
+import { getPopularPosts } from "@/app/api-client/posts/popular";
 import { formatDate } from "@/lib/date";
 import { FeaturedPost } from "@/lib/types/post";
 
@@ -9,14 +9,10 @@ export const FeaturedList = async () => {
 
   try {
     // getRankingPostsではなくて、category別のranking
-    const res = await getRankingPosts(7);
-    featuredPosts = res.map((post) => ({
-      id: post.id,
-      title: post.title,
-      thumbnail: post.thumbnail,
-      date: post.createdAt.toString(),
-      author: post.category.name,
-    }));
+    const res = await getPopularPosts("food", 4);
+    if (res.success) {
+      featuredPosts = res.posts;
+    }
   } catch (error) {
     console.error("Error fetching featured posts:", error);
     featuredPosts = [];

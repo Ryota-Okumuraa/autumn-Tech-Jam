@@ -5,8 +5,8 @@ export interface PostFromAPI {
   id: string;
   thumbnail: string;
   title: string;
-  createdAt: string | Date;
-  category: {
+  createdAt: Date;
+  profile: {
     name: string;
   };
 }
@@ -18,7 +18,7 @@ export interface RankingPostResponse {
   id: string;
   title: string;
   thumbnail: string;
-  category: {
+  profile: {
     name: string;
   };
   createdAt: string | Date;
@@ -29,7 +29,7 @@ export interface RankingPostResponse {
  */
 export interface PostsResponse {
   success: boolean;
-  posts: PostFromAPI[];
+  posts: Post[];
   totalCount: number | null;
 }
 

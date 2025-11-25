@@ -1,4 +1,5 @@
 "use client";
+import { getUser } from "@/app/api-client/user";
 import BackButton from "./backButton";
 import { UploadButton } from "@/app/components/shared/uploadButton";
 import InputTitle from "./input-title";
@@ -65,7 +66,8 @@ export default function EditForm({ post }: EditFormProps) {
       const result = await res.json();
       if (result.success) {
         toast.success(result.message);
-        router.push("/profile");
+        const user = await getUser();
+        router.push(`/profile/${user.id}`);
         router.refresh();
       } else {
         toast.error(result.message);
@@ -75,13 +77,13 @@ export default function EditForm({ post }: EditFormProps) {
     }
   };
   return (
-    <form className="w-[80%] mx-auto h-full flex flex-col pb-10" onSubmit={handleSubmit(onsubmit)}>
+    <form className="w-[80%] mx-auto h-screen flex flex-col pb-10" onSubmit={handleSubmit(onsubmit)}>
       <div className="flex items-center justify-between mb-5 shrink-0">
         <BackButton />
         <UploadButton />
       </div>
-      <div className="flex items-start justify-between flex-1">
-        <div className="w-[70%] h-full pr-8 border-r-2 border-r-black">
+      <div className="flex items-start justify-between flex-1 h-[calc(100vh-100px)]">
+        <div className="w-[70%] h-screen pr-8 border-r-2 border-r-black">
           <Article
             setValue={setValue}
             error={errors.content?.message}

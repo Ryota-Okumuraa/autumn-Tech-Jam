@@ -194,5 +194,8 @@
   },
   "PostPage": {
     "ranking": "랭킹"
+  },
+  "UseUserProfile": {
+    "userProfile": "프로필"
   }
 }

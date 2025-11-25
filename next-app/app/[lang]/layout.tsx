@@ -40,7 +40,7 @@ export default async function RootLayout({
       <body className="antialiased font-mplus bg-base flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="h-screen">{children}</main>
+          <main className="h-full">{children}</main>
           <Toaster
             position="top-center"
             toastOptions={{

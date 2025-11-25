@@ -1,10 +1,8 @@
 import Logout from "../../../components/feature/auth/logout";
 import { getUserPosts } from "@/app/api-client/posts/userPosts";
-import { formatDate } from "@/lib/date";
 import { PostCard } from "@/app/components/shared/PostCard";
 import { Pagenation } from "@/app/components/shared/Pagenation";
 import { getTranslations } from "next-intl/server";
-import { Footer } from "@/app/components/shared/Footer";
 
 const POSTS_PER_PAGE = 20;
 
@@ -37,12 +35,12 @@ export default async function ProfilePage({ params, searchParams }: ProfilePageP
   const res = await getUserPosts({ profileId, offset });
   const posts: PostCardData[] = res.success
     ? res.posts.map((post) => ({
-        id: post.id,
-        title: post.title,
-        thumbnail: post.thumbnail,
-        date: formatDate(post.createdAt),
-        author: post.category.name,
-      }))
+      id: post.id,
+      title: post.title,
+      thumbnail: post.thumbnail,
+      date: post.date,
+      author: post.author,
+    }))
     : [];
   totalCount = res.totalCount;
 
@@ -56,7 +54,7 @@ export default async function ProfilePage({ params, searchParams }: ProfilePageP
             {totalCount}
             {t("article")}
           </h1>
-          <div className="overflow-x-scroll flex flex-col mx-auto gap-5 mt-10 relative min-h-[70vh] pb-4 max-w-[314px] h-full md:grid md:grid-cols-2 md:max-w-full md:gap-24 md:mt-20">
+          <div className="overflow-x-scroll flex flex-col mx-auto gap-5 mt-10 relative pb-4 max-w-[314px] h-full md:grid md:grid-cols-2 md:max-w-full md:gap-24 md:mt-20">
             {posts.map((post) => (
               <PostCard
                 key={post.id}
@@ -80,7 +78,6 @@ export default async function ProfilePage({ params, searchParams }: ProfilePageP
           <Logout />
         </div>
       </section>
-      <Footer />
     </>
   );
 }
