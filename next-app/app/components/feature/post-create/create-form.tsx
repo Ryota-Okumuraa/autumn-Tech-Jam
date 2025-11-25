@@ -1,4 +1,6 @@
 "use client";
+
+import { getUser } from "@/app/api-client/user"
 import BackButton from "./backButton";
 import { UploadButton } from "@/app/components/shared/uploadButton";
 import InputTitle from "./input-title";
@@ -48,8 +50,9 @@ export default function CreateForm() {
       });
       const result = await res.json();
       if (result.success) {
+        const user = await getUser();
         toast.success(result.message);
-        router.push("/profile");
+        router.push(`/profile/${user.id}`);
       } else {
         toast.error(result.message);
       }

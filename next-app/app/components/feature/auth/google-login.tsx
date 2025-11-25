@@ -16,7 +16,7 @@ export default function GoogleLogin() {
         provider: "google",
         options: {
           // nextのクエリがログイン後のリダイレクト先になる
-          redirectTo: `${window.location.origin}/api/auth/callback?next=/profile`,
+          redirectTo: `${window.location.origin}/api/auth/callback?next=/`,
         },
       });
       if (error) {

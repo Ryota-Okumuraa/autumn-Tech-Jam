@@ -43,7 +43,7 @@ export default function Article({ setValue, error, defaultValue }: props) {
   }, [editor, setValue]);
 
   return (
-    <div className="h-full w-full flex flex-col space-y-4">
+    <div className="h-full w-full flex flex-col space-y-4 ">
       <div className="flex items-center space-x-2 shrink-0">
         <span className="text-black">{t("articleContent")}</span>
         {error && <ValidationError>{error}</ValidationError>}

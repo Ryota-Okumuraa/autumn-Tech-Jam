@@ -32,5 +32,9 @@ export default function EditPostPage({ params }: PageProps) {
     );
   }
 
-  return <EditForm post={data.post} />;
+  return (
+    <div className="h-screen">
+      <EditForm post={data.post} />
+    </div>
+  )
 }

@@ -26,7 +26,7 @@ export default async function PostPage({ params }: PostPageProps) {
     thumbnail: post.thumbnail,
     title: post.title,
     date: formatDate(post.createdAt.toString()),
-    author: post.category.name,
+    author: post.profile.name,
   }));
 
   if (!postData) {
@@ -73,7 +73,6 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
