@@ -1,5 +1,6 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
+import { formatDate } from "@/lib/date";
 
 export async function GET(request: Request) {
   try {
@@ -53,7 +54,7 @@ export async function GET(request: Request) {
       id: post.id,
       thumbnail: post.thumbnail,
       title: post.title,
-      createdAt: post.createdAt,
+      date: formatDate(post.createdAt),
       author: post.profile.name,
     }));
 

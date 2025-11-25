@@ -9,12 +9,13 @@ import { getPosts } from "@/app/api-client/posts/posts";
 import { formatDate } from "@/lib/date";
 import { Post } from "@/lib/types/post";
 
-const tags = ["food", "shopping", "travel", "dummy", "life", "stories"];
+const tags = ["food", "shopping", "cafe", "culture", "guide", "stories"];
 
 export const ArticleList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("food");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,20 +23,11 @@ export const ArticleList = () => {
       try {
         const data = await getPosts({ category: selectedCategory, offset: 0, pageType: false });
         if (data.success) {
-          const posts = data.posts.map((post) => {
-            return {
-              id: post.id,
-              thumbnail: post.thumbnail,
-              title: post.title,
-              date: post.createdAt.toString(),
-              author: post.category.name,
-            };
-          });
-          setPosts(posts);
+          setPosts(data.posts);
         }
       } catch (error) {
         console.error("Error fetching posts:", error);
-        setPosts([]);
+        return [];
       } finally {
         setIsLoading(false);
       }

@@ -194,5 +194,8 @@
   },
   "PostPage": {
     "ranking": "排名"
+  },
+  "UseUserProfile": {
+    "userProfile": "個人資料"
   }
 }

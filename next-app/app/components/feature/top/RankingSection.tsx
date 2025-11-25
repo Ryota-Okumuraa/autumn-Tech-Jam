@@ -9,7 +9,7 @@ export const Ranking = async () => {
     thumbnail: post.thumbnail,
     title: post.title,
     date: post.createdAt.toString(),
-    author: post.category.name,
+    author: post.profile?.name,
   }));
 
   return (

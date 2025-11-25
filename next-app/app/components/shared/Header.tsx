@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 
@@ -12,6 +13,7 @@ import { LanguageSelectButton } from "@/app/components/shared/LanguageSelectButt
 
 export const Header = () => {
   const t = useTranslations("header");
+  const pathname = usePathname();
 
   const navigationItems = useMemo(
     () => [
@@ -65,13 +67,17 @@ export const Header = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    closeMenu();
+  }, [pathname]);
+
   return (
     <>
       <header className="flex sticky top-0 left-0 w-full py-2 px-4 z-50 shrink-0 bg-base">
         <div className="flex items-center justify-between gap-4 w-full">
-          <div>
-            <Image src="/logo.png" alt="logo" width={100} height={100} className="w-10 h-10" />
-          </div>
+          <Link href="/" className="cursor-pointer w-30 md:w-[200px] h-auto">
+            <Image src="/logo.png" alt="logo" width={550} height={550} />
+          </Link>
           <div className="flex items-center gap-8">
             <LanguageSelectButton />
             <button
@@ -133,15 +139,6 @@ export const Header = () => {
             </Link>
             <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
           </div>
-          {/* <div className="relative pr-2 h-[59px] cursor-pointer ">
-            <Link
-              href={`/profile/${profileId}`}
-              className="flex items-center justify-center bg-white border-2 border-black rounded-full w-full h-[51px] hover:bg-[#E5E5E5] transition-colors duration-300 ease-in-out"
-            >
-              <span className="font-bold">{t("profile")}</span>
-            </Link>           
-            <div className="absolute border-2 border-black top-2 left-2 w-[calc(100%-8px)] h-[51px] bg-main rounded-full z-[-1]" />
-          </div> */}
           <UserProfile />
         </div>
       </div>

@@ -52,7 +52,7 @@ export default function LoginForm() {
       const result = await res.json();
       if (result.success) {
         toast.success(result.message);
-        router.push("/profile");
+        router.push(`/profile/${result.user.id}`);
       } else {
         toast.error(result.message);
       }
